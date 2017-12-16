@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   root "welcome#index"
 
-  
+  resources :doctor do
+    resources :patients
+  end
+
+
 end

@@ -4,6 +4,7 @@ FactoryBot.define do
     last_name "Chow"
     email "lee@gmail.com"
     password "oohsecret"
-    age 32 
+    age 32
+    doctor
   end
 end
