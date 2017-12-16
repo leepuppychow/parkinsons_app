@@ -38,8 +38,8 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'pry'
-  gem 'byebug'
-  gem 'shoulda-matchers', '~> 3.1' 
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'factory_bot_rails'
 end
 
 group :development do
