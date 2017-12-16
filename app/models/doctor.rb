@@ -3,6 +3,6 @@ class Doctor < ApplicationRecord
             :last_name,
             :specialty,
             :location,
-            :years_experience, uniqueness: true
+            :years_experience, presence: true, uniqueness: true
   has_many :patients
 end
