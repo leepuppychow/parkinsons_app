@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "When anyone (visitor, logged-in user, admin) visits homepage path" do
   it "sees a Welcome page with form to login or create new user" do
+    skip 
     visit root_path
 
     save_and_open_page
