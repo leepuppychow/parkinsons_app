@@ -3,6 +3,13 @@ require 'rails_helper'
 describe "As a user when I visit the user show page" do
   before(:each) do
     @patient = create(:patient)
+    @medication1 = create(:medication)
+    @medication2 = create(:medication)
+    @patient.patient_medications << create(:patient_medication, medication: @medication1)
+    @patient.patient_medications << create(:patient_medication, medication: @medication2)
+
+    # create_list(:job, 3, {title: "Developer", level_of_interest: 50})
+
     visit patient_path(@patient)
   end
 
@@ -18,12 +25,12 @@ describe "As a user when I visit the user show page" do
     expect(page).to have_content "Community"
   end
 
-  it "redirect to a Medications index page when My Medications is clicked" do
+  it "when My Medications is clicked it takes me to an index of my meds" do
     click_link "My Medications"
 
-    expect(current_path).to eq "/patient/#{@patient.id}/medications"
+    expect(current_path).to eq "/patients/#{@patient.id}/medications"
 
-    expect(page).to have_content "My Medications"
+    expect(page).to have_content "#{@patient.first_name}'s Medications"
     expect(page).to have_content "Add New Medication"
     expect(page).to have_content "Delete"
     expect(page).to have_content "Weekly Schedule"
