@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   root "welcome#index"
 
-  resources :doctor do
-    resources :patients
-  end
+  # resources :doctor do
+  #   resources :patients
+  # end
+
+  resources :patients 
 
 
 end

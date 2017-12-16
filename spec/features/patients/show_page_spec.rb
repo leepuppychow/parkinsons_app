@@ -4,7 +4,7 @@ describe "As a user when I visit the user show page" do
   it "sees a User welcome page with links to various tools" do
     patient = create(:patient)
 
-    visit doctor_patient_path(patient.doctor, patient)
+    visit patient_path(patient)
 
     expect(page).to have_content "Logout"
     expect(page).to have_content "Hi #{patient.first_name}"
