@@ -9,11 +9,11 @@ describe Patient, type: :model do
     it {is_expected.to validate_presence_of(:age)}
   end
 
-  describe "Relationships" do    
+  describe "Relationships" do
     it {is_expected.to belong_to(:doctor)}
-    it {is_expected.to have_many(:medications).through(:patient_medications)}
-    it {is_expected.to have_many(:therapists).through(:patient_therapists)}
-    it {is_expected.to have_many(:exercises).through(:patient_exercises)}
+    # it {is_expected.to have_many(:medications).through(:patient_medications)}
+    # it {is_expected.to have_many(:therapists).through(:patient_therapists)}
+    # it {is_expected.to have_many(:exercises).through(:patient_exercises)}
   end
 
 
