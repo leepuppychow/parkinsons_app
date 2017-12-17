@@ -8,8 +8,6 @@ describe "As a user when I visit the user show page" do
     @patient.patient_medications << create(:patient_medication, medication: @medication1)
     @patient.patient_medications << create(:patient_medication, medication: @medication2)
 
-    # create_list(:job, 3, {title: "Developer", level_of_interest: 50})
-
     visit patient_path(@patient)
   end
 
@@ -31,9 +29,12 @@ describe "As a user when I visit the user show page" do
     expect(current_path).to eq "/patients/#{@patient.id}/medications"
 
     expect(page).to have_content "#{@patient.first_name}'s Medications"
-    expect(page).to have_content "Add New Medication"
     expect(page).to have_content "Remove"
-    expect(page).to have_content "Weekly Schedule"
+    expect(page).to have_content "Edit"
+    expect(page).to have_content "REMEMBER TO TAKE"
+    expect(page).to have_content @patient.patient_medications.first.dosage
+    expect(page).to have_content @patient.patient_medications.last.medication.name
+    expect(page).to have_content "New Medication?"
   end
 
 end

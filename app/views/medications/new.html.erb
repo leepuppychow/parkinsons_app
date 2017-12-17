@@ -1,0 +1,15 @@
+<div class="header">
+  <h1>
+    <%= link_to "Logout", root_path, class: "nav-bar-links" %>
+    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+    <%= link_to "My Medications", patient_medications_path(@patient), class: "nav-bar-links"%>
+  </h1>
+</div>
+
+<h2>Add New Medication</h2>
+
+<%= form_for [@patient, @medication] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Add!" %>
+<% end %>
