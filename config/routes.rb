@@ -9,9 +9,13 @@ Rails.application.routes.draw do
 
   resources :patients, only: [:show] do
     resources :medications
+    resources :therapists
+    resources :doctor
   end
 
-  
+
+
+
 
 
 end

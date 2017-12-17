@@ -1,0 +1,43 @@
+<div class="header">
+  <h1>My Care Team
+    <%= link_to "Logout", root_path, class: "nav-bar-links" %>
+    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+  </h1>
+</div>
+
+
+<div class="column-container">
+  <h2>DOCTOR:</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Specialty</th>
+      <th>Location</th>
+      <th>Years of Experience</th>
+    </tr>
+    <tr>
+      <th> Dr. <%= @doctor.first_name %> <%= @doctor.last_name %></th>
+      <th><%= @doctor.specialty %></th>
+      <th><%= @doctor.location %></th>
+      <th><%= @doctor.years_experience %></th>
+    </tr>
+  </table>
+
+  <h2>THERAPIST(S):</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Type of Therapy</th>
+      <th>Years of Experience</th>
+    </tr>
+    <% @therapists.each do |therapist| %>
+    <tr>
+      <th><%= therapist.first_name %> <%= therapist.last_name %></th>
+      <th><%= therapist.therapy_type %></th>
+      <th><%= therapist.years_experience %></th>
+    </tr>
+    <% end %>
+  </table>
+
+
+</div>
