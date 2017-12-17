@@ -1,6 +1,8 @@
 <div class="header">
-  <%= link_to "Logout", root_path, class: "nav-bar-links" %>
-  <%= link_to "My Homepage", patient_path(@patient), class: "nav-bar-links" %>
+  <h1>My Medications
+    <%= link_to "Logout", root_path, class: "nav-bar-links" %>
+    <%= link_to "My Homepage", patient_path(@patient), class: "nav-bar-links"%>
+  </h1>
 </div>
 
 <div class="column-container">
@@ -17,7 +19,7 @@
 
   <h2> <%= @patient.first_name %>'s Medications </h2>
   <table id="medication-table">
-    <tr class = "headers">
+    <tr class="headers">
       <th>Name</th>
       <th>Dosage</th>
       <th></th>
@@ -26,11 +28,8 @@
     <tr>
       <th><%=medication.medication.name%></th>
       <th><%=medication.dosage%></th>
-      <th><%= link_to "Remove", patient_medication_path(@patient, medication), method: "delete" %>
+      <th><%= link_to "Remove", patient_medication_path(@patient, medication), method: "delete" %></th>
     </tr>
   <% end  %>
   </table>
-
-
-
 </div>
