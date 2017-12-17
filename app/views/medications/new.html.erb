@@ -11,5 +11,11 @@
 <%= form_for [@patient, @medication] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+    <%= f.fields_for :medications do |patient_med| %>
+      <%= patient_med.label :dosage %>
+      <%= patient_med.text_field :dosage %>
+      <%= patient_med.label :freq_per_day %>
+      <%= patient_med.number_field :freq_per_day %>
+    <% end  %>
   <%= f.submit "Add!" %>
 <% end %>
