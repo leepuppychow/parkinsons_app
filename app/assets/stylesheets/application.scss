@@ -82,7 +82,7 @@
    }
  }
 
- #medication-table {
+ .medication-table {
    background: #a6dbd0;
    text-align: left;
    .headers{
@@ -100,12 +100,27 @@
    }
  }
 
+ .provider-table{
+   background: #a6dbd0;
+   text-align: left;
+   th {
+     padding: 10px;
+   }
+   tr:hover {
+     background: #77a59e;
+   }
+   .column-headers{
+     font-size: 18px;
+     text-decoration: underline;
+   }
+ }
+
  #edit-link, #delete-link{
    text-decoration: none;
    font-size: 14px;
  }
 
- #new-medication{
+ #new-medication, #new-doctor, #new-therapist{
    text-decoration: none;
    padding: 10px;
    margin-top: 10px;
@@ -114,7 +129,16 @@
    color: white;
    border-radius: 10%;
  }
+
  #new-medication:hover{
+   background: #4e6b65;
+   opacity: 1.0;
+ }
+ #new-therapist:hover{
+   background: #4e6b65;
+   opacity: 1.0;
+ }
+ #new-doctor:hover{
    background: #4e6b65;
    opacity: 1.0;
  }
