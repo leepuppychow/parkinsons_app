@@ -19,10 +19,20 @@ describe "When user visits My Medications (medication index path)" do
     expect(page).to have_content "Home"
     expect(page).to have_content "Logout"
     expect(page).to have_content "Add New Medication"
-    expect(page).to have_content "Name:"
-    # expect(page).to have_content "Dosage:"
-    # expect(page).to have_content "Frequency:"
-    expect(page).to have_content "Add!"
+    expect(page).to have_content "Name"
+    expect(page).to have_content "Dosage"
+    expect(page).to have_content "Frequency"
+
+    fill_in "medication[name]", with: "Aspirin"
+    fill_in "medication[medications][dosage]", with: "100mg"
+    fill_in "medication[medications][freq_per_day]", with: 2
+
+    click_on "Add!"
+
+    expect(page).to have_content "Aspirin"
+    expect(page).to have_content "100mg"
+    expect(page).to have_content 2
+    expect(current_path).to eq patient_medications_path(@patient)
   end
 
 end
