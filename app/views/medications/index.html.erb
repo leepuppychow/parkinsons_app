@@ -1,7 +1,36 @@
-<h1> <%= @patient.first_name %>'s Medications </h1>
+<div class="header">
+  <%= link_to "Logout", root_path, class: "nav-bar-links" %>
+  <%= link_to "My Homepage", patient_path(@patient), class: "nav-bar-links" %>
+</div>
 
-Add New Medication
+<div class="column-container">
+  <h2>Today is: <%= Date.today.strftime('%A, %b %d, %Y') %> </h2>
+  <table id="medication-table">
+    <th colspan=2, id="med-reminder">REMEMBER TO TAKE:</h2>
+    <% @medications.each do |medication| %>
+    <tr>
+      <th><%=medication.freq_per_day%></th>
+      <th><%=medication.medication.name%></th>
+    </tr>
+    <% end  %>
+  </table>
 
-Delete
+  <h2> <%= @patient.first_name %>'s Medications </h2>
+  <table id="medication-table">
+    <tr class = "headers">
+      <th>Name</th>
+      <th>Dosage</th>
+      <th></th>
+    </tr>
+  <% @medications.each do |medication| %>
+    <tr>
+      <th><%=medication.medication.name%></th>
+      <th><%=medication.dosage%></th>
+      <th><%= link_to "Remove", patient_medication_path(@patient, medication), method: "delete" %>
+    </tr>
+  <% end  %>
+  </table>
 
-Weekly Schedule
+
+
+</div>

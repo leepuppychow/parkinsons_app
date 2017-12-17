@@ -32,7 +32,7 @@ describe "As a user when I visit the user show page" do
 
     expect(page).to have_content "#{@patient.first_name}'s Medications"
     expect(page).to have_content "Add New Medication"
-    expect(page).to have_content "Delete"
+    expect(page).to have_content "Remove"
     expect(page).to have_content "Weekly Schedule"
   end
 
