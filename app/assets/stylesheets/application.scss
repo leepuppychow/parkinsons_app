@@ -68,6 +68,20 @@
    opacity: 1.0;
  }
 
+ .form-table {
+   text-align: left;
+   font-size: 20px;
+   margin-left: 20px;
+   .entry-form {
+     font-size: 20px;
+     margin-left: 10px;
+   }
+   #submit-button{
+     font-size: 16px;
+     float: right;
+   }
+ }
+
  #medication-table {
    background: #a6dbd0;
    text-align: left;
