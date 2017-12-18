@@ -1,11 +1,5 @@
-<h1> Health Tracker - Parkinson's </h1>
+<h1>Health Tracker (Parkinson's)</h1>
 
-<%= form_for @user do |f| %>
-<%= f.label :username %>
-<%= f.text_field :username %>
-<%= f.label :password %>
-<%= f.text_field :password %>
-<%= f.submit "Login or Sign up as new user" %>
-<% end  %>
+<h2>Sign up as new user</h2>
 
-<%= link_to "Visit the site", user_path(@user) %>
+<%= link_to "Sign Up", new_patient_path %>

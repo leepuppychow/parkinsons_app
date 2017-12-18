@@ -1,0 +1,11 @@
+<h1> Create new account </h1>
+
+<%= form_for @patient do |f| %>
+<%= f.label :username %>
+<%= f.text_field :username %>
+<%= f.label :age %>
+<%= f.text_field :age %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.submit "Submit" %>
+<% end %>
