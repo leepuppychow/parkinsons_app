@@ -1,0 +1,34 @@
+<div class="header">
+  <h1>
+    <%= link_to "Logout", root_path, class: "nav-bar-links" %>
+    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+    <%= link_to "My Care Team", patient_therapists_path(@patient), class: "nav-bar-links"%>
+  </h1>
+</div>
+
+<h2>Edit Therapist</h2>
+
+<table class="form-table">
+<%= form_for [@patient, @therapist] do |f| %>
+<tr>
+  <th><%= f.label :first_name %></th>
+  <th><%= f.text_field :first_name, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label :last_name %></th>
+  <th><%= f.text_field :last_name, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label "Experience" %></th>
+  <th><%= f.number_field :years_experience, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label :therapy_type, class: "entry-form" %></th>
+  <th><%= f.collection_select :therapy_type, Therapist.all, :therapy_type, :therapy_type, {}, class: "entry-form" %></th>
+</tr>
+
+<tr>
+  <th colspan="2"><%= f.submit "Edit!", id: "submit-button" %></th>
+</tr>
+<% end %>
+</table>

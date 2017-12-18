@@ -5,7 +5,7 @@
 </div>
 
 <div class="column-container">
-  <%= link_to "My Care Team", root_path, class: "main-page-link" %>
+  <%= link_to "My Care Team", patient_therapists_path(@patient), class: "main-page-link" %>
   <%= link_to "My Medications", patient_medications_path(@patient), class: "main-page-link"  %>
   <%= link_to "Exercise Tools", root_path, class: "main-page-link"  %>
   <%= link_to "Parkinson's News", root_path, class: "main-page-link"  %>
