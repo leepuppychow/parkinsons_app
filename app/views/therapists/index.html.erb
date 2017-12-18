@@ -19,7 +19,7 @@
       <th><%= @doctor.specialty %></th>
       <th><%= @doctor.years_experience %> yrs.</th>
       <th>
-        <%= link_to "Edit", edit_patient_doctor_path(@patient, @doctor), id: "edit-link" %>
+        <%= link_to "Edit", edit_patient_doctor_path(@patient, @doctor), id: "edit-link" %></br>
         <%= link_to "Remove", patient_doctor_path(@patient, @doctor), method: "delete", id: "delete-link"%>
       </th>
     </tr>
@@ -42,7 +42,7 @@
       <th><%= therapist.therapy_type %></th>
       <th><%= therapist.years_experience %> yrs.</th>
       <th>
-        <%= link_to "Edit", edit_patient_therapist_path(@patient, therapist), id: "edit-link" %>
+        <%= link_to "Edit", edit_patient_therapist_path(@patient, therapist), id: "edit-link" %></br>
         <%= link_to "Remove", patient_therapist_path(@patient, therapist), method: "delete", id: "delete-link"%>
       </th>
     </tr>

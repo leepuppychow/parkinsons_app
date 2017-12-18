@@ -5,4 +5,6 @@ class Doctor < ApplicationRecord
             :location,
             :years_experience, presence: true
   has_many :patients
+
+  
 end
