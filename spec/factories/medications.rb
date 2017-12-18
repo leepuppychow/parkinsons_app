@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :medication do
-    name "Sinemet"
+    sequence(:name) {|n| "Sinemet#{n}"}
   end
 end

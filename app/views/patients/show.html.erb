@@ -1,11 +1,12 @@
 <div class="header">
   <h1> Hi <%= @patient.first_name %>
-  <%= link_to "Logout", root_path, id: "logout" %>
+    <%= link_to "Logout", root_path, class: "nav-bar-links" %>
+  </h1>
 </div>
 
 <div class="column-container">
   <%= link_to "My Care Team", root_path, class: "main-page-link" %>
-  <%= link_to "My Medications", root_path, class: "main-page-link"  %>
+  <%= link_to "My Medications", patient_medications_path(@patient), class: "main-page-link"  %>
   <%= link_to "Exercise Tools", root_path, class: "main-page-link"  %>
   <%= link_to "Parkinson's News", root_path, class: "main-page-link"  %>
   <%= link_to "Nearby Resources", root_path, class: "main-page-link"  %>

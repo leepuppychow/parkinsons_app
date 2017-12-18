@@ -20,20 +20,22 @@
  }
 
 .header {
+  height: 45px;
   background-color: #73baae;
    h1 {
+     font-size:28px;
      color: white;
      margin-left: 10px;
    }
-   #logout {
+   .nav-bar-links {
      text-decoration: none;
      font-size: 16px;
      color: white;
      float: right;
-     padding-top: 10px;
+     padding-top: 4px;
      padding-right: 10px;
    }
-   #logout:hover {
+   .nav-bar-links:hover {
      color: black;
    }
  }
@@ -63,5 +65,56 @@
 
  .main-page-link:hover {
    background: black;
+   opacity: 1.0;
+ }
+
+ .form-table {
+   text-align: left;
+   font-size: 20px;
+   margin-left: 20px;
+   .entry-form {
+     font-size: 20px;
+     margin-left: 10px;
+   }
+   #submit-button{
+     font-size: 16px;
+     float: right;
+   }
+ }
+
+ #medication-table {
+   background: #a6dbd0;
+   text-align: left;
+   .headers{
+     text-decoration: underline;
+   }
+   th {
+     padding: 10px;
+   }
+   tr:hover {
+     background: #77a59e;
+   }
+   #med-reminder{
+     font-size:24px;
+     text-decoration: underline;
+   }
+ }
+
+ #edit-link, #delete-link{
+   text-decoration: none;
+   font-size: 14px;
+ }
+
+ #new-medication{
+   text-decoration: none;
+   padding: 10px;
+   margin-top: 10px;
+   background: #4e6b65;
+   opacity: 0.6;
+   color: white;
+   border-radius: 10%;
+ }
+ #new-medication:hover{
+   background: #4e6b65;
    opacity: 1.0;
  }
