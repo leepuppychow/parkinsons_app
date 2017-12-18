@@ -29,6 +29,12 @@ class DoctorsController < ApplicationController
     end
   end
 
+  def destroy
+    patient = Patient.find(params[:patient_id])
+    # doctor = Doctor.find(params[:id])
+    patient.doctor.delete
+    redirect_to patient_therapists_path(patient)
+  end
 
 
   private
