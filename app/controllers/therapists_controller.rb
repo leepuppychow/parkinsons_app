@@ -45,7 +45,15 @@ class TherapistsController < ApplicationController
       redirect_to patient_therapists_path(patient)
     else
       redirect_to edit_patient_therapist_path(patient, therapist)
-    end 
+    end
+  end
+
+  def destroy
+    patient = Patient.find(params[:patient_id])
+    # this way will delete association via the therapist_patients joins table,
+    # but it will not delete the therapist from Therapist.all
+    patient.therapist_patients.find_by(therapist_id: params[:id]).delete
+    redirect_to patient_therapists_path(patient)
   end
 
   private
