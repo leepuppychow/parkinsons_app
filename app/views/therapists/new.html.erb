@@ -23,8 +23,14 @@
   <th><%= f.number_field :years_experience, class: "entry-form" %></th>
 </tr>
 <tr>
-  <th><%= f.label :therapy_type, class: "entry-form" %></th>
-  <th><%= f.collection_select :therapy_type, Therapist.all, :therapy_type, :therapy_type, {}, class: "entry-form" %></th>
+  <th>Therapy Type</th>
+  <th>
+    <select class="entry-form" name="therapist[therapy_type]">
+      <% Therapist.uniq_therapy_type.each do |type| %>
+        <option value="<%=type%>"><%=type%></option>
+      <% end %>
+    </select>
+  </th>
 </tr>
 
 <tr>

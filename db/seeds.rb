@@ -18,6 +18,7 @@ lee.patient_medications.create!(dosage: "200mg", freq_per_day:1, medication_id: 
 
 therapist1 = Therapist.create(first_name: "Nida", last_name: "Tansinsin", therapy_type: "Physical Therapy", years_experience: 10)
 therapist2 = Therapist.create(first_name: "MC", last_name: "Cox", therapy_type: "Occupational Therapy", years_experience: 8)
+therapist2 = Therapist.create(first_name: "Amanda", last_name: "T", therapy_type: "Speech Therapy", years_experience: 8)
 lee.therapists << therapist1
 lee.therapists << therapist2
 
