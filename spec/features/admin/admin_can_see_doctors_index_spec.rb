@@ -9,19 +9,19 @@ describe "A user visits doctor index page" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit admin_patients_path
+      visit admin_doctors_path
       expect(page).to have_content("Admin")
-      expect(page).to have_content("All current patients")
+      expect(page).to have_content("All current doctors")
     end
   end
 
   context "as a Visitor or Patient" do
-    it "cannot see the admin patients index" do
+    it "cannot see the admin doctors index" do
       user = create(:patient, role: 0)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit admin_patients_path
+      visit admin_doctors_path
 
       expect(page).to_not have_content("Admin")
       expect(page).to_not have_content("All current patients")
