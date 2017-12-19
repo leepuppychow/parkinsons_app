@@ -11,13 +11,15 @@ describe "User signs up for account" do
 
           expect(current_path).to eq(new_patient_path)
 
+          fill_in "patient[first_name]", with: "Lee"
+          fill_in "patient[last_name]", with: "Chow"
           fill_in "patient[username]", with: "funbucket13"
           fill_in "patient[password]", with: "test"
           fill_in "patient[age]", with: 56
 
           click_on "Submit"
 
-          expect(page).to have_content("Welcome, funbucket13")
+          expect(page).to have_content("Hi Lee")
         end
       end
     end
