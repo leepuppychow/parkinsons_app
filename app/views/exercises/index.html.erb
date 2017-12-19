@@ -12,6 +12,7 @@
     <h4><%= exercise.name %></h4>
     <img src="<%=exercise.image%>">
     <%= exercise.description %>
+    <%= link_to "DONE!", patient_exercise_path(@patient, exercise), method: :put %>
   </div>
 <% end  %>
 
@@ -20,7 +21,6 @@
   <% @my_exercises.each do |exercise| %>
     <%= exercise.name  %>
   <% end  %>
-
 <% end  %>
 
 </div>
