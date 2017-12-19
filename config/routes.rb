@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root "welcome#index"
 
+  get "/login", to: "session#new"
+  post "/login", to: "session#create"
+
   # resources :doctor do
   #   resources :patients
   # end

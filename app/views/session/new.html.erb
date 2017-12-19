@@ -1,0 +1,21 @@
+<div class="header">
+  <h1> Login for Existing User </h1>
+</div>
+
+<table class="form-table">
+
+<%= form_tag do %>
+<tr>
+  <th><%= label_tag :username %></th>
+  <th><%= text_field_tag :username, "", class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= label_tag :password %></th>
+  <th><%= password_field_tag :password, "", class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= submit_tag "Log In"%></th>
+</tr>
+<% end  %>
+
+</table>

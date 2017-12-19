@@ -17,7 +17,7 @@ describe "When user visits homepage" do
 
         click_on "Log In"
 
-        expect(page).to have_content("Hi, #{user.username}")
+        expect(page).to have_content("Hi, #{patient.first_name}")
       end
     end
   end
