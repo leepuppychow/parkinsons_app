@@ -1,0 +1,34 @@
+<div class="header">
+  <h1> Create new account </h1>
+</div>
+
+
+<table class="form-table">
+
+<%= form_for @patient do |f| %>
+<tr>
+  <th><%= f.label :first_name %></th>
+  <th><%= f.text_field :first_name, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label :last_name %></th>
+  <th><%= f.text_field :last_name, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label :username %></th>
+  <th><%= f.text_field :username, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th> <%= f.label :age %></th>
+  <th><%= f.number_field :age, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label :password %></th>
+  <th><%= f.password_field :password, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.submit "Submit" %></th>
+</tr>
+<% end %>
+
+</table>

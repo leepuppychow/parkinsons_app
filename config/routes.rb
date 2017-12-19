@@ -3,14 +3,18 @@ Rails.application.routes.draw do
 
   root "welcome#index"
 
+  get "/login", to: "session#new"
+  post "/login", to: "session#create"
+  get "/logout", to: "session#destroy"
+
   # resources :doctor do
   #   resources :patients
   # end
 
-  resources :patients, only: [:show] do
+  resources :patients, only: [:new, :create, :show] do
     resources :medications
     resources :therapists
-    resources :doctor
+    resources :doctors
   end
 
 
