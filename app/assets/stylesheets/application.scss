@@ -49,6 +49,29 @@
    align-items: center;
  }
 
+ .homepage-section {
+   background: #106053;
+   border-radius: 5%;
+   opacity: 0.8;
+   text-align: center;
+   padding-top: 10px;
+   text-decoration: none;
+   color: white;
+   font-size: 20px;
+   height: 150px;
+   width: 250px;
+   margin: 10px;
+ }
+
+ .homepage-link {
+   font-size: 18px;
+   color: white;
+ }
+
+ .homepage-link:hover{
+   color:orange;
+ }
+
  .main-page-link {
    background: #106053;
    border-radius: 5%;
@@ -111,6 +134,23 @@
    .column-headers{
      font-size: 18px;
      text-decoration: underline;
+   }
+ }
+
+ .exercise {
+   background: #73baae;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: auto;
+   width: 300px;
+   margin-bottom: 20px;
+   h4{
+     margin: 3px;
+   }
+   img{
+     width: 250px;
+     height: auto;
    }
  }
 

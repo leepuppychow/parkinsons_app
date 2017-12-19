@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :medications
     resources :therapists
     resources :doctors
+    resources :exercises 
   end
 
 

@@ -1,0 +1,26 @@
+<div class="header">
+  <h1>My Exercises
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+  </h1>
+</div>
+
+<div class="column-container">
+<h2> Today's Workout </h2>
+<% @exercises.each do |exercise| %>
+  <div class="exercise">
+    <h4><%= exercise.name %></h4>
+    <img src="<%=exercise.image%>">
+    <%= exercise.description %>
+  </div>
+<% end  %>
+
+<h2>My Activity Levels</h2>
+<% if @my_exercises %>
+  <% @my_exercises.each do |exercise| %>
+    <%= exercise.name  %>
+  <% end  %>
+
+<% end  %>
+
+</div>

@@ -4,11 +4,12 @@ describe "When anyone (visitor, logged-in user, admin) visits homepage path" do
   it "sees a Welcome page with form to login or create new user" do
     visit root_path
 
-    expect(page).to have_content("Health Tracker - Parkinson's")
-    expect(page).to have_content "Username"
-    expect(page).to have_content "Password"
-    expect(page).to have_content "Login"
-    expect(page).to have_content "Sign up as new user"
-    expect(page).to have_content "Visit the site"
+    expect(page).to have_content "Health Tracker (Parkinson's)"
+    expect(page).to have_content "New user?"
+    expect(page).to have_content "Sign Up"
+    expect(page).to have_content "Already have an account?"
+    expect(page).to have_content "Log In"
+    expect(page).to have_content "Check out the app!"
+    expect(page).to have_content "Visitor"
   end
 end
