@@ -19,3 +19,10 @@ therapist1 = Therapist.create(first_name: "Nida", last_name: "Tansinsin", therap
 therapist2 = Therapist.create(first_name: "MC", last_name: "Cox", therapy_type: "Occupational Therapy", years_experience: 8)
 lee.therapists << therapist1
 lee.therapists << therapist2
+
+exercise1 = Exercise.create!(name: "Squats1", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
+exercise2 = Exercise.create!(name: "Squats2", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
+exercise3 = Exercise.create!(name: "Squats3", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
+exercise4 = Exercise.create!(name: "Squats4", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
+exercise5 = Exercise.create!(name: "Squats5", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
+exercise6 = Exercise.create!(name: "Squats6", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
