@@ -11,6 +11,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
     if @patient.save
+      session[:user_id] = @patient.id
       redirect_to patient_path(@patient)
     else
       render :new
