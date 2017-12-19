@@ -1,0 +1,24 @@
+<div class="header">
+  <h1>Admin
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+    <%= link_to "Admin Home", admin_welcome_index_path, class: "nav-bar-links" %>
+  </h1>
+</div>
+
+<h2> All current exercises </h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Date added</th>
+    <th>Image </th>
+  </tr>
+<% @exercises.each do |exercise| %>
+  <tr>
+    <th><%= exercise.name %></th>
+    <th><%= exercise.description %></th>
+    <th><%= exercise.created_at.strftime("%m/%d/%y") %></th>
+    <th><img id="admin-exercise-image" src="<%= exercise.image%>"></th>
+  </tr>
+<% end %>
+</table>
