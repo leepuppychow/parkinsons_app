@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/login", to: "session#new"
   post "/login", to: "session#create"
   get "/logout", to: "session#destroy"
+  get "/error", to: "welcome#under_construction"
 
   # resources :doctor do
   #   resources :patients
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
     resources :medications
     resources :therapists
     resources :doctors
-    resources :exercises 
+    resources :exercises
   end
 
 

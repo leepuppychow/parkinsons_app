@@ -1,12 +1,11 @@
 <div class="header">
-  <h1>My Exercises
+  <h1>Today's Workout
     <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
     <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
   </h1>
 </div>
 
 <div class="column-container">
-<h2> Today's Workout </h2>
 <% @exercises.each do |exercise| %>
   <div class="exercise">
     <h4><%= exercise.name %></h4>

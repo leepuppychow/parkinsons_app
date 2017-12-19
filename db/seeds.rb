@@ -20,9 +20,8 @@ therapist2 = Therapist.create(first_name: "MC", last_name: "Cox", therapy_type: 
 lee.therapists << therapist1
 lee.therapists << therapist2
 
-exercise1 = Exercise.create!(name: "Squats1", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
-exercise2 = Exercise.create!(name: "Squats2", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
-exercise3 = Exercise.create!(name: "Squats3", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
-exercise4 = Exercise.create!(name: "Squats4", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
-exercise5 = Exercise.create!(name: "Squats5", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
-exercise6 = Exercise.create!(name: "Squats6", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
+exercise1 = Exercise.create!(name: "Squats", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
+exercise2 = Exercise.create!(name: "Tandem Balance", description: "Squat down then stand up", image: "https://img.physera.com/exercise/9bc0622fc57257f8/original.png")
+exercise3 = Exercise.create!(name: "Prone on Elbows", description: "Above", image: "http://2.bp.blogspot.com/-NnF80GJCk6E/TffcWo5ATTI/AAAAAAAAAHA/9Y8P7QIaj4M/s1600/lumbar-elbow.jpg")
+exercise4 = Exercise.create!(name: "Lunges", description: "Lunge forward", image: "http://workoutlabs.com/wp-content/uploads/watermarked/Bodyweight_Walking_Lunge_F_WorkoutLabs.png")
+exercise5 = Exercise.create!(name: "Single Leg Balance", description: "Squat down then stand up", image: "http://blog.eliteclubs.com/wp-content/uploads/2015/09/Single-Leg-Balance.png")
