@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :therapists
     resources :doctors
     resources :exercises
+    resources :articles, only: [:index]
   end
 
   namespace :admin do
