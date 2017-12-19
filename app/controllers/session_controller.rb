@@ -5,7 +5,10 @@ class SessionController < ApplicationController
 
   def create
     @patient = Patient.find_by(username: params[:username])
-    if @patient && @patient.authenticate(params[:password])
+    if @patient.username == "admin" && @patient.authenticate(params[:password])
+      session[:user_id] = @patient.id
+      redirect_to admin_welcome_index_path
+    elsif @patient && @patient.authenticate(params[:password])
       session[:user_id] = @patient.id
       redirect_to patient_path(@patient)
     else

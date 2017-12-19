@@ -1,0 +1,14 @@
+<div class="header">
+  <h1>Admin
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+  </h1>
+</div>
+
+<h2> Welcome Admin! </h2>
+
+<ul>
+  <li> <%= link_to "Patients Index", admin_patients_path %> </li>
+  <li> <%= link_to "Doctors Index", admin_doctors_path %> </li>
+  <li> <%= link_to "Exercises Index", admin_exercises_path %> </li>
+  <li> <%= link_to "Medications Index", admin_medications_path %> </li>
+</ul>

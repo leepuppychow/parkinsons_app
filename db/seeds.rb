@@ -9,6 +9,7 @@
 yimeng = Doctor.create!(first_name: "Yimeng", last_name: "Yen", specialty: "ortho", location: "Boston", years_experience: 15 )
 
 lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", password: "password", doctor: yimeng)
+admin = Patient.create!(first_name: "admin", last_name: "admin", age: 0, username: "admin", password: "admin", role: 1, doctor: nil)
 
 medication1 = Medication.create(name: "Sinemet")
 medication2 = Medication.create(name: "Mirapex")
