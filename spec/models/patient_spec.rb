@@ -16,6 +16,22 @@ describe Patient, type: :model do
     it {is_expected.to have_many(:exercises).through(:patient_exercises)}
   end
 
+  describe "Authorizations" do
+    it "can be created as an admin" do
+      user = create(:patient, username: "admin", password: "password", role: 1)
+
+      expect(user.role).to eq("admin")
+      expect(user.admin?).to be_truthy
+    end
+
+    it "can be created as a visitor" do
+      user = create(:patient, username: "admin", password: "password", role: 0)
+
+      expect(user.role).to eq("visitor")
+      expect(user.visitor?).to be_truthy 
+    end
+  end
+
 
 end
 

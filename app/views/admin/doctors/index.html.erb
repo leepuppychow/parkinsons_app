@@ -1,0 +1,28 @@
+<div class="header">
+  <h1>Admin
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+    <%= link_to "Admin Home", admin_welcome_index_path, class: "nav-bar-links" %>
+  </h1>
+</div>
+
+<h2> All current doctors </h2>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Specialty</th>
+    <th>Location</th>
+    <th>Years Experience</th>
+    <th>Patient Count</th>
+  </tr>
+<% @doctors.each do |doctor| %>
+  <tr>
+    <th><%= doctor.first_name %></th>
+    <th><%= doctor.last_name %></th>
+    <th><%= doctor.specialty %></th>
+    <th><%= doctor.location %></th>
+    <th><%= doctor.years_experience %></th>
+    <th><%= doctor.patients.count %></th>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,20 @@
+<div class="header">
+  <h1>Admin
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+    <%= link_to "Admin Home", admin_welcome_index_path, class: "nav-bar-links" %>
+  </h1>
+</div>
+
+<h2> All current medications </h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date added</th>
+  </tr>
+<% @medications.each do |medication| %>
+  <tr>
+    <th><%= medication.name %></th>
+    <th><%= medication.created_at.strftime("%m/%d/%y") %></th>
+  </tr>
+<% end %>
+</table>
