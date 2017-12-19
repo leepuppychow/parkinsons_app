@@ -4,7 +4,7 @@ class Doctor < ApplicationRecord
             :specialty,
             :location,
             :years_experience, presence: true
-  has_many :patients, dependent: :destroy
+  has_many :patients, dependent: :nullify
 
 
 

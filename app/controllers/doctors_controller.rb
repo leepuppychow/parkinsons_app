@@ -10,7 +10,10 @@ class DoctorsController < ApplicationController
     if @patient.doctor
       @patient.doctor.update(doctor_params)
     else
-      @patient.doctor.new(doctor_params)
+      doctor = Doctor.create!(doctor_params)
+#there was an issue with patient not saving due to not having password
+#using update_attribute allowed you to update and save the doctor, without needing all attributes       
+      @patient.update_attribute(:doctor, doctor)
     end
     redirect_to patient_therapists_path(@patient)
   end
@@ -32,7 +35,8 @@ class DoctorsController < ApplicationController
   def destroy
     patient = Patient.find(params[:patient_id])
     # doctor = Doctor.find(params[:id])
-    patient.doctor.delete
+    patient.doctor.destroy
+    # patient.doctor_id = nil
     redirect_to patient_therapists_path(patient)
   end
 

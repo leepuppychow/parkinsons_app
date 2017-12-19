@@ -15,6 +15,7 @@
       <th></th>
     </tr>
     <tr>
+      <% if @doctor %>
       <th><%= @doctor.first_name %> <%= @doctor.last_name %></th>
       <th><%= @doctor.specialty %></th>
       <th><%= @doctor.years_experience %> yrs.</th>
@@ -22,6 +23,7 @@
         <%= link_to "Edit", edit_patient_doctor_path(@patient, @doctor), id: "edit-link" %></br>
         <%= link_to "Remove", patient_doctor_path(@patient, @doctor), method: "delete", id: "delete-link"%>
       </th>
+      <% end  %>
     </tr>
   </table>
 

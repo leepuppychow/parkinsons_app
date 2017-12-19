@@ -14,6 +14,8 @@ class MedicationsController < ApplicationController
     #this if block checks if the medication name is already in the Medication DB
     #if so, use that existing medication, otherwise add a new one to Medication DB
     #and to the patient's patient_medications list
+
+#FIND OR CREATE BY METHOD!!
     if Medication.find_by(name: medication_params[:name])
       medication = Medication.find_by(name: medication_params[:name])
     else
