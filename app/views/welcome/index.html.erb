@@ -1,7 +1,18 @@
-<h1>Health Tracker (Parkinson's)</h1>
+<div class="header">
+  <h1>Health Tracker (Parkinson's)</h1>
+</div>
 
-<h2>Sign up as new user</h2>
-
-<%= link_to "Sign Up", new_patient_path %>
-
-<h2> <%= link_to "Log In", login_path %>
+<div class="column-container">
+  <div class="homepage-section">
+    <h3>New user?</h3>
+    <%= link_to "Sign Up", new_patient_path, class: "homepage-link" %>
+  </div>
+  <div class="homepage-section">
+    <h3>Already have an account?</h3>
+    <%= link_to "Log In", login_path, class: "homepage-link" %>
+  </div>
+  <div class="homepage-section">
+    <h3>Check out the app!</h3>
+    <%= link_to "Visitor", "/", class: "homepage-link" %>
+  </div>
+</div>
