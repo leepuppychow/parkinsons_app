@@ -8,11 +8,19 @@
 <div class="column-container">
 <h2> Today's Workout </h2>
 <% @exercises.each do |exercise| %>
-<%= exercise.name %>
-<%= exercise.description %>
-<%= exercise.image %>
+  <div class="exercise">
+    <h4><%= exercise.name %></h4>
+    <img src="<%=exercise.image%>">
+    <%= exercise.description %>
+  </div>
 <% end  %>
 
 <h2>My Activity Levels</h2>
+<% if @my_exercises %>
+  <% @my_exercises.each do |exercise| %>
+    <%= exercise.name  %>
+  <% end  %>
+
+<% end  %>
 
 </div>
