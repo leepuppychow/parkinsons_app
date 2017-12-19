@@ -19,7 +19,7 @@ describe "Visitor signs up for account" do
 
           click_on "Submit"
 
-          expect(page).to have_content("Hi Lee")
+          expect(page).to have_content("Hi, Lee")
         end
       end
     end
