@@ -24,6 +24,10 @@
       <th><%= activity.description %></th>
       <th><%= activity.date_performed %></th>
       <th><%= activity.duration %></th>
+      <th>
+        <%= link_to "Edit", edit_patient_activity_path(@patient, activity), id: "edit-link" %></br>
+        <%= link_to "Remove", patient_activity_path(@patient, activity), method: "delete", id: "delete-link"%>
+      </th>
     </tr>
   <% end  %>
 </table>

@@ -21,6 +21,22 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def edit
+    @patient = Patient.find(params[:patient_id])
+    @activity = @patient.activities.find_by(id: params[:id])
+  end
+
+  def update
+    @patient = Patient.find(params[:patient_id])
+    @activity = @patient.activities.find_by(id: params[:id])
+    @activity.update(activity_params)
+    if @activity.save
+      redirect_to patient_activities_path(@patient)
+    else
+      render :edit
+    end 
+  end
+
   private
 
     def activity_params
