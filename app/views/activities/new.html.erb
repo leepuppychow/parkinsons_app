@@ -1,0 +1,20 @@
+<div class="header">
+  <h1>Log Activity Levels
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+  </h1>
+</div>
+
+<div class="column-container">
+  <h3>Log Today's Activities</h3>
+  <%= form_for [@patient, @activity] do |f| %>
+    <%= f.label :description %>
+    <%= f.number_field :description %>
+    <%= f.label "Total(min)" %>
+    <%= f.number_field :duration %>
+    <%= f.label "Date" %>
+    <%= f.date_field :date_performed %>
+  <%= f.submit "Log Activity" %>
+  <% end  %>
+
+</div>

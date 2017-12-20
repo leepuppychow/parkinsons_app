@@ -4,6 +4,7 @@ describe Activity, type: :model do
   describe "Validations" do
     it {is_expected.to validate_presence_of(:duration)}
     it {is_expected.to validate_presence_of(:date_performed)}
+    it {is_expected.to validate_presence_of(:description)}
   end
 
   describe "Relationships" do
