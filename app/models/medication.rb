@@ -1,5 +1,6 @@
 class Medication < ApplicationRecord
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  # validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :name, presence: true
   has_many :patient_medications
   has_many :patients, through: :patient_medications
 

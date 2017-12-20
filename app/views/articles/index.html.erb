@@ -1,0 +1,20 @@
+<div class="header">
+  <h1>Parkinson's News
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+  </h1>
+</div>
+
+<h2>Search for PubMed Articles</h2>
+  <%= form_tag do %>
+  <%= label_tag "Search Terms:" %>
+  <%= text_field_tag :search %>
+  <%= label_tag "Year:" %>
+  <%= text_field_tag :year %>
+  <%= submit_tag "Search!" %>
+<% end  %>
+
+<h3>PubMed IDs for search:</h3>
+<% @articles.each do |article| %>
+<li><%= article.address %></li>
+<% end %>

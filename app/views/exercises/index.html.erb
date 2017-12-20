@@ -14,12 +14,4 @@
     <%= link_to "DONE!", patient_exercise_path(@patient, exercise), method: :put %>
   </div>
 <% end  %>
-
-<h2>My Activity Levels</h2>
-<% if @my_exercises %>
-  <% @my_exercises.each do |exercise| %>
-    <%= exercise.name  %>
-  <% end  %>
-<% end  %>
-
 </div>
