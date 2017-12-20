@@ -7,8 +7,7 @@
 <div class="column-container">
   <%= link_to "My Care Team", patient_therapists_path(@patient), class: "main-page-link" %>
   <%= link_to "My Medications", patient_medications_path(@patient), class: "main-page-link"  %>
-  <%= link_to "My Exercises", root_path, class: "main-page-link"  %>
-  <%= link_to "Today's Workout", patient_exercises_path(@patient), class: "main-page-link"  %>
+  <%= link_to "My Exercises", patient_exercises_path(@patient), class: "main-page-link"  %>
   <%= link_to "Parkinson's Articles", patient_articles_path(@patient), class: "main-page-link"  %>
   <%= link_to "Nearby Resources", error_path, class: "main-page-link"  %>
   <%= link_to "Community", error_path, class: "main-page-link"  %>

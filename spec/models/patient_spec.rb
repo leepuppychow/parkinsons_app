@@ -13,7 +13,8 @@ describe Patient, type: :model do
     it {is_expected.to belong_to(:doctor)}
     it {is_expected.to have_many(:medications).through(:patient_medications)}
     it {is_expected.to have_many(:therapists).through(:therapist_patients)}
-    it {is_expected.to have_many(:exercises).through(:patient_exercises)}
+    # it {is_expected.to have_many(:exercises).through(:patient_exercises)}
+    it {is_expected.to have_many(:activities)}
   end
 
   describe "Authorizations" do
@@ -28,7 +29,7 @@ describe Patient, type: :model do
       user = create(:patient, username: "admin", password: "password", role: 0)
 
       expect(user.role).to eq("visitor")
-      expect(user.visitor?).to be_truthy 
+      expect(user.visitor?).to be_truthy
     end
   end
 

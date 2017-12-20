@@ -9,8 +9,9 @@ class Patient < ApplicationRecord
   has_many :medications, through: :patient_medications
   has_many :therapist_patients
   has_many :therapists, through: :therapist_patients
-  has_many :patient_exercises
-  has_many :exercises, through: :patient_exercises
+  has_many :activities
+  # has_many :patient_exercises
+  # has_many :exercises, through: :patient_exercises
 
   enum role: ["visitor", "admin", "patient"]
 
