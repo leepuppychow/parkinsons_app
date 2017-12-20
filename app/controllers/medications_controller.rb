@@ -35,13 +35,14 @@ class MedicationsController < ApplicationController
 
   def edit
     @patient = Patient.find(params[:patient_id])
-    @medication = @patient.patient_medications.find(params[:id]).medication
+    @medication = @patient.medications.find(params[:id])
+    # @medication = @patient.patient_medications.find(params[:id]).medication
   end
 
   def update
     patient = Patient.find(params[:patient_id])
     medication = patient.medications.find(params[:id])
-    if medication.update(medication_params)
+    if medication.update!(medication_params)
       medication.patient_medications.update(patient_medications_params)
       redirect_to patient_medications_path(patient)
     else

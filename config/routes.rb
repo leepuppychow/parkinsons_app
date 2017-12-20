@@ -7,16 +7,12 @@ Rails.application.routes.draw do
   get "/logout", to: "session#destroy"
   get "/error", to: "welcome#under_construction"
 
-  # resources :doctor do
-  #   resources :patients
-  # end
-
   resources :patients, only: [:new, :create, :show] do
     resources :medications
     resources :therapists
     resources :doctors
     resources :exercises
-    resources :articles, only: [:index]
+    resources :articles, only: [:index, :create]
   end
 
   namespace :admin do
