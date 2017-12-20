@@ -11,7 +11,7 @@ describe "When a patient visits their homepage" do
 
       expect(current_path).to eq patient_activities_path(patient)
       expect(page).to have_content "Activity Tracker"
-      expect(page).to have_content "Your Activity Levels This Week"
+      expect(page).to have_content "Your Activity Levels"
       expect(page).to have_content "Log New Activity"
     end
   end

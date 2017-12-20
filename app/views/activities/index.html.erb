@@ -7,8 +7,10 @@
 
 <div class="column-container">
 
-  <h2>Your Activity Levels This Week</h2>
-  <%= column_chart Activity.group_by_day(:date_performed).count %>
+  <h2>Your Activity Levels</h2>
+  <%= line_chart Activity.pluck(:date_performed, :duration), xtitle: "Date Performed", ytitle: "Duration(min)" %>
+
+  <%= link_to "Log New Activity", new_patient_activity_path(@patient), id: "new-doctor" %>
 
   <h2>List of All Activities</h2>
   <table class="provider-table">
@@ -25,8 +27,5 @@
     </tr>
   <% end  %>
 </table>
-
-  <%= link_to "Log New Activity", new_patient_activity_path(@patient), id: "new-doctor" %>
-
 
 </div>
