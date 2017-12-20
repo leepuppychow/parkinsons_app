@@ -6,12 +6,11 @@
 </div>
 
 <div class="column-container">
-<% @exercises.each do |exercise| %>
-  <div class="exercise">
+<% @workout.each do |exercise| %>
+  <div class="exercise" id="<%= exercise.name %>">
     <h4><%= exercise.name %></h4>
     <img src="<%=exercise.image%>">
     <%= exercise.description %>
-    <%= link_to "DONE!", patient_exercise_path(@patient, exercise), method: :put %>
   </div>
 <% end  %>
 </div>

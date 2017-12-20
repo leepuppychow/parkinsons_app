@@ -42,6 +42,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faraday'
   gem 'nokogiri'
+  gem 'chartkick'
+  gem 'groupdate'
 end
 
 group :development do

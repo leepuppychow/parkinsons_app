@@ -1,0 +1,31 @@
+<div class="header">
+  <h1>Activity Tracker
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+  </h1>
+</div>
+
+<div class="column-container">
+
+  <h2>Your Activity Levels</h2>
+  <%= line_chart Activity.pluck(:date_performed, :duration), xtitle: "Date Performed", ytitle: "Duration(min)" %>
+
+  <%= link_to "Log New Activity", new_patient_activity_path(@patient), id: "new-doctor" %>
+
+  <h2>List of All Activities</h2>
+  <table class="provider-table">
+    <tr class="column-headers">
+      <th>Description</th>
+      <th>Date Performed</th>
+      <th>Duration(min)</th>
+    </tr>
+  <% @activities.each do |activity| %>
+    <tr>
+      <th><%= activity.description %></th>
+      <th><%= activity.date_performed %></th>
+      <th><%= activity.duration %></th>
+    </tr>
+  <% end  %>
+</table>
+
+</div>
