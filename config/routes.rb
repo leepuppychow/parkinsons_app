@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :doctors, only: [:index]
     resources :medications, only: [:index]
     resources :exercises, only: [:index]
+    resources :therapists, only: [:index]
   end
 
 end
