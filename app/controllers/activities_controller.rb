@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @patient = Patient.find(params[:patient_id])
-    @activities = Activity.all 
+    @activities = @patient.activities
   end
 
   def new
