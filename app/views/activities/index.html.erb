@@ -8,8 +8,7 @@
 <div class="column-container">
 
   <h2>Your Activity Levels This Week</h2>
-
-  **********CREATE GRAPH HERE***********
+  <%= column_chart Activity.group_by_day(:date_performed).count %>
 
   <h2>List of All Activities</h2>
   <table class="provider-table">

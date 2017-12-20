@@ -11,11 +11,10 @@ Rails.application.routes.draw do
     resources :medications
     resources :therapists
     resources :doctors
-    resources :activities 
+    resources :activities
     resources :exercises, only: [:index]
     resources :articles, only: [:index, :create]
   end
-
 
   namespace :admin do
     resources :welcome, only: [:index]
