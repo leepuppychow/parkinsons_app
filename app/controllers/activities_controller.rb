@@ -2,6 +2,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @patient = Patient.find(params[:patient_id])
+    @activities = Activity.all 
   end
 
   def new
@@ -16,7 +17,7 @@ class ActivitiesController < ApplicationController
       flash[:success] = "Logged new activity: #{activity.description}"
       redirect_to patient_activities_path(@patient)
     else
-      render :new
+      redirect_to new_patient_activity_path(@patient)
     end
   end
 

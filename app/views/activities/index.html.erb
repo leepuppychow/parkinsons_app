@@ -7,11 +7,27 @@
 
 <div class="column-container">
 
-  <h2>This week's activities</h2>
+  <h2>Your Activity Levels This Week</h2>
 
   **********CREATE GRAPH HERE***********
 
-  <%= link_to "Log New Activity", new_patient_activity_path(@patient) %>
+  <h2>List of All Activities</h2>
+  <table class="provider-table">
+    <tr class="column-headers">
+      <th>Description</th>
+      <th>Date Performed</th>
+      <th>Duration(min)</th>
+    </tr>
+  <% @activities.each do |activity| %>
+    <tr>
+      <th><%= activity.description %></th>
+      <th><%= activity.date_performed %></th>
+      <th><%= activity.duration %></th>
+    </tr>
+  <% end  %>
+</table>
+
+  <%= link_to "Log New Activity", new_patient_activity_path(@patient), id: "new-doctor" %>
 
 
 </div>
