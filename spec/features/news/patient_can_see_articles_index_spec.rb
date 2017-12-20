@@ -10,7 +10,7 @@ describe "When patient visits their homepage" do
       click_on "Parkinson's Articles"
 
       expect(current_path).to eq patient_articles_path(patient)
-      expect(page).to have_content "Recent Parkinson's News"
+      expect(page).to have_content "Parkinson's News"
     end
   end
 end
