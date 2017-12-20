@@ -11,6 +11,12 @@ yimeng = Doctor.create!(first_name: "Yimeng", last_name: "Yen", specialty: "orth
 lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", password: "password", doctor: yimeng)
 admin = Patient.create!(first_name: "admin", last_name: "admin", age: 0, username: "admin", password: "admin", role: 1, doctor: nil)
 
+lee.activities.create!(duration: 30, date_performed: Date.today, description: "Hello")
+lee.activities.create!(duration: 40, date_performed: Date.today-1, description: "Hello")
+lee.activities.create!(duration: 60, date_performed: Date.today-2, description: "Hello")
+lee.activities.create!(duration: 45, date_performed: Date.today-3, description: "Hello")
+lee.activities.create!(duration: 100, date_performed: Date.today-5, description: "Hello")
+
 medication1 = Medication.create(name: "Sinemet")
 medication2 = Medication.create(name: "Mirapex")
 lee.patient_medications.create!(dosage: "100mg", freq_per_day:2, medication_id: medication1.id)
