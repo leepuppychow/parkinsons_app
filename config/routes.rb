@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   namespace :visitor do
     resources :welcome, only: [:index]
     resources :exercises, only: [:index]
-    resources :articles, only: [:index]
+    resources :articles, only: [:index, :create]
     resources :twitter, only: [:index]
   end
 
