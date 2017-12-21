@@ -24,4 +24,11 @@ Rails.application.routes.draw do
     resources :therapists, only: [:index]
   end
 
+  namespace :visitor do
+    resources :welcome, only: [:index]
+    resources :exercises, only: [:index]
+    resources :articles, only: [:index]
+    resources :twitter, only: [:index]
+  end
+
 end
