@@ -7,9 +7,9 @@ describe Exercise, type: :model do
     it {is_expected.to validate_presence_of(:image)}
   end
 
-  describe "Relationships" do
-    it {is_expected.to have_many(:patients).through(:patient_exercises)}
-  end
+  # describe "Relationships" do
+  #   it {is_expected.to have_many(:patients).through(:patient_exercises)}
+  # end
 
   describe "Class Methods" do
     it ".pick_3_random will get 3 random exercises from DB" do

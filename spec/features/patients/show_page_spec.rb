@@ -22,8 +22,8 @@ describe "As a user when I visit the user show page" do
     expect(page).to have_content "My Care Team"
     expect(page).to have_content "My Medications"
     expect(page).to have_content "Today's Workout"
-    expect(page).to have_content "My Exercises"
-    expect(page).to have_content "Parkinson's Articles"
+    expect(page).to have_content "Activity Tracker"
+    expect(page).to have_content "Search for Articles"
     expect(page).to have_content "Nearby Resources"
     expect(page).to have_content "Community"
   end

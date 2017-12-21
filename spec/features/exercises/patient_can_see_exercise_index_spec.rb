@@ -8,11 +8,11 @@ describe "When a patient(logged in user) visits their homepage" do
 
       visit patient_path(patient)
 
-      click_on "My Exercises"
+      click_on "Today's Workout"
 
       expect(current_path).to eq patient_exercises_path(patient)
 
       expect(page).to have_content "Today's Workout"
-    end    
+    end
   end
 end
