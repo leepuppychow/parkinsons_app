@@ -9,7 +9,8 @@
   <%= link_to "My Medications", patient_medications_path(@patient), class: "main-page-link"  %>
   <%= link_to "Activity Tracker", patient_activities_path(@patient), class: "main-page-link"  %>
   <%= link_to "Today's Workout", patient_exercises_path(@patient), class: "main-page-link"  %>
-  <%= link_to "Parkinson's Articles", patient_articles_path(@patient), class: "main-page-link"  %>
+  <%= link_to "Parkinson's on Twitter", patient_article_path(@patient), class: "main-page-link"  %>
+  <%= link_to "Search for Articles", patient_articles_path(@patient), class: "main-page-link"  %>
   <%= link_to "Nearby Resources", error_path, class: "main-page-link"  %>
   <%= link_to "Community", error_path, class: "main-page-link"  %>
 </div>

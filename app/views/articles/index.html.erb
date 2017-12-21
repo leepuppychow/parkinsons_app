@@ -1,5 +1,5 @@
 <div class="header">
-  <h1>Parkinson's News
+  <h1>Parkinson's Articles
     <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
     <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
   </h1>
@@ -16,5 +16,5 @@
 
 <h3>PubMed IDs for search:</h3>
 <% @articles.each do |article| %>
-<li><%= article.address %></li>
+  <li><%= link_to article.address, "https://www.ncbi.nlm.nih.gov/pubmed/#{article.address}/"%></li>
 <% end %>
