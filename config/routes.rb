@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :doctors
     resources :activities
     resources :exercises, only: [:index]
-    resources :articles, only: [:index, :create]
+    resources :articles, only: [:index, :create, :show]
   end
 
   namespace :admin do
