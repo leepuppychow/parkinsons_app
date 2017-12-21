@@ -35,8 +35,9 @@ class MedicationsController < ApplicationController
 
   def edit
     @patient = Patient.find(params[:patient_id])
-    @medication = @patient.medications.find(params[:id])
-    # @medication = @patient.patient_medications.find(params[:id]).medication
+    # byebug
+    # @medication = @patient.medications.find(params[:id])
+    @medication = @patient.patient_medications.find(params[:id]).medication
   end
 
   def update
@@ -52,7 +53,8 @@ class MedicationsController < ApplicationController
 
   def destroy
     patient = Patient.find(params[:patient_id])
-    patient.patient_medications.find_by(medication_id: params[:id]).destroy
+    # patient.patient_medications.find_by(medication_id: params[:id]).destroy
+    patient.patient_medications.find(params[:id]).destroy
     redirect_to patient_medications_path(patient)
   end
 
