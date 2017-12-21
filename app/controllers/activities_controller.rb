@@ -34,7 +34,14 @@ class ActivitiesController < ApplicationController
       redirect_to patient_activities_path(@patient)
     else
       render :edit
-    end 
+    end
+  end
+
+  def destroy
+    patient = Patient.find(params[:patient_id])
+    activity = patient.activities.find_by(id: params[:id])
+    activity.destroy
+    redirect_to patient_activities_path(patient)
   end
 
   private
