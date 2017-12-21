@@ -5,6 +5,7 @@
   </h1>
 </div>
 
+<div class="column-container">
 <h2>Search for PubMed Articles</h2>
   <%= form_tag do %>
   <%= label_tag "Search Terms:" %>
@@ -18,3 +19,4 @@
 <% @articles.each do |article| %>
   <li><%= link_to article.address, "https://www.ncbi.nlm.nih.gov/pubmed/#{article.address}/"%></li>
 <% end %>
+</div>
