@@ -12,7 +12,7 @@ class DoctorsController < ApplicationController
     else
       doctor = Doctor.create!(doctor_params)
 #there was an issue with patient not saving due to not having password
-#using update_attribute allowed you to update and save the doctor, without needing all attributes       
+#using update_attribute allowed you to update and save the doctor, without needing all attributes
       @patient.update_attribute(:doctor, doctor)
     end
     redirect_to patient_therapists_path(@patient)
@@ -39,8 +39,7 @@ class DoctorsController < ApplicationController
     # patient.doctor_id = nil
     redirect_to patient_therapists_path(patient)
   end
-
-
+  
   private
 
     def doctor_params
