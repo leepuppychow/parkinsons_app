@@ -1,0 +1,16 @@
+<div class="header">
+  <h1> Welcome Visitor
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+  </h1>
+</div>
+
+<div class="column-container">
+  <p class="main-page-link" id="not-ready"> My Care Team </p>
+  <p class="main-page-link" id="not-ready"> My Medications </p>
+  <p class="main-page-link" id="not-ready"> Activity Tracker </p>
+  <%= link_to "Today's Workout", visitor_exercises_path, class: "main-page-link"  %>
+  <%= link_to "Parkinson's on Twitter", visitor_twitter_index_path, class: "main-page-link"  %>
+  <%= link_to "Search for Articles", visitor_articles_path, class: "main-page-link"  %>
+  <p class="main-page-link" id="not-ready"> Nearby Resources </p>
+  <p class="main-page-link" id="not-ready">Community<p>
+</div>
