@@ -6,7 +6,7 @@
 </div>
 
 <div class="column-container">
-  <h2>DOCTOR:</h2>
+  <h2>DOCTOR(S):</h2>
   <table class="provider-table">
     <tr class="column-headers">
       <th>Name</th>
@@ -15,13 +15,13 @@
       <th></th>
     </tr>
     <tr>
-      <% if @doctor %>
-      <th><%= @doctor.first_name %> <%= @doctor.last_name %></th>
-      <th><%= @doctor.specialty %></th>
-      <th><%= @doctor.years_experience %> yrs.</th>
+      <% @patient.doctors.each do |doctor|  %>
+      <th><%= doctor.first_name %> <%= doctor.last_name %></th>
+      <th><%= doctor.specialty %></th>
+      <th><%= doctor.years_experience %> yrs.</th>
       <th>
-        <%= link_to "Edit", edit_patient_doctor_path(@patient, @doctor), id: "edit-link" %></br>
-        <%= link_to "Remove", patient_doctor_path(@patient, @doctor), method: "delete", id: "delete-link"%>
+        <%= link_to "Edit", edit_patient_doctor_path(@patient, doctor), id: "edit-link" %></br>
+        <%= link_to "Remove", patient_doctor_path(@patient, doctor), method: "delete", id: "delete-link"%>
       </th>
       <% end  %>
     </tr>

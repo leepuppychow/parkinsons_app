@@ -8,8 +8,10 @@
 
 yimeng = Doctor.create!(first_name: "Yimeng", last_name: "Yen", specialty: "ortho", location: "Boston", years_experience: 15 )
 
-lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", password: "password", doctor: yimeng)
-admin = Patient.create!(first_name: "admin", last_name: "admin", age: 0, username: "admin", password: "admin", role: 1, doctor: nil)
+lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", password: "password")
+lee.doctors << yimeng
+
+admin = Patient.create!(first_name: "admin", last_name: "admin", age: 0, username: "admin", password: "admin", role: 1)
 
 lee.activities.create!(duration: 30, date_performed: Date.today, description: "Hello")
 lee.activities.create!(duration: 40, date_performed: Date.today-1, description: "Hello")

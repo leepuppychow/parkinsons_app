@@ -3,12 +3,13 @@ require 'rails_helper'
 describe "When user visits My Care Team page" do
   it "can click on Edit to edit doctor's information" do
     patient = create(:patient)
-    patient.doctor = create(:doctor)
+    doctor = create(:doctor)
+    patient.doctors << doctor
 
     visit patient_therapists_path(patient)
     click_on "Edit"
 
-    # expect(current_path).to eq edit_patient_doctor_path(patient, patient.doctor)
+    expect(current_path).to eq edit_patient_doctor_path(patient, doctor)
 
     fill_in "doctor[first_name]", with: "Sarah"
     fill_in "doctor[last_name]", with: "Smith"

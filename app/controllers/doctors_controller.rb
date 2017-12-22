@@ -20,11 +20,12 @@ class DoctorsController < ApplicationController
 
   def edit
     @patient = Patient.find(params[:patient_id])
+    @doctor = Doctor.find(params[:id])
   end
 
   def update
     @patient = Patient.find(params[:patient_id])
-    @doctor = @patient.doctor
+    @doctor = Doctor.find(params[:id])
     if @doctor.update(doctor_params)
       redirect_to patient_therapists_path(@patient)
     else
@@ -39,7 +40,7 @@ class DoctorsController < ApplicationController
     # patient.doctor_id = nil
     redirect_to patient_therapists_path(patient)
   end
-  
+
   private
 
     def doctor_params
