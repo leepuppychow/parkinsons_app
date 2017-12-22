@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "As a user when I visit the user show page" do
   before(:each) do
     @patient = create(:patient)
-    @patient.doctor = create(:doctor)
+    @patient.doctors << create(:doctor)
 
     @medication1 = create(:medication)
     @medication2 = create(:medication)

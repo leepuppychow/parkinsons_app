@@ -9,7 +9,7 @@
 <h2>Edit Doctor</h2>
 
 <table class="form-table">
-<%= form_for [@patient, @patient.doctor] do |f| %>
+<%= form_for [@patient, @doctor] do |f| %>
 <tr>
   <th><%= f.label :first_name %></th>
   <th><%= f.text_field :first_name, class: "entry-form" %></th>

@@ -10,10 +10,10 @@ describe Patient, type: :model do
   end
 
   describe "Relationships" do
-    it {is_expected.to belong_to(:doctor)}
+    # it {is_expected.to belong_to(:doctor)}
+    it {is_expected.to have_many(:doctors).through(:patient_doctors)}
     it {is_expected.to have_many(:medications).through(:patient_medications)}
     it {is_expected.to have_many(:therapists).through(:therapist_patients)}
-    # it {is_expected.to have_many(:exercises).through(:patient_exercises)}
     it {is_expected.to have_many(:activities)}
   end
 

@@ -10,11 +10,6 @@ describe Doctor, type: :model do
   end
 
   describe "Relationships" do
-    it "has many patients" do
-      # doctor = create(:doctor)
-      # expect(doctor).to respond_to(:patients)
-      #could also do:
-      is_expected.to have_many(:patients)
-    end
+    it {is_expected.to have_many(:patients).through(:patient_doctors)}
   end
 end
