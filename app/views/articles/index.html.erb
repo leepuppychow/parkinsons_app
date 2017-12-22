@@ -14,9 +14,8 @@
   <%= text_field_tag :year %>
   <%= submit_tag "Search!" %>
 <% end  %>
-
-<h3>PubMed IDs for search:</h3>
-<% @articles.each do |article| %>
-  <li><%= link_to article.address, "https://www.ncbi.nlm.nih.gov/pubmed/#{article.address}/"%></li>
-<% end %>
 </div>
+</br>
+<% @articles.each do |article| %>
+  <p><%= link_to article[1], "https://www.ncbi.nlm.nih.gov/pubmed/#{article[0]}/"%></p>
+<% end %>
