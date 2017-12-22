@@ -35,9 +35,9 @@ class DoctorsController < ApplicationController
 
   def destroy
     patient = Patient.find(params[:patient_id])
-    # doctor = Doctor.find(params[:id])
-    patient.doctor.destroy
-    # patient.doctor_id = nil
+#delete the patient_doctor instead of the doctor object
+    doctor = patient.patient_doctors.find_by(doctor_id: params[:id])
+    doctor.destroy
     redirect_to patient_therapists_path(patient)
   end
 
