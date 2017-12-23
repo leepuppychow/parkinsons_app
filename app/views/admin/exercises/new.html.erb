@@ -1,0 +1,16 @@
+<div class="header">
+  <h1>Admin
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+    <%= link_to "Admin Home", admin_welcome_index_path, class: "nav-bar-links" %>
+  </h1>
+</div>
+
+<%= form_for @exercise, url: admin_exercises_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %></br>
+  <%= f.label :description %>
+  <%= f.text_field :description %></br>
+  <%= f.label :image %>
+  <%= f.text_field :image %></br>
+  <%= f.submit "Submit" %>
+<% end %>
