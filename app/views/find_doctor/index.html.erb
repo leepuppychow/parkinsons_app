@@ -21,4 +21,10 @@
     <%= text_field_tag :last_name %>
     <%= submit_tag "Search!" %>
   <% end  %>
+
+  <h3>Doctors found:</h3>
+  <% @doctors.each do |doctor| %>
+    <%= doctor %></br>
+  <% end %>
+
 </div>

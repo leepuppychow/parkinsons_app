@@ -16,9 +16,9 @@ describe "when anyone visits their homepage" do
         fill_in "city", with: "Denver"
         fill_in "state", with: "CO"
         fill_in "gender", with: "male"
-        fill_in "first_name", with: "Joe"
+        fill_in "first_name", with: ""
         fill_in "last_name", with: ""
-  
+
         click_on "Search!"
 
         expect(current_path).to eq patient_find_doctor_index_path(patient)
