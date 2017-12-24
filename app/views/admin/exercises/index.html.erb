@@ -1,11 +1,11 @@
 <div class="header">
   <h1>Admin
     <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-    <%= link_to "Admin Home", admin_welcome_index_path, class: "nav-bar-links" %>
+    <%= link_to "Home", admin_welcome_index_path, class: "nav-bar-links" %>
   </h1>
 </div>
 
-<%= link_to "Add New Exercise", new_admin_exercise_path %>
+<p><%= link_to "Add New Exercise", new_admin_exercise_path %></p>
 
 <h2> All current exercises </h2>
 <table>
@@ -21,6 +21,10 @@
     <th><%= exercise.description %></th>
     <th><%= exercise.created_at.strftime("%m/%d/%y") %></th>
     <th><img id="admin-exercise-image" src="<%= exercise.image%>"></th>
+    <th>
+      <%= link_to "Edit", edit_admin_exercise_path(exercise), id: "edit-link" %></br>
+      <%= link_to "Remove", admin_exercise_path(exercise), method: "delete", id: "delete-link"%>
+    </th>
   </tr>
 <% end %>
 </table>

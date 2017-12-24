@@ -17,6 +17,19 @@ class Admin::ExercisesController < Admin::BaseController
     end
   end
 
+  def edit
+    @exercise = Exercise.find(params[:id])
+  end
+
+  def update
+    @exercise = Exercise.find(params[:id])
+    if @exercise.update(exercise_params)
+      redirect_to admin_exercises_path
+    else
+      render :edit
+    end 
+  end
+
   private
 
     def exercise_params

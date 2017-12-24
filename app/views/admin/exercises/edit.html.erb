@@ -1,5 +1,5 @@
 <div class="header">
-  <h1>Admin - New Exercise 
+  <h1>Admin - Edit Exercise
     <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
     <%= link_to "Home", admin_welcome_index_path, class: "nav-bar-links" %>
     <%= link_to "Exercises", admin_exercises_path, class: "nav-bar-links" %>
@@ -7,8 +7,7 @@
 </div>
 
 <table class="form-table">
-
-<%= form_for @exercise, url: admin_exercises_path do |f| %>
+<%= form_for @exercise, url: admin_exercise_path(@exercise) do |f| %>
 <tr>
   <th><%= f.label :name %></th>
   <th><%= f.text_field :name, class: "entry-form" %></th>
