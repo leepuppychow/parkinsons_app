@@ -27,8 +27,14 @@ class Admin::ExercisesController < Admin::BaseController
       redirect_to admin_exercises_path
     else
       render :edit
-    end 
+    end
   end
+
+  def destroy
+    exercise = Exercise.find(params[:id])
+    exercise.destroy
+    redirect_to admin_exercises_path
+  end 
 
   private
 
