@@ -1,0 +1,24 @@
+<div class="header">
+  <h1>Find a Doctor
+    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+  </h1>
+</div>
+
+<div class="column-container">
+  <%= form_tag do %>
+    <%= label_tag "City:" %>
+    <%= text_field_tag :city %>
+    <%= label_tag "State:" %>
+    <%= text_field_tag :state %>
+    <%= label_tag "Specialty:" %>
+    <%= text_field_tag :specialty %>
+    <%= label_tag "Gender:" %>
+    <%= text_field_tag :gender %>
+    <%= label_tag "First name:" %>
+    <%= text_field_tag :first_name %>
+    <%= label_tag "Last name:" %>
+    <%= text_field_tag :last_name %>
+    <%= submit_tag "Search!" %>
+  <% end  %>
+</div>
