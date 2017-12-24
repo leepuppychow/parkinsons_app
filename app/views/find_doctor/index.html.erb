@@ -1,26 +1,30 @@
 <div class="header">
-  <h1>Find a Doctor
+  <h1>Find a Care Provider
     <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
     <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
   </h1>
 </div>
 
 <div class="column-container">
+  <table class="form-table">
   <%= form_tag do %>
-    <%= label_tag "City:" %>
-    <%= text_field_tag :city %>
-    <%= label_tag "State:" %>
-    <%= text_field_tag :state %>
-    <%= label_tag "Specialty:" %>
-    <%= text_field_tag :specialty %>
-    <%= label_tag "Gender:" %>
-    <%= text_field_tag :gender %>
-    <%= label_tag "First name:" %>
-    <%= text_field_tag :first_name %>
-    <%= label_tag "Last name:" %>
-    <%= text_field_tag :last_name %>
-    <%= submit_tag "Search!" %>
+    <tr>
+      <th><%= label_tag "City:" %></th>
+      <th><%= text_field_tag :city, "", class: "entry-form" %></th>
+    </tr>
+    <tr>
+      <th><%= label_tag "State:" %></th>
+      <th><%= text_field_tag :state, "", class: "entry-form" %></th>
+    </tr>
+    <tr>
+      <th><%= label_tag "Specialty:" %></th>
+      <th><%= select_tag :specialty, options_for_select(@specialties), class: "entry-form"%> </th>
+    </tr>
+    <tr>
+      <th><%= submit_tag "Search!" %></th>
+    </tr>
   <% end  %>
+</table>
 
   <h3>Doctors found:</h3>
   <% @doctors.each do |doctor| %>

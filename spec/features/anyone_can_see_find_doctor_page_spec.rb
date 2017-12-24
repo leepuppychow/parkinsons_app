@@ -8,16 +8,14 @@ describe "when anyone visits their homepage" do
 
         visit patient_path(patient)
 
-        click_on "Find a Doctor"
+        click_on "Find a Care Provider"
 
         expect(current_path).to eq patient_find_doctor_index_path(patient)
 
         fill_in "specialty", with: "Neurologist"
+        # <th><%= text_field_tag :specialty, "", class: "entry-form" %></th>
         fill_in "city", with: "Denver"
         fill_in "state", with: "CO"
-        fill_in "gender", with: "male"
-        fill_in "first_name", with: ""
-        fill_in "last_name", with: ""
 
         click_on "Search!"
 
