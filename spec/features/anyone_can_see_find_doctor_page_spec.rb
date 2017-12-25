@@ -12,10 +12,9 @@ describe "when anyone visits their homepage" do
 
         expect(current_path).to eq patient_find_doctor_index_path(patient)
 
-        fill_in "specialty", with: "Neurologist"
-        # <th><%= text_field_tag :specialty, "", class: "entry-form" %></th>
+        select "Neurologist", :from => "specialty"
+        select "CO", :from => "state"
         fill_in "city", with: "Denver"
-        fill_in "state", with: "CO"
 
         click_on "Search!"
 
@@ -27,18 +26,19 @@ describe "when anyone visits their homepage" do
   context "when a Visitor visits their homepage" do
     context "he/she can click on a link Find a Doctor" do
       it "will see a page with a form to search for a physician" do
-        skip
         visit visitor_welcome_index_path
 
-        click_on "Find a Doctor"
+        click_on "Find a Care Provider"
 
-        expect(current_path).to eq visitor_finddoctor_index_path
-        expect(page).to have_content "Specialty"
-        expect(page).to have_content "City"
-        expect(page).to have_content "State"
-        expect(page).to have_content "Gender"
-        expect(page).to have_content "First name"
-        expect(page).to have_content "Last name"
+        expect(current_path).to eq visitor_find_doctor_index_path
+
+        select "Neurologist", :from => "specialty"
+        select "CO", :from => "state"
+        fill_in "city", with: "Denver"
+
+        click_on "Search!"
+
+        expect(current_path).to eq visitor_find_doctor_index_path
       end
     end
   end
