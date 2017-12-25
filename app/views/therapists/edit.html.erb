@@ -5,28 +5,4 @@
   </h1>
 </div>
 
-<div class="column-container">
-  <table class="form-table">
-  <%= form_for [current_user, @therapist] do |f| %>
-  <tr>
-    <th><%= f.label :first_name %></th>
-    <th><%= f.text_field :first_name, class: "entry-form" %></th>
-  </tr>
-  <tr>
-    <th><%= f.label :last_name %></th>
-    <th><%= f.text_field :last_name, class: "entry-form" %></th>
-  </tr>
-  <tr>
-    <th><%= f.label "Experience" %></th>
-    <th><%= f.number_field :years_experience, class: "entry-form" %></th>
-  </tr>
-  <tr>
-    <th><%= f.label :therapy_type, class: "entry-form" %></th>
-    <th><%= f.collection_select :therapy_type, Therapist.all, :therapy_type, :therapy_type, {}, class: "entry-form" %></th>
-  </tr>
-  <tr>
-    <th colspan="2"><%= f.submit "Edit!", id: "submit-button" %></th>
-  </tr>
-  <% end %>
-  </table>
-</div>
+<%= render partial: "therapists/therapist_form" %>

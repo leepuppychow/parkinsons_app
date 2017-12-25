@@ -12,7 +12,7 @@
     <th><%= f.label :name %></th>
     <th><%= f.text_field :name, class: "entry-form" %></th>
   </tr>
-    <%= f.fields_for :medications do |patient_med| %>
+    <%= f.fields_for :new_medication do |patient_med| %>
   <tr>
       <th><%= patient_med.label :dosage %></th>
       <th><%= patient_med.text_field :dosage, class: "entry-form" %></th>
