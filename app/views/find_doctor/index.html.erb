@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <th><%= label_tag "State:" %></th>
-      <th><%= text_field_tag :state, "", class: "entry-form" %></th>
+      <th><%= select_tag :state, options_for_select(@states), class: "entry-form"%> </th>
     </tr>
     <tr>
       <th><%= label_tag "Specialty:" %></th>
@@ -26,9 +26,20 @@
   <% end  %>
 </table>
 
-  <h3>Doctors found:</h3>
-  <% @doctors.each do |doctor| %>
-    <%= doctor %></br>
-  <% end %>
+  <h3>Doctors Found Under Category: <%= @specialty.capitalize %></h3>
+  <table>
+    <tr>
+      <th>Name:</th>
+      <th>Address:</th>
+      <th>Phone:</th>
+    </tr>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <th><%= doctor[0] %></th>
+        <th><%= doctor[1] %></th>
+        <th><%= doctor[2] %></th>
+      </tr>
+    <% end %>
+  </table>
 
 </div>
