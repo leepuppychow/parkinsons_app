@@ -10,6 +10,13 @@ class TherapistsController < ApplicationController
   end
 
   def create
+    # @therapist = @patient.therapists.new(therapist_params)
+    # if @therapist.save
+    #   byebug
+    #   redirect_to patient_therapists_path(@patient)
+    # else
+    #   render :new
+    # end
     if therapist_params.values.include?("")
       redirect_to new_patient_therapist_path(@patient)
     else
@@ -43,8 +50,7 @@ class TherapistsController < ApplicationController
       params.require(:therapist).permit(:first_name,
                                         :last_name,
                                         :years_experience,
-                                        :therapy_type,
-                                        :patient)
+                                        :therapy_type)
     end
 
 end

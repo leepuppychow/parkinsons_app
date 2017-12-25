@@ -10,18 +10,7 @@ class MedicationsController < ApplicationController
   end
 
   def create
-    @patient = Patient.find(params[:patient_id])
-    #this if block checks if the medication name is already in the Medication DB
-    #if so, use that existing medication, otherwise add a new one to Medication DB
-    #and to the patient's patient_medications list
-
-#FIND OR CREATE BY METHOD!!
-    if Medication.find_by(name: medication_params[:name])
-      @medication = Medication.find_by(name: medication_params[:name])
-    else
-      @medication = Medication.create(medication_params)
-    end
-
+    @medication = Medication.find_or_create_by(medication_params)
     new_med = @patient.patient_medications.new(dosage_frequency_params)
     new_med.medication_id = @medication.id
     if new_med.save
@@ -39,7 +28,7 @@ class MedicationsController < ApplicationController
 
   def update
     @medication = @patient.medications.find(params[:id])
-    if @medication.update!(medication_params)
+    if @medication.update(medication_params)
       @medication.patient_medications.update(patient_medications_params)
       redirect_to patient_medications_path(@patient)
     else

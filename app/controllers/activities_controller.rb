@@ -25,8 +25,7 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = @patient.activities.find_by(id: params[:id])
-    @activity.update(activity_params)
-    if @activity.save
+    if @activity.update(activity_params)
       redirect_to patient_activities_path(@patient)
     else
       render :edit
