@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :current_user
+  # before_action :current_user
 
   def index
     @articles = []

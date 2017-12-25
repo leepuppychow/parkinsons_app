@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe "When user visits My Care Team page" do
   it "can click on Edit to edit doctor's information" do
-    patient = create(:patient)
+    patient = create(:patient, username: "admin", password: "password", role: 2)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
     doctor = create(:doctor)
     patient.doctors << doctor
 
@@ -17,7 +18,7 @@ describe "When user visits My Care Team page" do
     fill_in "doctor[location]", with: "Denver"
     fill_in "doctor[years_experience]", with: 5
 
-    click_on "Edit!"
+    click_on "Update Doctor"
 
     expect(current_path).to eq patient_therapists_path(patient)
     expect(page).to have_content "Sarah"

@@ -1,20 +1,20 @@
 class TherapistsController < ApplicationController
-  before_action :current_user
+  # before_action :current_user
 
   def index
-    @therapists = @patient.therapists
+    @therapists = current_user.therapists
   end
 
   def new
-    @therapist = @patient.therapists.new
+    @therapist = current_user.therapists.new
   end
 
   def create
-    @therapist = @patient.therapists.find_or_create_by(therapist_params)
+    @therapist = current_user.therapists.find_or_create_by(therapist_params)
     if @therapist.id == nil
       render :new
     else
-      redirect_to patient_therapists_path(@patient)
+      redirect_to patient_therapists_path(current_user)
     end
   end
 
@@ -25,15 +25,15 @@ class TherapistsController < ApplicationController
   def update
     @therapist = Therapist.find(params[:id])
     if @therapist.update(therapist_params)
-      redirect_to patient_therapists_path(@patient)
+      redirect_to patient_therapists_path(current_user)
     else
       render :edit
     end
   end
 
   def destroy
-    @patient.therapist_patients.find_by(therapist_id: params[:id]).destroy
-    redirect_to patient_therapists_path(@patient)
+    current_user.therapist_patients.find_by(therapist_id: params[:id]).destroy
+    redirect_to patient_therapists_path(current_user)
   end
 
   private

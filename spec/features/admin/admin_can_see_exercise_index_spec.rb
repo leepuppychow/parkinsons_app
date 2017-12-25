@@ -4,12 +4,11 @@ describe "A user visits exercise index page" do
   context "as an ADMIN" do
     it "allows admin to see all the exercises" do
       admin = create(:patient, username: "admin", password: "password", role: 1)
-
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit admin_exercises_path
       expect(page).to have_content("Admin")
-      expect(page).to have_content("All current exercises")
+      expect(page).to have_content("All Exercises")
     end
   end
 

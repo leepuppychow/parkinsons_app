@@ -1,8 +1,7 @@
 class ActivitiesController < ApplicationController
-  before_action :current_user
 
   def index
-    @activities = @patient.activities.order("date_performed DESC")
+    @activities = current_user.activities.order("date_performed DESC")
   end
 
   def new
@@ -10,32 +9,32 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = @patient.activities.new(activity_params)
+    @activity = current_user.activities.new(activity_params)
     if @activity.save
       flash[:notice] = "Logged new activity: #{@activity.description}"
-      redirect_to patient_activities_path(@patient)
+      redirect_to patient_activities_path(current_user)
     else
       render :new
     end
   end
 
   def edit
-    @activity = @patient.activities.find_by(id: params[:id])
+    @activity = current_user.activities.find_by(id: params[:id])
   end
 
   def update
-    @activity = @patient.activities.find_by(id: params[:id])
+    @activity = current_user.activities.find_by(id: params[:id])
     if @activity.update(activity_params)
-      redirect_to patient_activities_path(@patient)
+      redirect_to patient_activities_path(current_user)
     else
       render :edit
     end
   end
 
   def destroy
-    activity = @patient.activities.find_by(id: params[:id])
+    activity = current_user.activities.find_by(id: params[:id])
     activity.destroy
-    redirect_to patient_activities_path(@patient)
+    redirect_to patient_activities_path(current_user)
   end
 
   private

@@ -1,7 +1,7 @@
 <div class="header">
   <h1>Edit Doctor
     <%= render partial: "partials/header"%>
-    <%= link_to "My Care Team", patient_therapists_path(@patient), class: "nav-bar-links"%>
+    <%= link_to "My Care Team", patient_therapists_path(current_user), class: "nav-bar-links"%>
   </h1>
 </div>
 

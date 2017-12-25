@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
 
   def show
-    @patient = current_user
+    # @patient = current_user
   end
 
   def new

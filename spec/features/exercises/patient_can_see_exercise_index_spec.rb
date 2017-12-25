@@ -3,7 +3,8 @@ require 'rails_helper'
 describe "When a patient(logged in user) visits their homepage" do
   context "he/she can click on Today's Workout" do
     it "and is able to see an exercise index page" do
-      patient = create(:patient)
+      patient = create(:patient, username: "admin", password: "password", role: 2)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
       create_list(:exercise, 10)
 
       visit patient_path(patient)

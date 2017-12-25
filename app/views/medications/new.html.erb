@@ -1,13 +1,13 @@
 <div class="header">
   <h1>Add New Medication
     <%= render partial: "partials/header"%>
-    <%= link_to "My Medications", patient_medications_path(@patient), class: "nav-bar-links"%>
+    <%= link_to "My Medications", patient_medications_path(current_user), class: "nav-bar-links"%>
   </h1>
 </div>
 
 <div class="column-container">
   <table class="form-table">
-  <%= form_for [@patient, @medication] do |f| %>
+  <%= form_for [current_user, @medication] do |f| %>
   <tr>
     <th><%= f.label :name %></th>
     <th><%= f.text_field :name, class: "entry-form" %></th>

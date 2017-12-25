@@ -10,7 +10,6 @@
     <th>Last Name</th>
     <th>Username</th>
     <th>Age</th>
-    <th>Doctor</th>
     <th>User Type</th>
   </tr>
 <% @patients.each do |patient| %>
@@ -19,7 +18,6 @@
     <th><%= patient.last_name %></th>
     <th><%= patient.username %></th>
     <th><%= patient.age %></th>
-    <th><%= patient.doctor_id %></th>
     <th><%= patient.role %></th>
   </tr>
 <% end %>

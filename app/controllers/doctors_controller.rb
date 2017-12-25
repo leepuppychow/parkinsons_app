@@ -1,16 +1,16 @@
 class DoctorsController < ApplicationController
-  before_action :current_user
+  # before_action :current_user
 
   def new
     @doctor = Doctor.new
   end
 
   def create
-    @doctor = @patient.doctors.find_or_create_by(doctor_params)
+    @doctor = current_user.doctors.find_or_create_by(doctor_params)
     if @doctor.id == nil
       render :new
     else
-      redirect_to patient_therapists_path(@patient)
+      redirect_to patient_therapists_path(current_user)
     end
   end
 
@@ -21,15 +21,15 @@ class DoctorsController < ApplicationController
   def update
     @doctor = Doctor.find(params[:id])
     if @doctor.update(doctor_params)
-      redirect_to patient_therapists_path(@patient)
+      redirect_to patient_therapists_path(current_user)
     else
       render :edit
     end
   end
 
   def destroy
-    @patient.patient_doctors.find_by(doctor_id: params[:id]).destroy
-    redirect_to patient_therapists_path(@patient)
+    current_user.patient_doctors.find_by(doctor_id: params[:id]).destroy
+    redirect_to patient_therapists_path(current_user)
   end
 
   private
