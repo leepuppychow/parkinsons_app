@@ -1,11 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
   helper_method :current_user
 
   def current_user
-    #here we use memoization
-    @current_user ||= Patient.find(session[:user_id]) if session[:user_id]
+    @patient ||= Patient.find(session[:user_id]) if session[:user_id]
   end
 
   def current_admin?

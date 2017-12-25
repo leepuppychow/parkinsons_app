@@ -2,10 +2,9 @@ require './app/authentication_keys'
 
 class FindDoctorController < ApplicationController
   include AuthenticationKeys
-  before_action :specialties, :states
+  before_action :specialties, :states, :current_user
 
   def index
-    @patient = Patient.find(params[:patient_id])
     @doctors = []
     @specialty = ""
   end
@@ -30,7 +29,6 @@ class FindDoctorController < ApplicationController
   end
 
   def create
-    @patient = Patient.find(params[:patient_id])
     city = city_formatted(params[:city])
     state = params[:state].strip.downcase
     @specialty = params[:specialty].strip.downcase
