@@ -4,12 +4,4 @@
   </h1>
 </div>
 
-<div class="column-container">
-<% @workout.each do |exercise| %>
-  <div class="exercise" id="<%= exercise.name %>">
-    <h4><%= exercise.name %></h4>
-    <img src="<%=exercise.image%>">
-    <%= exercise.description %>
-  </div>
-<% end  %>
-</div>
+<%= render partial: "partials/exercises_index" %>
