@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    #this is for the patient's Twitter show page
     @patient = Patient.find(params[:patient_id])
   end
 

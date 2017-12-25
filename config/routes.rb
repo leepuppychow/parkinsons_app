@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/login", to: "session#new"
   post "/login", to: "session#create"
   get "/logout", to: "session#destroy"
+  # get "/finddoctor", to: "find_doctor#index"
 
   resources :patients, only: [:new, :create, :show] do
     resources :medications
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
     resources :activities
     resources :exercises, only: [:index]
     resources :articles, only: [:index, :create, :show]
+      #Note: the articles show page is the patient's twitter search page
+    resources :find_doctor, only: [:index, :create]
   end
 
   namespace :admin do
@@ -29,6 +32,7 @@ Rails.application.routes.draw do
     resources :exercises, only: [:index]
     resources :articles, only: [:index, :create]
     resources :twitter, only: [:index]
+    resources :find_doctor, only: [:index, :create]
   end
 
 end

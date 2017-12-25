@@ -52,5 +52,4 @@ describe "As a user when I visit the user show page" do
     expect(page).to have_content "Yimeng"
     expect(page).to have_content "Taylor"
   end
-
 end
