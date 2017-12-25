@@ -1,38 +1,9 @@
 <div class="header">
-  <h1>
+  <h1>Edit Doctor
     <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
     <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
     <%= link_to "My Care Team", patient_therapists_path(@patient), class: "nav-bar-links"%>
   </h1>
 </div>
 
-<h2>Edit Doctor</h2>
-
-<table class="form-table">
-<%= form_for [@patient, @doctor] do |f| %>
-<tr>
-  <th><%= f.label :first_name %></th>
-  <th><%= f.text_field :first_name, class: "entry-form" %></th>
-</tr>
-<tr>
-  <th><%= f.label :last_name %></th>
-  <th><%= f.text_field :last_name, class: "entry-form" %></th>
-</tr>
-<tr>
-  <th><%= f.label "Specialty" %></th>
-  <th><%= f.text_field :specialty, class: "entry-form" %></th>
-</tr>
-<tr>
-  <th><%= f.label :location %></th>
-  <th><%= f.text_field :location, class: "entry-form" %></th>
-</tr>
-<tr>
-  <th><%= f.label "Experience" %></th>
-  <th><%= f.number_field :years_experience, class: "entry-form" %></th>
-</tr>
-
-<tr>
-  <th colspan="2"><%= f.submit "Edit!", id: "submit-button" %></th>
-</tr>
-<% end %>
-</table>
+<%= render partial: "doctor_form" %>

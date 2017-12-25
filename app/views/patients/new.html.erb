@@ -4,9 +4,8 @@
   </h1>
 </div>
 
-
+<div class="column-container">
 <table class="form-table">
-
 <%= form_for @patient do |f| %>
 <tr>
   <th><%= f.label :first_name %></th>
@@ -32,5 +31,5 @@
   <th><%= f.submit "Submit" %></th>
 </tr>
 <% end %>
-
 </table>
+</div>
