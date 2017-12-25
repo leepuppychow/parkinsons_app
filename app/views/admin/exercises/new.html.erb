@@ -1,13 +1,11 @@
 <div class="header">
-  <h1>Admin - New Exercise 
-    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-    <%= link_to "Home", admin_welcome_index_path, class: "nav-bar-links" %>
+  <h1>Admin - New Exercise
+    <%= render partial: "admin/admin_header" %>
     <%= link_to "Exercises", admin_exercises_path, class: "nav-bar-links" %>
   </h1>
 </div>
 
 <table class="form-table">
-
 <%= form_for @exercise, url: admin_exercises_path do |f| %>
 <tr>
   <th><%= f.label :name %></th>

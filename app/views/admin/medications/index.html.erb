@@ -1,11 +1,9 @@
 <div class="header">
-  <h1>Admin
-    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-    <%= link_to "Home", admin_welcome_index_path, class: "nav-bar-links" %>
+  <h1>Admin: All Medications
+    <%= render partial: "admin/admin_header" %>
   </h1>
 </div>
 
-<h2> All current medications </h2>
 <table>
   <tr>
     <th>Name</th>

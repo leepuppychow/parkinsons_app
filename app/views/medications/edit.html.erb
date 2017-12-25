@@ -5,26 +5,4 @@
   </h1>
 </div>
 
-<div class="column-container">
-  <table class="form-table">
-  <%= form_for [@patient, @medication] do |f| %>
-  <tr>
-    <th><%= f.label :name %></th>
-    <th><%= f.text_field :name, class: "entry-form" %></th>
-  </tr>
-    <%= f.fields_for :patient_medications do |patient_med| %>
-  <tr>
-      <th><%= patient_med.label :dosage %></th>
-      <th><%= patient_med.text_field :dosage, class: "entry-form" %></th>
-  </tr>
-  <tr>
-      <th><%= patient_med.label "Frequency"%></th>
-      <th><%= patient_med.number_field :freq_per_day, class: "entry-form" %></th>
-  </tr>
-    <% end  %>
-  <tr>
-    <th colspan="2"><%= f.submit "Edit!", id: "submit-button" %></th>
-  </tr>
-  <% end %>
-  </table>
-</div>
+<%= render partial: "medication_form" %>
