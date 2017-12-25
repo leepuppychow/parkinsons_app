@@ -13,20 +13,20 @@
       <th>Experience</th>
       <th></th>
     </tr>
-      <% @patient.doctors.each do |doctor|  %>
+      <% current_user.doctors.each do |doctor|  %>
       <tr>
         <th><%= doctor.first_name %> <%= doctor.last_name %></th>
         <th><%= doctor.specialty %></th>
         <th><%= doctor.years_experience %> yrs.</th>
         <th>
-          <%= link_to "Edit", edit_patient_doctor_path(@patient, doctor), id: "edit-link" %></br>
-          <%= link_to "Remove", patient_doctor_path(@patient, doctor), method: "delete", id: "delete-link"%>
+          <%= link_to "Edit", edit_patient_doctor_path(current_user, doctor), id: "edit-link" %></br>
+          <%= link_to "Remove", patient_doctor_path(current_user, doctor), method: "delete", id: "delete-link"%>
         </th>
       </tr>
       <% end  %>
   </table>
 
-  <%= link_to "New Doctor?", new_patient_doctor_path(@patient), id: "new-doctor" %>
+  <%= link_to "New Doctor?", new_patient_doctor_path(current_user), id: "new-doctor" %>
 
 
   <h2>THERAPIST(S):</h2>
@@ -43,14 +43,14 @@
       <th><%= therapist.therapy_type %></th>
       <th><%= therapist.years_experience %> yrs.</th>
       <th>
-        <%= link_to "Edit", edit_patient_therapist_path(@patient, therapist), id: "edit-link" %></br>
-        <%= link_to "Remove", patient_therapist_path(@patient, therapist), method: "delete", id: "delete-link"%>
+        <%= link_to "Edit", edit_patient_therapist_path(current_user, therapist), id: "edit-link" %></br>
+        <%= link_to "Remove", patient_therapist_path(current_user, therapist), method: "delete", id: "delete-link"%>
       </th>
     </tr>
     <% end %>
   </table>
 
-  <%= link_to "New Therapist?", new_patient_therapist_path(@patient), id: "new-therapist" %>
+  <%= link_to "New Therapist?", new_patient_therapist_path(current_user), id: "new-therapist" %>
 
 
 </div>

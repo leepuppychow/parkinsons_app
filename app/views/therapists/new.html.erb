@@ -1,13 +1,13 @@
 <div class="header">
   <h1>Add New Therapist
     <%= render partial: "partials/header"%>
-    <%= link_to "My Care Team", patient_therapists_path(@patient), class: "nav-bar-links"%>
+    <%= link_to "My Care Team", patient_therapists_path(current_user), class: "nav-bar-links"%>
   </h1>
 </div>
 
 <div class="column-container">
   <table class="form-table">
-  <%= form_for [@patient, @therapist] do |f| %>
+  <%= form_for [current_user, @therapist] do |f| %>
   <tr>
     <th><%= f.label :first_name %></th>
     <th><%= f.text_field :first_name, class: "entry-form" %></th>

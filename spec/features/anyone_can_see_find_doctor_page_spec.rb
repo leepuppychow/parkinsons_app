@@ -4,7 +4,8 @@ describe "when anyone visits their homepage" do
   context "when a Patient visits their homepage" do
     context "he/she can click on a link Find a Doctor" do
       it "will see a page with a form to search for a physician" do
-        patient = create(:patient)
+        patient = create(:patient, username: "test", password: "password", role: 2)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
         visit patient_path(patient)
 

@@ -85,9 +85,7 @@ ActiveRecord::Schema.define(version: 20171222203815) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "doctor_id"
     t.integer "role", default: 0
-    t.index ["doctor_id"], name: "index_patients_on_doctor_id"
   end
 
   create_table "therapist_patients", force: :cascade do |t|
@@ -113,7 +111,6 @@ ActiveRecord::Schema.define(version: 20171222203815) do
   add_foreign_key "patient_doctors", "patients"
   add_foreign_key "patient_medications", "medications"
   add_foreign_key "patient_medications", "patients"
-  add_foreign_key "patients", "doctors"
   add_foreign_key "therapist_patients", "patients"
   add_foreign_key "therapist_patients", "therapists"
 end

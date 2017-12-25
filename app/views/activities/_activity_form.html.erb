@@ -1,6 +1,6 @@
 <div class="column-container">
   <table class="form-table">
-    <%= form_for [@patient, @activity] do |f| %>
+    <%= form_for [current_user, @activity] do |f| %>
       <tr>
         <th><%= f.label :description %></th>
         <th><%= f.text_field :description, class: "entry-form" %></th>

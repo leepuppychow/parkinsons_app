@@ -11,7 +11,7 @@ describe "A user visits therapists index page" do
 
       visit admin_therapists_path
       expect(page).to have_content("Admin")
-      expect(page).to have_content("All current therapists")
+      expect(page).to have_content("All Therapists")
     end
   end
 
@@ -24,7 +24,7 @@ describe "A user visits therapists index page" do
       visit admin_therapists_path
 
       expect(page).to_not have_content("Admin")
-      expect(page).to_not have_content("All current therapists")
+      expect(page).to_not have_content("All Therapists")
       expect(page).to have_content "The page you were looking for doesn't exist"
     end
   end

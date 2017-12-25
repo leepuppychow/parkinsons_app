@@ -11,7 +11,7 @@ describe "A user visits Patient index page" do
 
       visit admin_patients_path
       expect(page).to have_content("Admin")
-      expect(page).to have_content("All current patients")
+      expect(page).to have_content("All Patients")
     end
   end
 
@@ -24,7 +24,7 @@ describe "A user visits Patient index page" do
       visit admin_patients_path
 
       expect(page).to_not have_content("Admin")
-      expect(page).to_not have_content("All current patients")
+      expect(page).to_not have_content("All Patients")
       expect(page).to have_content "The page you were looking for doesn't exist"
     end
   end

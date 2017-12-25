@@ -9,7 +9,7 @@ describe "A user visits doctor index page" do
 
       visit admin_medications_path
       expect(page).to have_content("Admin")
-      expect(page).to have_content("All current medications")
+      expect(page).to have_content("All Medications")
     end
   end
 
