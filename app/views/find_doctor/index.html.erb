@@ -26,20 +26,22 @@
   <% end  %>
 </table>
 
-  <h3>Doctors Found Under Category: <%= @specialty.capitalize %></h3>
-  <table>
-    <tr>
-      <th>Name:</th>
-      <th>Address:</th>
-      <th>Phone:</th>
-    </tr>
-    <% @doctors.each do |doctor| %>
+  <% if @doctors != [] %>
+    <h3>Doctors Found Under Category: <%= @specialty.capitalize %></h3>
+    <table>
       <tr>
-        <th><%= doctor[0] %></th>
-        <th><%= doctor[1] %></th>
-        <th><%= doctor[2] %></th>
+        <th>Name:</th>
+        <th>Address:</th>
+        <th>Phone:</th>
       </tr>
-    <% end %>
-  </table>
+      <% @doctors.each do |doctor| %>
+        <tr>
+          <th><%= doctor[0] %></th>
+          <th><%= doctor[1] %></th>
+          <th><%= doctor[2] %></th>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
 
 </div>
