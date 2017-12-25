@@ -6,7 +6,4 @@ class Doctor < ApplicationRecord
             :years_experience, presence: true
   has_many :patient_doctors
   has_many :patients, through: :patient_doctors
-
-
-
 end

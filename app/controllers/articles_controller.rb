@@ -1,12 +1,11 @@
 class ArticlesController < ApplicationController
+  before_action :current_user
 
   def index
     @articles = []
-    @patient = Patient.find(params[:patient_id])
   end
 
   def create
-    @patient = Patient.find(params[:patient_id])
     @year = params[:year]
     @search = params[:search]
     @articles = []
@@ -26,7 +25,6 @@ class ArticlesController < ApplicationController
 
   def show
     #this is for the patient's Twitter show page
-    @patient = Patient.find(params[:patient_id])
   end
 
 end

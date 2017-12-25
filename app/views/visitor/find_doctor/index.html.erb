@@ -4,43 +4,4 @@
   </h1>
 </div>
 
-<div class="column-container">
-  <table class="form-table">
-  <%= form_tag do %>
-    <tr>
-      <th><%= label_tag "City:" %></th>
-      <th><%= text_field_tag :city, "", class: "entry-form" %></th>
-    </tr>
-    <tr>
-      <th><%= label_tag "State:" %></th>
-      <th><%= select_tag :state, options_for_select(@states), class: "entry-form"%> </th>
-    </tr>
-    <tr>
-      <th><%= label_tag "Specialty:" %></th>
-      <th><%= select_tag :specialty, options_for_select(@specialties), class: "entry-form"%> </th>
-    </tr>
-    <tr>
-      <th><%= submit_tag "Search!" %></th>
-    </tr>
-  <% end  %>
-</table>
-
-  <% if @doctors != [] %>
-    <h3>Doctors Found Under Category: <%= @specialty.capitalize %></h3>
-    <table>
-      <tr>
-        <th>Name:</th>
-        <th>Address:</th>
-        <th>Phone:</th>
-      </tr>
-      <% @doctors.each do |doctor| %>
-        <tr>
-          <th><%= doctor[0] %></th>
-          <th><%= doctor[1] %></th>
-          <th><%= doctor[2] %></th>
-        </tr>
-      <% end %>
-    </table>
-  <% end %>
-
-</div>
+<%= render partial: "partials/find_doctor_index" %>
