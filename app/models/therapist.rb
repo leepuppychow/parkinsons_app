@@ -6,5 +6,4 @@ class Therapist < ApplicationRecord
   def self.uniq_therapy_type
     Therapist.pluck(:therapy_type).uniq
   end
-
 end
