@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "As a user when I visit the user show page" do
   before(:each) do
-    @patient = create(:patient)
+    @patient = create(:patient, username: "test", password: "password", role: 2)
     @patient.doctors << create(:doctor)
 
     @medication1 = create(:medication)
@@ -13,6 +13,7 @@ describe "As a user when I visit the user show page" do
     @patient.therapists << create(:therapist)
     @patient.therapists << create(:therapist, first_name: "Taylor")
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@patient)
     visit patient_path(@patient)
   end
 
