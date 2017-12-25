@@ -1,31 +1,30 @@
 <div class="header">
-  <h1>
-    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+  <h1>Add New Medication
+    <%= render partial: "partials/header"%>
     <%= link_to "My Medications", patient_medications_path(@patient), class: "nav-bar-links"%>
   </h1>
 </div>
 
-<h2>Add New Medication</h2>
-
-<table class="form-table">
-<%= form_for [@patient, @medication] do |f| %>
-<tr>
-  <th><%= f.label :name %></th>
-  <th><%= f.text_field :name, class: "entry-form" %></th>
-</tr>
-  <%= f.fields_for :medications do |patient_med| %>
-<tr>
-    <th><%= patient_med.label :dosage %></th>
-    <th><%= patient_med.text_field :dosage, class: "entry-form" %></th>
-</tr>
-<tr>
-    <th><%= patient_med.label "Frequency"%></th>
-    <th><%= patient_med.number_field :freq_per_day, class: "entry-form" %></th>
-</tr>
+<div class="column-container">
+  <table class="form-table">
+  <%= form_for [@patient, @medication] do |f| %>
+  <tr>
+    <th><%= f.label :name %></th>
+    <th><%= f.text_field :name, class: "entry-form" %></th>
+  </tr>
+    <%= f.fields_for :medications do |patient_med| %>
+  <tr>
+      <th><%= patient_med.label :dosage %></th>
+      <th><%= patient_med.text_field :dosage, class: "entry-form" %></th>
+  </tr>
+  <tr>
+      <th><%= patient_med.label "Frequency"%></th>
+      <th><%= patient_med.number_field :freq_per_day, class: "entry-form" %></th>
+  </tr>
+    <% end %>
+  <tr>
+    <th colspan="2"><%= f.submit "Add!", id: "submit-button" %></th>
+  </tr>
   <% end %>
-<tr>
-  <th colspan="2"><%= f.submit "Add!", id: "submit-button" %></th>
-</tr>
-<% end %>
-</table>
+  </table>
+</div>

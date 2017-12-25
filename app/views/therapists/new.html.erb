@@ -1,40 +1,38 @@
 <div class="header">
-  <h1>
-    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+  <h1>Add New Therapist
+    <%= render partial: "partials/header"%>
     <%= link_to "My Care Team", patient_therapists_path(@patient), class: "nav-bar-links"%>
   </h1>
 </div>
 
-<h2>Add New Therapist</h2>
-
-<table class="form-table">
-<%= form_for [@patient, @therapist] do |f| %>
-<tr>
-  <th><%= f.label :first_name %></th>
-  <th><%= f.text_field :first_name, class: "entry-form" %></th>
-</tr>
-<tr>
-  <th><%= f.label :last_name %></th>
-  <th><%= f.text_field :last_name, class: "entry-form" %></th>
-</tr>
-<tr>
-  <th><%= f.label "Experience" %></th>
-  <th><%= f.number_field :years_experience, class: "entry-form" %></th>
-</tr>
-<tr>
-  <th>Therapy Type</th>
-  <th>
-    <select class="entry-form" name="therapist[therapy_type]">
-      <% Therapist.uniq_therapy_type.each do |type| %>
-        <option value="<%=type%>"><%=type%></option>
-      <% end %>
-    </select>
-  </th>
-</tr>
-
-<tr>
-  <th colspan="2"><%= f.submit "Add!", id: "submit-button" %></th>
-</tr>
-<% end %>
-</table>
+<div class="column-container">
+  <table class="form-table">
+  <%= form_for [@patient, @therapist] do |f| %>
+  <tr>
+    <th><%= f.label :first_name %></th>
+    <th><%= f.text_field :first_name, class: "entry-form" %></th>
+  </tr>
+  <tr>
+    <th><%= f.label :last_name %></th>
+    <th><%= f.text_field :last_name, class: "entry-form" %></th>
+  </tr>
+  <tr>
+    <th><%= f.label "Experience" %></th>
+    <th><%= f.number_field :years_experience, class: "entry-form" %></th>
+  </tr>
+  <tr>
+    <th>Therapy Type</th>
+    <th>
+      <select class="entry-form" name="therapist[therapy_type]">
+        <% Therapist.uniq_therapy_type.each do |type| %>
+          <option value="<%=type%>"><%=type%></option>
+        <% end %>
+      </select>
+    </th>
+  </tr>
+  <tr>
+    <th colspan="2"><%= f.submit "Add!", id: "submit-button" %></th>
+  </tr>
+  <% end %>
+  </table>
+</div>

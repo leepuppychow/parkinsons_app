@@ -1,12 +1,10 @@
 <div class="header">
   <h1>Log Activity Levels
-    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+    <%= render partial: "partials/header"%>
   </h1>
 </div>
 
 <div class="column-container">
-  <h3>Log Today's Activities</h3>
   <table class="form-table">
     <%= form_for [@patient, @activity] do |f| %>
       <tr>

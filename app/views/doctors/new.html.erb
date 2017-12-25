@@ -1,7 +1,6 @@
 <div class="header">
   <h1>Add New Doctor
-    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-    <%= link_to "Home", patient_path(@patient), class: "nav-bar-links"%>
+    <%= render partial: "partials/header"%>
     <%= link_to "My Care Team", patient_therapists_path(@patient), class: "nav-bar-links"%>
   </h1>
 </div>
