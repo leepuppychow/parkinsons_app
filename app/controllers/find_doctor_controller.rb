@@ -2,8 +2,8 @@ require './app/authentication_keys'
 
 class FindDoctorController < ApplicationController
   include AuthenticationKeys
-
   before_action :specialties, :states
+  #test
 
   def index
     @patient = Patient.find(params[:patient_id])
