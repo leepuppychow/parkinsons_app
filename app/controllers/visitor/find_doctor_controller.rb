@@ -24,8 +24,12 @@ class Visitor::FindDoctorController < ApplicationController
     practice["practices"].first["phones"].first["number"]
   end
 
+  def city_formatted(city)
+    city.strip.downcase.tr(" ", "-")
+  end
+
   def create
-    city = params[:city].strip.downcase
+    city = city_formatted(params[:city])
     state = params[:state].strip.downcase
     @specialty = params[:specialty].strip.downcase
     @doctors = []
