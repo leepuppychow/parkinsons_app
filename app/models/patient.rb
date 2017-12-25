@@ -5,7 +5,6 @@ class Patient < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   has_many :patient_doctors
   has_many :doctors, through: :patient_doctors
-
   has_many :patient_medications
   has_many :medications, through: :patient_medications
   has_many :therapist_patients

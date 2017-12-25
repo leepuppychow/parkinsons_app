@@ -28,8 +28,7 @@ class DoctorsController < ApplicationController
   end
 
   def destroy
-    doctor = @patient.patient_doctors.find_by(doctor_id: params[:id])
-    doctor.destroy
+    @patient.patient_doctors.find_by(doctor_id: params[:id]).destroy
     redirect_to patient_therapists_path(@patient)
   end
 

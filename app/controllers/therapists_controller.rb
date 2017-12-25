@@ -32,7 +32,6 @@ class TherapistsController < ApplicationController
   def update
     @therapist = Therapist.find(params[:id])
     if @therapist.update(therapist_params)
-      @therapist.update(therapist_params)
       redirect_to patient_therapists_path(@patient)
     else
       render :edit
@@ -40,7 +39,7 @@ class TherapistsController < ApplicationController
   end
 
   def destroy
-    @patient.therapist_patients.find_by(therapist_id: params[:id]).delete
+    @patient.therapist_patients.find_by(therapist_id: params[:id]).destroy
     redirect_to patient_therapists_path(@patient)
   end
 
