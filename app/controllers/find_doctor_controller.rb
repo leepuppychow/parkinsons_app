@@ -1,4 +1,8 @@
+require './app/authentication_keys'
+
 class FindDoctorController < ApplicationController
+  include AuthenticationKeys
+
   before_action :specialties, :states
 
   def index
@@ -29,8 +33,7 @@ class FindDoctorController < ApplicationController
     @specialty = params[:specialty].strip.downcase
     @doctors = []
 
-  #34f9ff67082e6e43cfb2dc335e45decf
-    response = Faraday.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=#{@specialty}&location=#{state}-#{city}&limit=20&user_key=34f9ff67082e6e43cfb2dc335e45decf")
+    response = Faraday.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=#{@specialty}&location=#{state}-#{city}&limit=20&user_key=#{BETTER_DOCTOR_KEY}")
     data = JSON.parse(response.body)
 
     if data["data"]
@@ -38,7 +41,7 @@ class FindDoctorController < ApplicationController
         [doctor_name(practice), full_address(practice), phone_number(practice)]
       end.uniq
     end
-  
+
     render :index
   end
 
