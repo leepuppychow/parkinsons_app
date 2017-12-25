@@ -1,10 +1,3 @@
-<div class="header">
-  <h1>Add New Medication
-    <%= render partial: "partials/header"%>
-    <%= link_to "My Medications", patient_medications_path(@patient), class: "nav-bar-links"%>
-  </h1>
-</div>
-
 <div class="column-container">
   <table class="form-table">
   <%= form_for [@patient, @medication] do |f| %>
@@ -12,7 +5,7 @@
     <th><%= f.label :name %></th>
     <th><%= f.text_field :name, class: "entry-form" %></th>
   </tr>
-    <%= f.fields_for :medications do |patient_med| %>
+    <%= f.fields_for :patient_medications do |patient_med| %>
   <tr>
       <th><%= patient_med.label :dosage %></th>
       <th><%= patient_med.text_field :dosage, class: "entry-form" %></th>
@@ -21,7 +14,7 @@
       <th><%= patient_med.label "Frequency"%></th>
       <th><%= patient_med.number_field :freq_per_day, class: "entry-form" %></th>
   </tr>
-    <% end %>
+    <% end  %>
   <tr>
     <th><%= f.submit id: "submit-button" %></th>
   </tr>

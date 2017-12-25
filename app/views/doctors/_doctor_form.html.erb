@@ -1,0 +1,29 @@
+<div class="column-container">
+<table class="form-table">
+<%= form_for [@patient, @doctor] do |f| %>
+<tr>
+  <th><%= f.label :first_name %></th>
+  <th><%= f.text_field :first_name, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label :last_name %></th>
+  <th><%= f.text_field :last_name, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label "Specialty" %></th>
+  <th><%= f.text_field :specialty, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label :location %></th>
+  <th><%= f.text_field :location, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.label "Experience" %></th>
+  <th><%= f.number_field :years_experience, class: "entry-form" %></th>
+</tr>
+<tr>
+  <th><%= f.submit id: "submit-button" %></th>
+</tr>
+<% end %>
+</table>
+</div>

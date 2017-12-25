@@ -1,7 +1,6 @@
 <div class="header">
   <h1>Admin - Edit Exercise
-    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-    <%= link_to "Home", admin_welcome_index_path, class: "nav-bar-links" %>
+    <%= render partial: "admin/admin_header" %>
     <%= link_to "Exercises", admin_exercises_path, class: "nav-bar-links" %>
   </h1>
 </div>
