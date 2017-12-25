@@ -1,6 +1,4 @@
 class MedicationsController < ApplicationController
-  # before_action :current_user
-
   def index
     @medications = current_user.patient_medications
   end

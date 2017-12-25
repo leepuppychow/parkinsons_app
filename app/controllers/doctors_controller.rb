@@ -1,6 +1,4 @@
 class DoctorsController < ApplicationController
-  # before_action :current_user
-
   def new
     @doctor = Doctor.new
   end

@@ -1,6 +1,4 @@
 class TherapistsController < ApplicationController
-  # before_action :current_user
-
   def index
     @therapists = current_user.therapists
   end
