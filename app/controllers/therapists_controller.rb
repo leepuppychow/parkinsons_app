@@ -1,6 +1,4 @@
 class TherapistsController < ApplicationController
-  # before_action :current_user
-
   def index
     @therapists = current_user.therapists
   end
@@ -41,7 +39,6 @@ class TherapistsController < ApplicationController
     def therapist_params
       params.require(:therapist).permit(:first_name,
                                         :last_name,
-                                        :years_experience,
                                         :therapy_type)
     end
 

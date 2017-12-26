@@ -1,6 +1,4 @@
 class MedicationsController < ApplicationController
-  # before_action :current_user
-
   def index
     @medications = current_user.patient_medications
   end
@@ -23,7 +21,7 @@ class MedicationsController < ApplicationController
   end
 
   def edit
-    @medication = current_user.patient_medications.find(params[:id]).medication
+    @medication = current_user.medications.find(params[:id])
   end
 
   def update
@@ -48,7 +46,7 @@ class MedicationsController < ApplicationController
     end
 
     def dosage_frequency_params
-      params[:medication].require(:medications).permit(:dosage, :freq_per_day)
+      params[:medication].require(:new_medication).permit(:dosage, :freq_per_day)
     end
 
     def patient_medications_params

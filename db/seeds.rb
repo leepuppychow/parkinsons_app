@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-yimeng = Doctor.create!(first_name: "Yimeng", last_name: "Yen", specialty: "ortho", location: "Boston", years_experience: 15 )
+yimeng = Doctor.create!(first_name: "Yimeng", last_name: "Yen", specialty: "ortho", location: "Boston")
 
 lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", password: "password")
 lee.doctors << yimeng
@@ -24,9 +24,9 @@ medication2 = Medication.create(name: "Mirapex")
 lee.patient_medications.create!(dosage: "100mg", freq_per_day:2, medication_id: medication1.id)
 lee.patient_medications.create!(dosage: "200mg", freq_per_day:1, medication_id: medication2.id)
 
-therapist1 = Therapist.create(first_name: "Nida", last_name: "Tansinsin", therapy_type: "Physical Therapy", years_experience: 10)
-therapist2 = Therapist.create(first_name: "MC", last_name: "Cox", therapy_type: "Occupational Therapy", years_experience: 8)
-therapist2 = Therapist.create(first_name: "Amanda", last_name: "T", therapy_type: "Speech Therapy", years_experience: 8)
+therapist1 = Therapist.create(first_name: "Nida", last_name: "Tansinsin", therapy_type: "Physical Therapy")
+therapist2 = Therapist.create(first_name: "MC", last_name: "Cox", therapy_type: "Occupational Therapy")
+therapist2 = Therapist.create(first_name: "Amanda", last_name: "T", therapy_type: "Speech Therapy")
 lee.therapists << therapist1
 lee.therapists << therapist2
 

@@ -4,6 +4,5 @@ FactoryBot.define do
     last_name "Yen"
     specialty "Ortho"
     location "Boston"
-    years_experience 15
   end
 end

@@ -1,0 +1,27 @@
+<div class="column-container">
+  <table class="form-table">
+  <%= form_for [current_user, @therapist] do |f| %>
+  <tr>
+    <th><%= f.label :first_name %></th>
+    <th><%= f.text_field :first_name, class: "entry-form" %></th>
+  </tr>
+  <tr>
+    <th><%= f.label :last_name %></th>
+    <th><%= f.text_field :last_name, class: "entry-form" %></th>
+  </tr>
+  <tr>
+    <th>Therapy Type</th>
+    <th>
+      <select class="entry-form" name="therapist[therapy_type]">
+        <% Therapist.uniq_therapy_type.each do |type| %>
+          <option value="<%=type%>"><%=type%></option>
+        <% end %>
+      </select>
+    </th>
+  </tr>
+  <tr>
+    <th colspan="2"><%= f.submit id: "submit-button" %></th>
+  </tr>
+  <% end %>
+  </table>
+</div>
