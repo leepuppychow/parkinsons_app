@@ -19,20 +19,13 @@
   <% end  %>
 </table>
   <% if @doctors != [] %>
-    <h3><%= @specialty.capitalize%>(s) in: <%=@city.capitalize%>,  <%=@state.upcase%></h3>
-    <table>
-      <tr>
-        <th>Name:</th>
-        <th>Address:</th>
-        <th>Phone:</th>
-      </tr>
-      <% @doctors.each do |doctor| %>
-        <tr>
-          <th><%= doctor[0] %></th>
-          <th><%= doctor[1] %></th>
-          <th><%= doctor[2] %></th>
-        </tr>
-      <% end %>
-    </table>
+    <h2><%= @specialty.capitalize%>(s) in: <%=@city.capitalize%>,  <%=@state.upcase%></h2>
+    <% @doctors.each do |doctor| %>
+      <div class="doctor-search">
+        <h4><%= doctor[0] %></h4>
+        <p><%= doctor[1] %></p>
+        <p><%= doctor[2] %></p>
+      </div>
+    <% end %>
   <% end %>
 </div>

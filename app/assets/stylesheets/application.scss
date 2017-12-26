@@ -33,7 +33,7 @@
      color: white;
      float: right;
      padding-top: 4px;
-     padding-right: 10px;
+     padding-right: 20px;
    }
    .nav-bar-links:hover {
      color: black;
@@ -107,6 +107,7 @@
  .medication-table {
    background: #a6dbd0;
    text-align: left;
+   border-radius: 5%;
    .headers{
      text-decoration: underline;
    }
@@ -116,15 +117,12 @@
    tr:hover {
      background: #77a59e;
    }
-   #med-reminder{
-     font-size:24px;
-     text-decoration: underline;
-   }
  }
 
  .provider-table{
    background: #a6dbd0;
    text-align: left;
+   border-radius: 5%;
    th {
      padding: 10px;
    }
@@ -145,12 +143,28 @@
    height: auto;
    width: 300px;
    margin-top: 20px;
+   border-radius: 5%;
    h4{
      margin: 3px;
    }
    img{
      width: 250px;
      height: auto;
+   }
+ }
+
+ .doctor-search {
+   background-color: #a6dbd0;
+   width: 400px;
+   margin-bottom: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 5%;
+   h4{
+     text-decoration: underline;
+     margin-left: 5px;
+     margin-right: 5px;
    }
  }
 
@@ -168,7 +182,10 @@
    color: white;
    border-radius: 10%;
  }
-
+ .med-reminder{
+   font-size:24px;
+   text-decoration: underline;
+ }
  #new-medication:hover{
    background: #4e6b65;
    opacity: 1.0;
@@ -187,4 +204,11 @@
 }
 #not-ready{
   background-color: grey;
+}
+#pill-icon{
+  height: 50px;
+  width: 50px;
+}
+#med-name{
+  font-size: 18px;
 }
