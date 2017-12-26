@@ -23,12 +23,14 @@
     <tr class="headers">
       <th>Name</th>
       <th>Dosage</th>
+      <th>Frequency</th>
       <th></th>
     </tr>
   <% @medications.each do |medication| %>
     <tr>
       <th><%=medication.medication.name%></th>
       <th><%=medication.dosage%></th>
+      <th><%=medication.freq_per_day%></th>
       <th>
         <%= link_to "Edit", edit_patient_medication_path(current_user, medication), id: "edit-link" %></br>
         <%= link_to "Remove", patient_medication_path(current_user, medication), method: "delete", id: "delete-link"%>
