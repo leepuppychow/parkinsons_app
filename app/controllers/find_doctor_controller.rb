@@ -26,6 +26,10 @@ class FindDoctorController < ApplicationController
     practice["practices"].first["phones"].first["number"]
   end
 
+  def insurances_accepted(practice)
+    practice["practices"].first["insurance_uids"]
+  end
+
   def city_formatted(city)
     city.strip.downcase.tr(" ", "-")
   end
