@@ -2,6 +2,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = current_user.activities.order("date_performed DESC")
+    @activity_graph = current_user.activities_with_duration_summed_per_day
   end
 
   def new

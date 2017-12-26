@@ -7,7 +7,7 @@
 <div class="column-container">
 
   <h2>Your Activity Levels</h2>
-  <%= line_chart @activities.pluck(:date_performed, :duration), xtitle: "Date Performed", ytitle: "Duration(min)" %>
+  <%= line_chart @activity_graph, xtitle: "Date Performed", ytitle: "Duration(min)" %>
   <%= link_to "Log New Activity", new_patient_activity_path(current_user), id: "new-doctor" %>
 
   <h2>List of All Activities</h2>

@@ -11,4 +11,12 @@ class Patient < ApplicationRecord
   has_many :activities
 
   enum role: ["visitor", "admin", "patient"]
+
+  def activities_with_duration_summed_per_day
+    activities.group(:date_performed)
+    .order("date_performed DESC")
+    .limit(7)
+    .sum(:duration)
+  end
+
 end
