@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "When user visits My Care Team" do
   it "can click on Remove to delete doctor" do
-    patient = create(:patient, username: "test", password: "password", role: 2)
+    patient = create(:patient, role: 0)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
     doctor = create(:doctor)
     patient.doctors << doctor
