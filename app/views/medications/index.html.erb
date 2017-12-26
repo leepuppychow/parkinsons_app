@@ -5,18 +5,20 @@
 </div>
 
 <div class="column-container">
-  <h2>TODAY: <%= Date.today.strftime('%A, %b %d, %Y') %> </h2>
-  <table class="medication-table">
-    <th colspan=2, id="med-reminder">REMEMBER TO TAKE:</h2>
+  <h2><%= Date.today.strftime('%A, %b %d, %Y') %> </h2>
+  <h2 class="med-reminder">Remember to Take:</h2>
     <% @medications.each do |medication| %>
-    <tr>
-      <th><%=medication.freq_per_day%></th>
-      <th><%=medication.medication.name%></th>
-    </tr>
+    <table>
+      <tr>
+        <th id="med-name"><%=medication.medication.name%> (<%=medication.freq_per_day%>)</th>
+        <% medication.freq_per_day.times do %>
+          <th id="pill-icon"><%= render partial: "svg/pill" %></th>
+        <% end %>
+      </tr>
+    </table>
     <% end  %>
-  </table>
 
-  <h3> <%= current_user.first_name %>'s Medications </h3>
+  <h2 class="med-reminder"> <%= current_user.first_name %>'s Medications </h2>
   <table class="medication-table">
     <tr class="headers">
       <th>Name</th>
