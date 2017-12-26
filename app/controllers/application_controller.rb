@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def specialties
-    @specialties = ["Neurologist", "Cardiologist","Psychiatrist",
+    @specialties = ["Family-Practitioner", "Neurologist", "Cardiologist","Psychiatrist",
       "Neurosurgeon", "Physiatrist", "Orthopedic-Surgeon",
       "Physical-Therapist", "Occupational-Therapist", "Speech-Therapist",
       "Psychologist", "Mental-Health-Counselor"
