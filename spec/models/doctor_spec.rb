@@ -6,7 +6,6 @@ describe Doctor, type: :model do
     it {is_expected.to validate_presence_of(:last_name)}
     it {is_expected.to validate_presence_of(:specialty)}
     it {is_expected.to validate_presence_of(:location)}
-    it {is_expected.to validate_presence_of(:years_experience)}
   end
 
   describe "Relationships" do

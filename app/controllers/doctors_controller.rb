@@ -37,7 +37,6 @@ class DoctorsController < ApplicationController
       params.require(:doctor).permit(:first_name,
                                     :last_name,
                                     :specialty,
-                                    :location,
-                                    :years_experience)
+                                    :location)
     end
 end

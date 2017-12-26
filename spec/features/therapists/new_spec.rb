@@ -16,12 +16,10 @@ describe "When user visits My Care Team" do
     expect(page).to have_content "First name"
     expect(page).to have_content "Last name"
     expect(page).to have_content "Therapy Type"
-    expect(page).to have_content "Experience"
 
     fill_in "therapist[first_name]", with: "Taylor"
     fill_in "therapist[last_name]", with: "McCulloch"
     select "Physical Therapy", :from => "therapist[therapy_type]"
-    fill_in "therapist[years_experience]", with: 2
 
     click_on "Add!"
 

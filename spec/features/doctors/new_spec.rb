@@ -14,13 +14,11 @@ describe "When user visits My Care Team page" do
     expect(page).to have_content "Last name"
     expect(page).to have_content "Specialty"
     expect(page).to have_content "Location"
-    expect(page).to have_content "Experience"
 
     fill_in "doctor[first_name]", with: "Sarah"
     fill_in "doctor[last_name]", with: "Smith"
     fill_in "doctor[specialty]", with: "Neuro"
     fill_in "doctor[location]", with: "Denver"
-    fill_in "doctor[years_experience]", with: 5
 
     click_on "Add!"
 
@@ -28,6 +26,5 @@ describe "When user visits My Care Team page" do
     expect(page).to have_content "Sarah"
     expect(page).to have_content "Smith"
     expect(page).to have_content "Neuro"
-    expect(page).to have_content 5
   end
 end

@@ -39,7 +39,6 @@ class TherapistsController < ApplicationController
     def therapist_params
       params.require(:therapist).permit(:first_name,
                                         :last_name,
-                                        :years_experience,
                                         :therapy_type)
     end
 
