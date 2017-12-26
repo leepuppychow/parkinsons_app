@@ -36,7 +36,7 @@ describe "As a user when I visit the user show page" do
     expect(page).to have_content "#{@patient.first_name}'s Medications"
     expect(page).to have_content "Remove"
     expect(page).to have_content "Edit"
-    expect(page).to have_content "REMEMBER TO TAKE"
+    expect(page).to have_content "Remember to Take"
     expect(page).to have_content @patient.patient_medications.first.dosage
     expect(page).to have_content @patient.patient_medications.last.medication.name
     expect(page).to have_content "New Medication?"
