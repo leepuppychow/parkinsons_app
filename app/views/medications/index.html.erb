@@ -10,7 +10,7 @@
     <% @medications.each do |medication| %>
     <table>
       <tr>
-        <th id="med-name"><%=medication.medication.name%> (<%=medication.freq_per_day%>)</th>
+        <th id="med-name"><%=medication.medication.name.upcase%>: </th>
         <% medication.freq_per_day.times do %>
           <th id="pill-icon"><%= render partial: "svg/pill" %></th>
         <% end %>
