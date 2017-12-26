@@ -10,7 +10,6 @@
     <th>Last Name</th>
     <th>Specialty</th>
     <th>Location</th>
-    <th>Years Experience</th>
     <th>Patient Count</th>
   </tr>
 <% @doctors.each do |doctor| %>
@@ -19,7 +18,6 @@
     <th><%= doctor.last_name %></th>
     <th><%= doctor.specialty %></th>
     <th><%= doctor.location %></th>
-    <th><%= doctor.years_experience %></th>
     <th><%= doctor.patients.count %></th>
   </tr>
 <% end %>

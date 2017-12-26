@@ -8,8 +8,7 @@
   <tr>
     <th>First Name</th>
     <th>Last Name</th>
-    <th>Therapy Type</th>
-    <th>Years Experience</th>
+    <th>Specialty</th>
     <th>Patient Count</th>
   </tr>
 <% @therapists.each do |therapist| %>
@@ -17,7 +16,6 @@
     <th><%= therapist.first_name %></th>
     <th><%= therapist.last_name %></th>
     <th><%= therapist.therapy_type %></th>
-    <th><%= therapist.years_experience %></th>
     <th><%= therapist.patients.count %></th>
   </tr>
 <% end %>
