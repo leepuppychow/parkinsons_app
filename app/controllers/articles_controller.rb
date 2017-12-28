@@ -9,9 +9,8 @@ class ArticlesController < ApplicationController
     @articles = []
 
     response = Faraday.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=#{@search}+AND+#{@year}[pdat]")
-    raw_data = response.body
-    unprocessed_ids = Nokogiri::XML(raw_data).xpath("//Id").to_s
-    pubmed_ids = unprocessed_ids.delete('<Id>').split("/")
+    unprocessed_ids = Nokogiri::XML(response.body).xpath("//Id")
+    pubmed_ids = unprocessed_ids.map {|element| element.children.text}
 
     summaries = Faraday.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=#{pubmed_ids.join(",")}")
     summaries_body = Nokogiri::XML(summaries.body)
