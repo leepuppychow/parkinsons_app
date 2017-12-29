@@ -2,9 +2,8 @@ require 'rails_helper'
 
 describe "When a patient visits activity index" do
   it "can click on Edit link and be sent to a form to edit an activity" do
-    patient = create(:patient)
+    patient = create(:patient, username: "test", password: "password", role: 2)
     activity = create(:activity, patient: patient)
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
     visit patient_activities_path(patient)
@@ -16,10 +15,7 @@ describe "When a patient visits activity index" do
     fill_in "activity[description]", with: "Run"
     fill_in "activity[duration]", with: 20
     fill_in "activity[date_performed]", with: Date.today
-
-    click_on "Update Activity"
-
-    #It does not even get to the update action in activities controller??
+    click_button "Update Activity"
 
     expect(current_path).to eq patient_activities_path(patient)
     expect(page).to have_content 20

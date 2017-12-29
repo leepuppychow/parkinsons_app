@@ -1,18 +1,18 @@
 class TherapistsController < ApplicationController
+  
   def index
-    @therapists = current_user.therapists
   end
 
   def new
-    @therapist = current_user.therapists.new
+    @therapist = Therapist.new
   end
 
   def create
     @therapist = current_user.therapists.find_or_create_by(therapist_params)
-    if @therapist.id == nil
-      render :new
-    else
+    if @therapist.save
       redirect_to patient_therapists_path(current_user)
+    else
+      render :new
     end
   end
 
@@ -21,7 +21,7 @@ class TherapistsController < ApplicationController
   end
 
   def update
-    @therapist = Therapist.find(params[:id])
+    @therapist = current_user.therapists.find(params[:id])
     if @therapist.update(therapist_params)
       redirect_to patient_therapists_path(current_user)
     else
