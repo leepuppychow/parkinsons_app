@@ -1,15 +1,6 @@
 require 'rails_helper'
 
 describe "When user visits My Medications (medication index path)" do
-  # before(:each) do
-  #   @patient = create(:patient)
-  #   @medication1 = create(:medication)
-  #   @medication2 = create(:medication)
-  #   @patient.patient_medications << create(:patient_medication, medication: @medication1)
-  #   @patient.patient_medications << create(:patient_medication, medication: @medication2)
-  #
-  # end
-
   it "user can click on New Medication link and see form for new medication" do
     patient = create(:patient)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)

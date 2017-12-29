@@ -14,6 +14,6 @@ describe "When user visits My Care Team" do
     click_on "Remove"
 
     expect(current_path).to eq patient_therapists_path(patient)
-    expect(page).to_not have_content doctor.first_name
+    expect(patient.patient_doctors.count).to eq 0
   end
 end

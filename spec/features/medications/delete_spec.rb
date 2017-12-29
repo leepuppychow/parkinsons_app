@@ -15,9 +15,7 @@ describe "When user visits My Medications" do
 
     click_link "Remove"
 
-    #This does hit medications#destroy, but does not get deleted in test enviroment???
-
     expect(current_path).to eq patient_medications_path(patient)
-    expect(page).to_not have_content(medication.name)
+    expect(patient.patient_medications.count).to eq 0
   end
 end
