@@ -43,9 +43,11 @@ class FindDoctorController < ApplicationController
     response = Faraday.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=#{@specialty}&location=#{@state}-#{@city}&limit=20&user_key=#{BETTER_DOCTOR_KEY}")
     data = JSON.parse(response.body)
 
+
     if data["data"]
       @doctors = data["data"].map do |practice|
         [doctor_name(practice), full_address(practice), phone_number(practice)]
+        byebug
       end.uniq
     end
 

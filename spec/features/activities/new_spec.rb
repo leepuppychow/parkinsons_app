@@ -15,7 +15,7 @@ describe "When a patient visits activity index" do
     expect(page).to have_content "Date"
     fill_in "activity[description]", with: "Did today's workout"
     fill_in "activity[duration]", with: 20
-    fill_in "activity[date_performed]", with: "12/25/2017"
+    fill_in "activity[date_performed]", with: "2017-12-25"
 
     click_on "Create Activity"
 

@@ -15,10 +15,7 @@ describe "When a patient visits activity index" do
     fill_in "activity[description]", with: "Run"
     fill_in "activity[duration]", with: 20
     fill_in "activity[date_performed]", with: Date.today
-
     click_button "Update Activity"
-
-    #It does not even get to the update action in activities controller??
 
     expect(current_path).to eq patient_activities_path(patient)
     expect(page).to have_content 20
