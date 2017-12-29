@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   end
 
   def specialties
-    @specialties = ["Family-Practitioner", "Neurologist", "Cardiologist","Psychiatrist",
-      "Neurosurgeon", "Physiatrist", "Orthopedic-Surgeon",
-      "Physical-Therapist", "Occupational-Therapist", "Speech-Therapist",
-      "Psychologist", "Mental-Health-Counselor"]
+    @specialties = ["Cardiologist", "Family-Practitioner", "Neurologist",
+      "Neurosurgeon", "Orthopedic-Surgeon", "Physiatrist" ,"Psychiatrist",
+      "Psychologist", "Occupational-Therapist", "Physical-Therapist", 
+      "Speech-Therapist", "Mental-Health-Counselor"]
   end
 
   def states

@@ -1,4 +1,5 @@
 class DoctorsController < ApplicationController
+  before_action :specialties
 
   def new
     @doctor = Doctor.new
