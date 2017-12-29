@@ -1,5 +1,5 @@
 class MedicationsController < ApplicationController
-  
+
   def index
     @medications = current_user.patient_medications
   end
@@ -13,7 +13,6 @@ class MedicationsController < ApplicationController
     new_med = current_user.patient_medications.new(dosage_frequency_params)
     new_med.medication_id = @medication.id
     if new_med.save
-      flash[:success] = "Added new medication successfully!"
       redirect_to patient_medications_path(current_user)
     else
       flash[:notice] = "Please enter all information"
@@ -22,7 +21,7 @@ class MedicationsController < ApplicationController
   end
 
   def edit
-    @medication = current_user.medications.find(params[:id])
+    @medication = current_user.patient_medications.find(params[:id]).medication
   end
 
   def update
@@ -31,6 +30,7 @@ class MedicationsController < ApplicationController
       @medication.patient_medications.update(patient_medications_params)
       redirect_to patient_medications_path(current_user)
     else
+      flash[:notice] = "Please enter all information."
       render :edit
     end
   end

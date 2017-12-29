@@ -13,12 +13,14 @@ class SessionController < ApplicationController
         redirect_to patient_path(@patient)
       end
     else
+      flash[:notice] = "Either username or password is incorrect."
       render :new
     end
   end
 
   def destroy
     session[:user_id] = nil
+    flash[:notice] = "You have been logged out successfully."
     redirect_to "/"
   end
 

@@ -12,9 +12,9 @@ class ActivitiesController < ApplicationController
   def create
     @activity = current_user.activities.new(activity_params)
     if @activity.save
-      flash[:notice] = "Logged new activity: #{@activity.description}"
       redirect_to patient_activities_path(current_user)
     else
+      flash[:notice] = "Please enter all information."
       render :new
     end
   end
@@ -28,6 +28,7 @@ class ActivitiesController < ApplicationController
     if @activity.update(activity_params)
       redirect_to patient_activities_path(current_user)
     else
+      flash[:notice] = "Please enter all information."
       render :edit
     end
   end
