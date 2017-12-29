@@ -9,6 +9,7 @@ class DoctorsController < ApplicationController
     if @doctor.save
       redirect_to patient_therapists_path(current_user)
     else
+      flash[:notice] = "Please enter all information."
       render :new
     end
   end
@@ -22,6 +23,7 @@ class DoctorsController < ApplicationController
     if @doctor.update(doctor_params)
       redirect_to patient_therapists_path(current_user)
     else
+      flash[:notice] = "Please enter all information."
       render :edit
     end
   end

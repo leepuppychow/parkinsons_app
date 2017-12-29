@@ -1,5 +1,5 @@
 class TherapistsController < ApplicationController
-  
+
   def index
   end
 
@@ -12,6 +12,7 @@ class TherapistsController < ApplicationController
     if @therapist.save
       redirect_to patient_therapists_path(current_user)
     else
+      flash[:notice] = "Please enter all information."
       render :new
     end
   end
@@ -25,6 +26,7 @@ class TherapistsController < ApplicationController
     if @therapist.update(therapist_params)
       redirect_to patient_therapists_path(current_user)
     else
+      flash[:notice] = "Please enter all information."
       render :edit
     end
   end

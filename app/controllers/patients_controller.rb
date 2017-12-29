@@ -10,9 +10,11 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
     if @patient.save
+      flash[:notice] = "New user created successfully :)"
       session[:user_id] = @patient.id
       redirect_to patient_path(@patient)
     else
+      flash[:notice] = "Please enter all information."
       render :new
     end
   end

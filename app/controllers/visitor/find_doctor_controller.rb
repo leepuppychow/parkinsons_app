@@ -30,6 +30,10 @@ class Visitor::FindDoctorController < ApplicationController
     city.strip.downcase.tr(" ", "-")
   end
 
+  def insurances_accepted(practice)
+    practice["practices"].first["insurance_uids"]
+  end
+
   def create
     @city = city_formatted(params[:city])
     @state = params[:state].strip.downcase
@@ -41,7 +45,10 @@ class Visitor::FindDoctorController < ApplicationController
 
     if data["data"]
       @doctors = data["data"].map do |practice|
-        [doctor_name(practice), full_address(practice), phone_number(practice)]
+        [doctor_name(practice),
+        full_address(practice),
+        phone_number(practice),
+        insurances_accepted(practice)]
       end.uniq
     end
 
