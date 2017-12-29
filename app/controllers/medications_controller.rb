@@ -1,4 +1,5 @@
 class MedicationsController < ApplicationController
+  
   def index
     @medications = current_user.patient_medications
   end

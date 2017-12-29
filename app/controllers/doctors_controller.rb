@@ -6,10 +6,10 @@ class DoctorsController < ApplicationController
 
   def create
     @doctor = current_user.doctors.find_or_create_by(doctor_params)
-    if @doctor.id == nil
-      render :new
-    else
+    if @doctor.save
       redirect_to patient_therapists_path(current_user)
+    else
+      render :new
     end
   end
 

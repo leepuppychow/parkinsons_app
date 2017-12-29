@@ -1,6 +1,6 @@
 class TherapistsController < ApplicationController
+  
   def index
-    @therapists = current_user.therapists
   end
 
   def new

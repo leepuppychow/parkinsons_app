@@ -33,7 +33,7 @@
       <th>Specialty</th>
       <th></th>
     </tr>
-    <% @therapists.each do |therapist| %>
+    <% current_user.therapists.each do |therapist| %>
     <tr>
       <th><%= therapist.first_name %> <%= therapist.last_name %></th>
       <th><%= therapist.therapy_type %></th>

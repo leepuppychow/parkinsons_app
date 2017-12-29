@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+  
   def index
     @workout = Exercise.pick_3_random
   end
