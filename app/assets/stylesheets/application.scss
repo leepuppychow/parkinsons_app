@@ -212,3 +212,14 @@
 #med-name{
   font-size: 18px;
 }
+#insurance-info{
+  display: none;
+}
+#show-insurance{
+  font-size: 14px;
+  color: blue;
+}
+#show-insurance:hover #insurance-info{
+  color:blue;
+  display: block;
+}

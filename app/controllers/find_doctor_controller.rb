@@ -45,12 +45,14 @@ class FindDoctorController < ApplicationController
 
     if data["data"]
       @doctors = data["data"].map do |practice|
-        [doctor_name(practice), full_address(practice), phone_number(practice)]
+        [doctor_name(practice),
+        full_address(practice),
+        phone_number(practice),
+        insurances_accepted(practice)]
       end.uniq
     end
 
     render :index
   end
-
-
+  
 end
