@@ -47,7 +47,6 @@ class FindDoctorController < ApplicationController
     if data["data"]
       @doctors = data["data"].map do |practice|
         [doctor_name(practice), full_address(practice), phone_number(practice)]
-        byebug
       end.uniq
     end
 

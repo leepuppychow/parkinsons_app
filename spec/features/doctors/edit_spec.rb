@@ -2,10 +2,11 @@ require 'rails_helper'
 
 describe "When user visits My Care Team page" do
   it "can click on Edit to edit doctor's information" do
-    patient = create(:patient, username: "admin", password: "password", role: 2)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
+    patient = create(:patient, username: "test", password: "password", role: 2)
     doctor = create(:doctor)
     patient.doctors << doctor
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
     visit patient_therapists_path(patient)
     click_on "Edit"

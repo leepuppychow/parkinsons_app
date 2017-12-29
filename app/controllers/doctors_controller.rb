@@ -18,7 +18,7 @@ class DoctorsController < ApplicationController
   end
 
   def update
-    @doctor = Doctor.find(params[:id])
+    @doctor = current_user.doctors.find(params[:id])
     if @doctor.update(doctor_params)
       redirect_to patient_therapists_path(current_user)
     else

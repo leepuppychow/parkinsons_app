@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "When user visits My Care Team page" do
   it "can click a New Doctor link to add a new physician" do
     patient = create(:patient)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
     visit patient_therapists_path(patient)
 
@@ -20,7 +21,7 @@ describe "When user visits My Care Team page" do
     fill_in "doctor[specialty]", with: "Neuro"
     fill_in "doctor[location]", with: "Denver"
 
-    click_on "Add!"
+    click_on "Create Doctor"
 
     expect(current_path).to eq patient_therapists_path(patient)
     expect(page).to have_content "Sarah"
