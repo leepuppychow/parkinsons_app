@@ -31,7 +31,7 @@
               Sorry, no insurance information found.
             <% else %>
               <% doctor[3].each do |insurance| %>
-                <li><%= insurance %></li>
+                <li><%= insurance.capitalize %></li>
               <% end %>
             <% end %>
           </div>

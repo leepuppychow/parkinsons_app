@@ -10,14 +10,8 @@
         <th><%= f.text_field :last_name, class: "entry-form" %></th>
       </tr>
       <tr>
-        <th>Therapy Type</th>
-        <th>
-          <select class="entry-form" name="therapist[therapy_type]">
-            <% Therapist.uniq_therapy_type.each do |type| %>
-              <option value="<%=type%>"><%=type%></option>
-            <% end %>
-          </select>
-        </th>
+        <th><%= f.label "Specialty" %></th>
+        <th><%= f.select :therapy_type, Therapist.uniq_therapy_type, {}, class: "entry-form" %></th>
       </tr>
       <tr>
         <th colspan="2"><%= f.submit id: "submit-button" %></th>

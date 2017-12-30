@@ -18,7 +18,7 @@ describe "When user visits My Care Team page" do
 
     fill_in "doctor[first_name]", with: "Sarah"
     fill_in "doctor[last_name]", with: "Smith"
-    fill_in "doctor[specialty]", with: "Neuro"
+    select "Neurologist", :from => "doctor[specialty]"
     fill_in "doctor[location]", with: "Denver"
 
     click_on "Create Doctor"
@@ -26,6 +26,6 @@ describe "When user visits My Care Team page" do
     expect(current_path).to eq patient_therapists_path(patient)
     expect(page).to have_content "Sarah"
     expect(page).to have_content "Smith"
-    expect(page).to have_content "Neuro"
+    expect(page).to have_content "Neurologist"
   end
 end

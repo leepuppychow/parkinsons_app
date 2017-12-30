@@ -14,7 +14,7 @@ describe "When user visits My Care Team" do
     expect(page).to have_content "Add New Therapist"
     expect(page).to have_content "First name"
     expect(page).to have_content "Last name"
-    expect(page).to have_content "Therapy Type"
+    expect(page).to have_content "Specialty"
 
     fill_in "therapist[first_name]", with: "Taylor"
     fill_in "therapist[last_name]", with: "McCulloch"
