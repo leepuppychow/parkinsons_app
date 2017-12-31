@@ -13,8 +13,8 @@ class ArticlesController < ApplicationController
     pubmed_ids = unprocessed_ids.map {|element| element.children.text}
 
     summaries = Faraday.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=#{pubmed_ids.join(",")}")
-    summaries_body = Nokogiri::XML(summaries.body)
-    titles = summaries_body.xpath('//*[@Name="Title"]').map {|element| element.children.text}
+    summaries_body = Nokogiri::XML(summaries.body).xpath('//*[@Name="Title"]')
+    titles = summaries_body.map {|element| element.children.text}
     @articles = pubmed_ids.zip(titles) if pubmed_ids
 
     render :index
