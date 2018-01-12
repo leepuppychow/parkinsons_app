@@ -11,6 +11,10 @@
   <%= link_to "Log New Activity", new_patient_activity_path(current_user), id: "new-doctor" %>
 
   <h2>List of All Activities</h2>
+  <%= form_tag "/patients/activity_filter", method: "get" do %>
+    <%= select_tag :activity_sort, options_for_select(["Description", "Date_Performed", "Duration"]) %>
+    <%= submit_tag "Sort" %>
+  <% end  %>
   <table class="provider-table">
     <tr class="column-headers">
       <th>Description</th>

@@ -1,7 +1,11 @@
 class ActivitiesController < ApplicationController
 
   def index
-    @activities = current_user.activities.order("date_performed DESC")
+    if params[:activity_sort]
+      @activities = Activity.sort_by(params[:activity_sort].downcase)
+    else
+      @activities = current_user.activities.order("date_performed DESC")
+    end
     @activity_graph = current_user.activities_with_duration_summed_per_day
   end
 
@@ -42,7 +46,7 @@ class ActivitiesController < ApplicationController
   private
 
     def activity_params
-      params.require(:activity).permit(:description, :duration, :date_performed)
+      params.require(:activity).permit(:description, :duration, :date_performed, :activity_sort)
     end
 
 end

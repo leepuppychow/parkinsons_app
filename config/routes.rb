@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/login", to: "session#new"
   post "/login", to: "session#create"
   get "/logout", to: "session#destroy"
-  # get "/finddoctor", to: "find_doctor#index"
+  get '/patients/activity_filter', to: "activities#index"
 
   resources :patients, only: [:new, :create, :show] do
     resources :medications
