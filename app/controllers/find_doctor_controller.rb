@@ -54,5 +54,5 @@ class FindDoctorController < ApplicationController
 
     render :index
   end
-  
+
 end
