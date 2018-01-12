@@ -6,12 +6,19 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    @doctor = current_user.doctors.find_or_create_by(doctor_params)
-    if @doctor.save
+    if params[:find_doctor]
+      @doctor = current_user.doctors.create!(first_name: params[:find_doctor][0],
+        last_name: params[:find_doctor][0], location: params[:find_doctor][2],
+        specialty: params[:find_doctor][1])
       redirect_to patient_therapists_path(current_user)
     else
-      flash[:notice] = "Please enter all information."
-      render :new
+      @doctor = current_user.doctors.find_or_create_by(doctor_params)
+      if @doctor.save
+        redirect_to patient_therapists_path(current_user)
+      else
+        flash[:notice] = "Please enter all information."
+        render :new
+      end
     end
   end
 

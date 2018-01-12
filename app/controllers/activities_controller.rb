@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
     if params[:activity_sort]
       @activities = Activity.sort_by(params[:activity_sort].downcase)
     else
-      @activities = current_user.activities.order("date_performed DESC")
+      @activities = current_user.activities
     end
     @activity_graph = current_user.activities_with_duration_summed_per_day
   end

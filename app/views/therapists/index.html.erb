@@ -10,12 +10,14 @@
     <tr class="column-headers">
       <th>Name</th>
       <th>Specialty</th>
+      <th>Location</th>
       <th></th>
     </tr>
       <% current_user.doctors.each do |doctor|  %>
       <tr>
         <th><%= doctor.first_name %> <%= doctor.last_name %></th>
         <th><%= doctor.specialty %></th>
+        <th><%= doctor.location %></th>
         <th>
           <%= link_to "Edit", edit_patient_doctor_path(current_user, doctor), id: "edit-link" %></br>
           <%= link_to "Remove", patient_doctor_path(current_user, doctor), method: "delete", id: "delete-link"%>

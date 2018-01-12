@@ -18,19 +18,22 @@
     </tr>
   <% end  %>
 </table>
-  <% if @doctors != [] %>
+  <% if @doctors.empty? == false %>
     <h2><%= @specialty.capitalize%>(s) in: <%=@city.capitalize%>,  <%=@state.upcase%></h2>
-    <% @doctors.each do |doctor| %>
+    <% @doctors.each do |name, info| %>
       <section class="doctor-search">
-        <h4><%= doctor[0] %></h4>
-        <div><%= doctor[1] %></div>
-        <div><%= doctor[2] %></div></br>
+        <h4><%= name %></h4>
+        <div><%= info[:location] %></div>
+        <div><%= info[:phone_number] %></div></br>
+        <%= button_to "Add to My Care Team", patient_doctors_path(current_user),
+            params: {:find_doctor => [name, @specialty, info[:location]]} %>
+        </br>
         <div id="show-insurance">INSURANCE(S) ACCEPTED
           <div id="insurance-info">
-            <% if doctor[3].empty? %>
+            <% if info[:insurance].empty? %>
               Sorry, no insurance information found.
             <% else %>
-              <% doctor[3].each do |insurance| %>
+              <% info[:insurance].each do |insurance| %>
                 <li><%= insurance.capitalize %></li>
               <% end %>
             <% end %>
