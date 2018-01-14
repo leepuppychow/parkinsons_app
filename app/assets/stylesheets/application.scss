@@ -49,6 +49,14 @@
    align-items: center;
  }
 
+ .row-container{
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-between;
+   align-items: flex-end;
+   width: 375px;
+ }
+
  .homepage-section {
    background: #106053;
    border-radius: 5%;
@@ -153,10 +161,11 @@
    }
  }
 
- .doctor-search {
+ .doctor-search, .healthprovider-box, .medication-box{
    background-color: #a6dbd0;
    width: 400px;
    margin-bottom: 20px;
+   margin-top: 20px;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -165,6 +174,11 @@
      text-decoration: underline;
      margin-left: 5px;
      margin-right: 5px;
+   }
+   .note-box{
+     font-size: 14px;
+     height: 50px;
+     width: 200px;
    }
  }
 

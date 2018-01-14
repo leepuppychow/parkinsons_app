@@ -11,7 +11,7 @@ describe "As a user when I visit the user show page" do
     @patient.patient_medications << create(:patient_medication, medication: @medication2)
 
     @patient.therapists << create(:therapist)
-    @patient.therapists << create(:therapist, first_name: "Taylor")
+    @patient.therapists << create(:therapist, name: "Taylor")
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@patient)
     visit patient_path(@patient)

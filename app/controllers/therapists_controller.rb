@@ -10,6 +10,7 @@ class TherapistsController < ApplicationController
   def create
     @therapist = current_user.therapists.find_or_create_by(therapist_params)
     if @therapist.save
+      @therapist.note = Note.create(contents: "", noteable_id: @therapist.id, noteable_type: @therapist.class.name)
       redirect_to patient_therapists_path(current_user)
     else
       flash[:notice] = "Please enter all information."
@@ -39,9 +40,10 @@ class TherapistsController < ApplicationController
   private
 
     def therapist_params
-      params.require(:therapist).permit(:first_name,
-                                        :last_name,
-                                        :therapy_type)
+      params.require(:therapist).permit(:name,
+                                        :specialty,
+                                        :location,
+                                        :phone)
     end
 
 end

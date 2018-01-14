@@ -14,8 +14,8 @@
   </tr>
 <% @doctors.each do |doctor| %>
   <tr>
-    <th><%= doctor.first_name %></th>
-    <th><%= doctor.last_name %></th>
+    <th><%= doctor.name %></th>
+    <th><%= doctor.phone %></th>
     <th><%= doctor.specialty %></th>
     <th><%= doctor.location %></th>
     <th><%= doctor.patients.count %></th>

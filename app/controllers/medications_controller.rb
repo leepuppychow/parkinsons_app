@@ -13,6 +13,7 @@ class MedicationsController < ApplicationController
     new_med = current_user.patient_medications.new(dosage_frequency_params)
     new_med.medication_id = @medication.id
     if new_med.save
+      new_med.note = Note.create(contents: "", noteable_id: @medication.id, noteable_type: @medication.class.name)
       redirect_to patient_medications_path(current_user)
     else
       flash[:notice] = "Please enter all information"

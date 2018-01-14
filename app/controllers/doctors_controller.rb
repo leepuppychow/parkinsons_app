@@ -6,12 +6,22 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    @doctor = current_user.doctors.find_or_create_by(doctor_params)
-    if @doctor.save
+    if params[:find_doctor]
+      @doctor = current_user.doctors.create!(name: params[:find_doctor][0],
+                            location: params[:find_doctor][2],
+                            specialty: params[:find_doctor][1],
+                            phone: params[:find_doctor][3])
+      @doctor.note = Note.create(contents: "", noteable_id: @doctor.id, noteable_type: @doctor.class.name)
       redirect_to patient_therapists_path(current_user)
     else
-      flash[:notice] = "Please enter all information."
-      render :new
+      @doctor = current_user.doctors.find_or_create_by(doctor_params)
+      if @doctor.save
+        @doctor.note = Note.create(contents: "", noteable_id: @doctor.id, noteable_type: @doctor.class.name)
+        redirect_to patient_therapists_path(current_user)
+      else
+        flash[:notice] = "Please enter all information."
+        render :new
+      end
     end
   end
 
@@ -37,8 +47,8 @@ class DoctorsController < ApplicationController
   private
 
     def doctor_params
-      params.require(:doctor).permit(:first_name,
-                                    :last_name,
+      params.require(:doctor).permit(:name,
+                                    :phone,
                                     :specialty,
                                     :location)
     end

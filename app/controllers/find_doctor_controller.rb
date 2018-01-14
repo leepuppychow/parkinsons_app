@@ -5,7 +5,7 @@ class FindDoctorController < ApplicationController
   before_action :specialties, :states, :current_user
 
   def index
-    @doctors = []
+    @doctors = Hash.new()
     @specialty = ""
     @city = ""
     @state = ""
@@ -38,21 +38,22 @@ class FindDoctorController < ApplicationController
     @city = city_formatted(params[:city])
     @state = params[:state].strip.downcase
     @specialty = params[:specialty].strip.downcase
-    @doctors = []
+    @doctors = Hash.new()
 
     response = Faraday.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=#{@specialty}&location=#{@state}-#{@city}&limit=20&user_key=#{BETTER_DOCTOR_KEY}")
     data = JSON.parse(response.body)
 
     if data["data"]
-      @doctors = data["data"].map do |practice|
-        [doctor_name(practice),
-        full_address(practice),
-        phone_number(practice),
-        insurances_accepted(practice)]
-      end.uniq
+      data["data"].each do |practice|
+        @doctors["#{doctor_name(practice)}"] = {
+          :specialty => @specialty,
+          :location => full_address(practice),
+          :phone_number => phone_number(practice),
+          :insurance => insurances_accepted(practice)
+        }
+      end
     end
 
     render :index
   end
-
 end

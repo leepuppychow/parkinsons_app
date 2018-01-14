@@ -13,8 +13,8 @@ describe "When user visits My Care Team page" do
 
     expect(current_path).to eq edit_patient_doctor_path(patient, doctor)
 
-    fill_in "doctor[first_name]", with: "Sarah"
-    fill_in "doctor[last_name]", with: "Smith"
+    fill_in "doctor[name]", with: "Sarah Smith"
+    fill_in "doctor[phone]", with: "3031234556"
     select "Neurologist", :from => "doctor[specialty]"
     fill_in "doctor[location]", with: "Denver"
 

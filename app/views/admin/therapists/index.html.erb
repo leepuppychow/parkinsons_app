@@ -13,9 +13,10 @@
   </tr>
 <% @therapists.each do |therapist| %>
   <tr>
-    <th><%= therapist.first_name %></th>
-    <th><%= therapist.last_name %></th>
-    <th><%= therapist.therapy_type %></th>
+    <th><%= therapist.name %></th>
+    <th><%= therapist.specialty %></th>
+    <th><%= therapist.location%></th>
+    <th><%= therapist.phone%></th>
     <th><%= therapist.patients.count %></th>
   </tr>
 <% end %>
