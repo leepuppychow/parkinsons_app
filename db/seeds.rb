@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 yimeng = Doctor.create!(first_name: "Yimeng", last_name: "Yen", specialty: "ortho", location: "Boston")
+yimeng.note = Note.create(contents: "", noteable_id: yimeng.id, noteable_type: yimeng.class.name)
 
 lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", password: "password")
 lee.doctors << yimeng
@@ -20,13 +21,19 @@ lee.activities.create!(duration: 45, date_performed: Date.today-3, description: 
 lee.activities.create!(duration: 100, date_performed: Date.today-5, description: "Hello")
 
 medication1 = Medication.create(name: "Sinemet")
+medication1.note = Note.create(contents: "", noteable_id: medication1.id, noteable_type: medication1.class.name)
 medication2 = Medication.create(name: "Mirapex")
+medication2.note = Note.create(contents: "", noteable_id: medication2.id, noteable_type: medication2.class.name)
 lee.patient_medications.create!(dosage: "100mg", freq_per_day:2, medication_id: medication1.id)
 lee.patient_medications.create!(dosage: "200mg", freq_per_day:1, medication_id: medication2.id)
 
 therapist1 = Therapist.create(first_name: "Nida", last_name: "Tansinsin", therapy_type: "Physical Therapy")
+therapist1.note = Note.create(contents: "", noteable_id: therapist1.id, noteable_type: therapist1.class.name)
 therapist2 = Therapist.create(first_name: "MC", last_name: "Cox", therapy_type: "Occupational Therapy")
-therapist2 = Therapist.create(first_name: "Amanda", last_name: "T", therapy_type: "Speech Therapy")
+therapist2.note = Note.create(contents: "", noteable_id: therapist2.id, noteable_type: therapist2.class.name)
+therapist3 = Therapist.create(first_name: "Amanda", last_name: "T", therapy_type: "Speech Therapy")
+therapist3.note = Note.create(contents: "", noteable_id: therapist3.id, noteable_type: therapist3.class.name)
+
 lee.therapists << therapist1
 lee.therapists << therapist2
 

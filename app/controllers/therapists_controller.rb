@@ -1,6 +1,8 @@
 class TherapistsController < ApplicationController
 
   def index
+    # @doctor_note = current_user.doctor.note.create(contents: "")
+    # @therapist_note = current_user.therapist.note.create(contents: "")
   end
 
   def new
@@ -10,6 +12,7 @@ class TherapistsController < ApplicationController
   def create
     @therapist = current_user.therapists.find_or_create_by(therapist_params)
     if @therapist.save
+      @therapist.note = Note.create(contents: "", noteable_id: @therapist.id, noteable_type: @therapist.class.name)
       redirect_to patient_therapists_path(current_user)
     else
       flash[:notice] = "Please enter all information."
