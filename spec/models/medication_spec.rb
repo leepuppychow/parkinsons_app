@@ -9,6 +9,10 @@ describe Medication, type: :model do
     it "has many patients" do
       is_expected.to have_many(:patients).through(:patient_medications)
     end
+
+    it "has one note" do
+      is_expected.to have_one(:note)
+    end
   end
 
 end

@@ -10,5 +10,6 @@ describe Doctor, type: :model do
 
   describe "Relationships" do
     it {is_expected.to have_many(:patients).through(:patient_doctors)}
+    it {is_expected.to have_one(:note)}
   end
 end
