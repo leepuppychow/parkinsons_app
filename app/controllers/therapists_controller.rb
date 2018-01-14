@@ -40,9 +40,10 @@ class TherapistsController < ApplicationController
   private
 
     def therapist_params
-      params.require(:therapist).permit(:first_name,
-                                        :last_name,
-                                        :therapy_type)
+      params.require(:therapist).permit(:name,
+                                        :specialty,
+                                        :location,
+                                        :phone)
     end
 
 end

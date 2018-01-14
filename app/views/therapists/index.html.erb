@@ -7,8 +7,9 @@
 <div class="column-container">
   <% current_user.doctors.each do |doctor|  %>
   <div class="healthprovider-box">
-    <h4><%= doctor.first_name %> <%= doctor.last_name %> (<%= doctor.specialty %>)</h4>
-    <%= doctor.location %>
+    <h4><%= doctor.name %> (<%= doctor.specialty %>)</h4>
+    <%= doctor.location %></br>
+    <%= doctor.phone %>
     <div class="row-container">
       <%= form_for [current_user, doctor, doctor.note] do |f| %>
         <%= f.label "Notes:" %></br>
@@ -25,7 +26,9 @@
 
   <% current_user.therapists.each do |therapist| %>
     <div class="healthprovider-box">
-      <h4><%= therapist.first_name %> <%= therapist.last_name %> (<%= therapist.therapy_type %>)</h4>
+      <h4><%= therapist.name %> (<%= therapist.specialty %>)</h4>
+      <%= therapist.location %></br>
+      <%= therapist.phone %>
       <div class="row-container">
         <%= form_for [current_user, therapist, therapist.note] do |f| %>
           <%= f.label "Notes:" %></br>

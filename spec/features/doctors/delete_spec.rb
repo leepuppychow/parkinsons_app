@@ -9,7 +9,7 @@ describe "When user visits My Care Team" do
 
     visit patient_therapists_path(patient)
 
-    expect(page).to have_content doctor.first_name
+    expect(page).to have_content doctor.name
 
     click_on "Remove"
 

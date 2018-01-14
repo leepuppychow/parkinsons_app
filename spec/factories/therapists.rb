@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :therapist do
-    first_name "Nida"
-    last_name "Tan"
-    therapy_type "Physical Therapist"
+    name "Nida Tansinsin"
+    specialty "Physical Therapist"
+    location "here"
+    phone "123-456-7890"
   end
 end

@@ -27,7 +27,7 @@
         <div><%= info[:phone_number] %></div></br>
         <% if current_user %>
           <%= button_to "Add to My Care Team", patient_doctors_path(current_user),
-              params: {:find_doctor => [name, @specialty, info[:location]]} %>
+              params: {:find_doctor => [name, @specialty, info[:location], info[:phone_number]]} %>
           </br>
         <% end %>
         <div id="show-insurance">INSURANCE(S) ACCEPTED

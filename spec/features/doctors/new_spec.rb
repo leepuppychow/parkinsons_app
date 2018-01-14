@@ -16,8 +16,8 @@ describe "When user visits My Care Team page" do
     expect(page).to have_content "Specialty"
     expect(page).to have_content "Location"
 
-    fill_in "doctor[first_name]", with: "Sarah"
-    fill_in "doctor[last_name]", with: "Smith"
+    fill_in "doctor[name]", with: "Sarah Smith"
+    fill_in "doctor[phone]", with: "3031234567"
     select "Neurologist", :from => "doctor[specialty]"
     fill_in "doctor[location]", with: "Denver"
 

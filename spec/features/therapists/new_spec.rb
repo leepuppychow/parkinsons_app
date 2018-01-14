@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "When user visits My Care Team" do
   it "can click on New Therapist and create new therapist with a form" do
     patient = create(:patient, role: 2)
-    therapist = create(:therapist, therapy_type: "Physical Therapy")
+    therapist = create(:therapist, specialty: "Physical Therapy")
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
@@ -16,9 +16,10 @@ describe "When user visits My Care Team" do
     expect(page).to have_content "Last name"
     expect(page).to have_content "Specialty"
 
-    fill_in "therapist[first_name]", with: "Taylor"
-    fill_in "therapist[last_name]", with: "McCulloch"
-    select "Physical Therapy", :from => "therapist[therapy_type]"
+    fill_in "therapist[name]", with: "Taylor McCulloch"
+    fill_in "therapist[location]", with: "Denver"
+    fill_in "therapist[phone]", with: "12345567890"
+    select "Physical Therapy", :from => "therapist[specialty]"
 
     click_on "Create Therapist"
 

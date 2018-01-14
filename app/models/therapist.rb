@@ -3,8 +3,8 @@ class Therapist < ApplicationRecord
   has_many :therapist_patients
   has_many :patients, through: :therapist_patients
   has_one :note, as: :noteable, dependent: :destroy
-
-  def self.uniq_therapy_type
-    Therapist.pluck(:therapy_type).uniq
-  end
+  #
+  # def self.uniq_specialty
+  #   Therapist.pluck(:specialty).uniq
+  # end
 end
