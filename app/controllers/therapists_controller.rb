@@ -1,8 +1,6 @@
 class TherapistsController < ApplicationController
 
   def index
-    # @doctor_note = current_user.doctor.note.create(contents: "")
-    # @therapist_note = current_user.therapist.note.create(contents: "")
   end
 
   def new

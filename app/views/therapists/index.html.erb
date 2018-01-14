@@ -24,23 +24,18 @@
   <%= link_to "New Doctor?", new_patient_doctor_path(current_user), id: "new-doctor" %>
 
   <h2>THERAPIST(S):</h2>
-  <table class="provider-table">
-    <tr class="column-headers">
-      <th>Name</th>
-      <th>Specialty</th>
-      <th></th>
-    </tr>
     <% current_user.therapists.each do |therapist| %>
-    <tr>
-      <th><%= therapist.first_name %> <%= therapist.last_name %></th>
-      <th><%= therapist.therapy_type %></th>
-      <th>
-        <%= link_to "Edit", edit_patient_therapist_path(current_user, therapist), id: "edit-link" %></br>
-        <%= link_to "Remove", patient_therapist_path(current_user, therapist), method: "delete", id: "delete-link"%>
-      </th>
-    </tr>
+    <div class="doctor-search">
+      <h4><%= therapist.first_name %> <%= therapist.last_name %> (<%= therapist.therapy_type %>)</h4>
+      <%= form_for [current_user, therapist, therapist.note] do |f| %>
+        <%= f.label "Notes:" %></br>
+        <%= f.text_area :contents %></br>
+        <%= f.submit "Update Note" %>
+      <% end %>
+      <%= link_to "Edit", edit_patient_therapist_path(current_user, therapist), id: "edit-link" %></br>
+      <%= link_to "Remove", patient_therapist_path(current_user, therapist), method: "delete", id: "delete-link"%>
+    </div>
     <% end %>
-  </table>
 
   <%= link_to "New Therapist?", new_patient_therapist_path(current_user), id: "new-therapist" %>
 </div>

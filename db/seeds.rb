@@ -21,11 +21,11 @@ lee.activities.create!(duration: 45, date_performed: Date.today-3, description: 
 lee.activities.create!(duration: 100, date_performed: Date.today-5, description: "Hello")
 
 medication1 = Medication.create(name: "Sinemet")
-medication1.note = Note.create(contents: "", noteable_id: medication1.id, noteable_type: medication1.class.name)
 medication2 = Medication.create(name: "Mirapex")
-medication2.note = Note.create(contents: "", noteable_id: medication2.id, noteable_type: medication2.class.name)
-lee.patient_medications.create!(dosage: "100mg", freq_per_day:2, medication_id: medication1.id)
-lee.patient_medications.create!(dosage: "200mg", freq_per_day:1, medication_id: medication2.id)
+pm1 = lee.patient_medications.create!(dosage: "100mg", freq_per_day:2, medication_id: medication1.id)
+pm2 = lee.patient_medications.create!(dosage: "200mg", freq_per_day:1, medication_id: medication2.id)
+pm1.note = Note.create(contents: "", noteable_id: pm1.id, noteable_type: pm1.class.name)
+pm2.note = Note.create(contents: "", noteable_id: pm2.id, noteable_type: pm2.class.name)
 
 therapist1 = Therapist.create(first_name: "Nida", last_name: "Tansinsin", therapy_type: "Physical Therapy")
 therapist1.note = Note.create(contents: "", noteable_id: therapist1.id, noteable_type: therapist1.class.name)
