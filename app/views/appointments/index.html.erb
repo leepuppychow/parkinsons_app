@@ -5,6 +5,5 @@
 </div>
 
 <% @appointments.each do |appointment| %>
-  <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %></li>
-  <li><%= appointment.appointable.name %></li>
+  <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.appointable.name %></li>
 <% end %>

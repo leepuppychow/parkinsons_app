@@ -10,6 +10,15 @@
     <h4><%= doctor.name %> (<%= doctor.specialty %>)</h4>
     <%= doctor.location %></br>
     <%= doctor.phone %>
+
+
+    <div class="appointments">
+      <% doctor.appointments.where(patient_id: current_user.id).each do |appointment|  %>
+        <%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %>
+      <% end %>
+    </div>
+
+
     <div class="row-container">
       <%= form_for [current_user, doctor, doctor.note] do |f| %>
         <%= f.label "Notes:" %></br>
@@ -29,6 +38,15 @@
       <h4><%= therapist.name %> (<%= therapist.specialty %>)</h4>
       <%= therapist.location %></br>
       <%= therapist.phone %>
+
+
+      <div class="appointments">
+        <% therapist.appointments.where(patient_id: current_user.id).each do |appointment|  %>
+          <%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %>
+        <% end %>
+      </div>
+
+
       <div class="row-container">
         <%= form_for [current_user, therapist, therapist.note] do |f| %>
           <%= f.label "Notes:" %></br>
