@@ -7,9 +7,16 @@
 <div class="column-container">
   <% current_user.doctors.each do |doctor|  %>
   <div class="healthprovider-box">
-    <h4><%= doctor.name %> (<%= doctor.specialty %>)</h4>
+    <h2><%= doctor.name %> (<%= doctor.specialty %>)</h2>
     <%= doctor.location %></br>
     <%= doctor.phone %>
+    <div class="appointments">
+      <h4>Appointments:</h4>
+      <%= link_to "New Appointment", new_patient_appointment_path(current_user) %>
+      <% doctor.current_appointments(current_user).each do |appointment|  %>
+        <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %></li>
+      <% end %>
+    </div>
     <div class="row-container">
       <%= form_for [current_user, doctor, doctor.note] do |f| %>
         <%= f.label "Notes:" %></br>
@@ -26,9 +33,16 @@
 
   <% current_user.therapists.each do |therapist| %>
     <div class="healthprovider-box">
-      <h4><%= therapist.name %> (<%= therapist.specialty %>)</h4>
+      <h2><%= therapist.name %> (<%= therapist.specialty %>)</h2>
       <%= therapist.location %></br>
       <%= therapist.phone %>
+      <div class="appointments">
+        <h4>Appointments:</h4>
+        <%= link_to "New Appointment", new_patient_appointment_path(current_user) %>
+        <% therapist.current_appointments(current_user).each do |appointment|  %>
+          <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %></li>
+        <% end %>
+      </div>
       <div class="row-container">
         <%= form_for [current_user, therapist, therapist.note] do |f| %>
           <%= f.label "Notes:" %></br>

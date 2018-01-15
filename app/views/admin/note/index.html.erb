@@ -1,0 +1,18 @@
+<div class="header">
+  <h1>Admin: All Notes
+    <%= render partial: "admin/admin_header" %>
+  </h1>
+</div>
+
+<table>
+  <tr>
+    <th>Note Type</th>
+    <th>Note Contents</th>
+  </tr>
+<% @notes.each do |note| %>
+  <tr>
+    <th><%= note.noteable.class %></th>
+    <th><%= note.contents %></th>
+  </tr>
+<% end %>
+</table>
