@@ -1,4 +1,8 @@
-<h1>My Appointments</h1>
+<div class="header">
+  <h1>My Appointments
+    <%= render partial: "partials/header"%>
+  </h1>
+</div>
 
 <% @appointments.each do |appointment| %>
   <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %></li>

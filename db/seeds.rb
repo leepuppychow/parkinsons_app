@@ -8,7 +8,6 @@
 
 yimeng = Doctor.create!(name: "Yiming Yen", specialty: "ortho", location: "02312 Street Boston, MA", phone: "760-123-4567")
 yimeng.note = Note.create(contents: "", noteable_id: yimeng.id, noteable_type: yimeng.class.name)
-
 lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", password: "password")
 lee.doctors << yimeng
 
@@ -34,8 +33,15 @@ therapist2.note = Note.create(contents: "", noteable_id: therapist2.id, noteable
 therapist3 = Therapist.create(name: "Amanda T", specialty: "Speech Therapy", location: "02312 Street Boston, MA", phone: "760-123-4567")
 therapist3.note = Note.create(contents: "", noteable_id: therapist3.id, noteable_type: therapist3.class.name)
 
-lee.therapists << therapist1
-lee.therapists << therapist2
+appointment1 = Appointment.create(date_time: DateTime.now, status: "attended",
+  appointable_id: yimeng.id, appointable_type: yimeng.class.name)
+appointment2 = Appointment.create(date_time: DateTime.now, status: "late",
+  appointable_id: therapist1.id, appointable_type: therapist1.class.name)
+appointment3 = Appointment.create(date_time: DateTime.now, status: "late",
+  appointable_id: therapist3.id, appointable_type: therapist3.class.name)
+
+lee.therapists << [therapist1, therapist2]
+lee.appointments << [appointment1, appointment2, appointment3]
 
 exercise1 = Exercise.create!(name: "Squats", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")
 exercise2 = Exercise.create!(name: "Tandem Balance", description: "Squat down then stand up", image: "https://img.physera.com/exercise/9bc0622fc57257f8/original.png")
