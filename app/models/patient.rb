@@ -20,4 +20,8 @@ class Patient < ApplicationRecord
     .sum(:duration)
   end
 
+  def all_providers
+    doctors + therapists
+  end
+
 end

@@ -13,7 +13,7 @@
     <div class="appointments">
       <h4>Appointments:</h4>
       <% doctor.current_appointments(current_user).each do |appointment|  %>
-        <%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %>
+        <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %></li>
       <% end %>
     </div>
     <div class="row-container">
@@ -38,7 +38,7 @@
       <div class="appointments">
         <h4>Appointments:</h4>
         <% therapist.current_appointments(current_user).each do |appointment|  %>
-          <%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %>
+          <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %></li> 
         <% end %>
       </div>
       <div class="row-container">

@@ -1,0 +1,13 @@
+<div class="header">
+  <h1>Add a New Appointment
+    <%= render partial: "partials/header"%>
+  </h1>
+</div>
+
+<%= form_for [current_user, @appointment] do |f|%>
+  <%= f.label "Appointment Date" %>
+  <%= f.datetime_local_field :date_time %>
+  <%= f.label "Care Provider" %>
+  <%= f.collection_select :appointable, current_user.all_providers, :name, :name %>
+  <%= f.submit %>
+<% end %>

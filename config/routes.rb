@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/patients/activity_filter', to: "activities#index"
 
   resources :patients, only: [:new, :create, :show] do
-    resources :appointments, only: [:index]
+    resources :appointments, only: [:index, :new, :create]
     resources :medications do
       resources :note, only: [:update]
     end

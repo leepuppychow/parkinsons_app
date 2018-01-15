@@ -7,3 +7,5 @@
 <% @appointments.each do |appointment| %>
   <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.appointable.name %></li>
 <% end %>
+
+<%= link_to "New Appointment", new_patient_appointment_path %>
