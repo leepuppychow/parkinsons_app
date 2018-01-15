@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :medications, only: [:index]
     resources :exercises
     resources :therapists, only: [:index]
+    resources :note, only: [:index]
   end
 
   namespace :visitor do
