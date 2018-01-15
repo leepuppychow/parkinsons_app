@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/patients/activity_filter', to: "activities#index"
 
   resources :patients, only: [:new, :create, :show] do
+    resources :appointments, only: [:index, :new, :create]
     resources :medications do
       resources :note, only: [:update]
     end
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
     resources :medications, only: [:index]
     resources :exercises
     resources :therapists, only: [:index]
+    resources :note, only: [:index]
   end
 
   namespace :visitor do

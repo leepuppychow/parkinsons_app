@@ -7,10 +7,10 @@
 <div class="column-container">
   <%= link_to "My Care Team", patient_therapists_path(current_user), class: "main-page-link" %>
   <%= link_to "My Medications", patient_medications_path(current_user), class: "main-page-link"  %>
+  <%= link_to "My Appointments", patient_appointments_path(current_user), class: "main-page-link"  %>
   <%= link_to "Activity Tracker", patient_activities_path(current_user), class: "main-page-link"  %>
   <%= link_to "Today's Workout", patient_exercises_path(current_user), class: "main-page-link"  %>
   <%= link_to "Parkinson's on Twitter", patient_article_path(current_user), class: "main-page-link"  %>
   <%= link_to "Search for Articles", patient_articles_path(current_user), class: "main-page-link"  %>
   <%= link_to "Find a Care Provider", patient_find_doctor_index_path(current_user), class: "main-page-link"  %>
-  <p class="main-page-link" id="not-ready">Community<p>
 </div>

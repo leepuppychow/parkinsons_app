@@ -3,8 +3,10 @@ class Therapist < ApplicationRecord
   has_many :therapist_patients
   has_many :patients, through: :therapist_patients
   has_one :note, as: :noteable, dependent: :destroy
-  #
-  # def self.uniq_specialty
-  #   Therapist.pluck(:specialty).uniq
-  # end
+  has_many :appointments, as: :appointable
+
+  def current_appointments(current_user)
+    appointments.where(patient_id: current_user.id)
+  end
+
 end
