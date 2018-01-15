@@ -1,0 +1,6 @@
+<h1>My Appointments</h1>
+
+<% @appointments.each do |appointment| %>
+  <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %></li>
+  <li><%= appointment.appointable.name %></li>
+<% end %>
