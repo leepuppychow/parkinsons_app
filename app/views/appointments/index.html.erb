@@ -8,7 +8,6 @@
   <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.appointable.name %>
       <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
       <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
-
   </li>
 <% end %>
 
