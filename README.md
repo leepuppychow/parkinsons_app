@@ -1,32 +1,26 @@
 # README
 
-Currently Visitor content, Nearby Resources and Community links are not complete.
+## DEVELOPER:
+  * Lee Chow
 
-At this point, the Search for Articles link will return PubMed ID's with working
-links to the articles' pages. I will be working to make the article's titles appear
-instead of the ID.
+## INSTRUCTORS:
+  * Ilana Corson
+  * Ali Schlereth
 
+## RUBY VERSION:
+  * Rails 5.1.4
+  * Ruby 2.4.1
 
+## TESTING SUITE
+  * RSpec with Capybara gem
+  * FactoryBot gem
+  * Launchy gem
 
-This README would normally document whatever steps are necessary to get the
-application up and running
+## DATABASE SCHEMA
+  ![alt text](/app/assets/images/parkinsons_schema.png)
 
-Things you may want to cover:
+## HOW TO RUN TEST SUITE
+  * git clone repo and then run 'rspec' in terminal
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## DEPLOYMENT INSTRUCTIONS
+  * Deployed via Heroku at: https://parkinsons.herokuapp.com/
