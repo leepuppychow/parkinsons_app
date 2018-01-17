@@ -5,7 +5,10 @@
 </div>
 
 <% @appointments.each do |appointment| %>
-  <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.appointable.name %></li>
+  <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.appointable.name %>
+      <%= link_to "Edit Appointment", edit_patient_appointment_path(current_user, appointment) %>
+
+  </li>
 <% end %>
 
 <%= link_to "New Appointment", new_patient_appointment_path %>
