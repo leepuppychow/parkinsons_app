@@ -13,23 +13,9 @@ class AppointmentsController < ApplicationController
     @therapist = Therapist.find_by(name: appointment_params[:appointable])
 
     if @doctor != nil
-      @appointment = Appointment.new(patient: current_user,
-                                    appointable_id: @doctor.id,
-                                    appointable_type: @doctor.class.name,
-                                    date_time: appointment_params[:date_time])
+      create_provider(@doctor)
     elsif @therapist != nil
-      @appointment = Appointment.new(patient: current_user,
-                                    appointable_id: @therapist.id,
-                                    appointable_type: @therapist.class.name,
-                                    date_time: appointment_params[:date_time])
-    end
-
-    if @appointment.save
-      flash[:notice] = "Appointment added successfully"
-      redirect_to patient_appointments_path(current_user)
-    else
-      flash[:notice] = "Error occurred, please try again."
-      render :new
+      create_provider(@therapist)
     end
   end
 
@@ -43,27 +29,9 @@ class AppointmentsController < ApplicationController
     @therapist = Therapist.find_by(name: appointment_params[:appointable])
 
     if @doctor != nil
-      if @appointment.update(patient: current_user,
-                            appointable_id: @doctor.id,
-                            appointable_type: @doctor.class.name,
-                            date_time: appointment_params[:date_time])
-        flash[:notice] = "Appointment was updated successfully"
-        redirect_to patient_appointments_path(current_user)
-      else
-        flash[:notice] = "Some information missing or error occurred, appointment not updated"
-        render :edit
-      end
+      update_provider(@doctor)
     elsif @therapist != nil
-      if @appointment.update(patient: current_user,
-                            appointable_id: @therapist.id,
-                            appointable_type: @therapist.class.name,
-                            date_time: appointment_params[:date_time])
-        flash[:notice] = "Appointment was updated successfully"
-        redirect_to patient_appointments_path(current_user)
-      else
-        flash[:notice] = "Some information missing or error occurred, appointment not updated"
-        render :edit
-      end
+      update_provider(@therapist)
     end
   end
 
@@ -73,4 +41,30 @@ class AppointmentsController < ApplicationController
       params.require(:appointment).permit(:date_time, :appointable)
     end
 
+    def create_provider(provider)
+      @appointment = Appointment.new(patient: current_user,
+                                    appointable_id: provider.id,
+                                    appointable_type: provider.class.name,
+                                    date_time: appointment_params[:date_time])
+      if @appointment.save
+        flash[:notice] = "Appointment added successfully"
+        redirect_to patient_appointments_path(current_user)
+      else
+        flash[:notice] = "Error occurred, please try again."
+        render :new
+      end
+    end
+
+    def update_provider(provider)
+      if @appointment.update(patient: current_user,
+                            appointable_id: provider.id,
+                            appointable_type: provider.class.name,
+                            date_time: appointment_params[:date_time])
+        flash[:notice] = "Appointment was updated successfully"
+        redirect_to patient_appointments_path(current_user)
+      else
+        flash[:notice] = "Some information missing or error occurred, appointment not updated"
+        render :edit
+      end
+    end
 end

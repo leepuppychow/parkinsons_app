@@ -11,7 +11,7 @@ describe "As a logged-in patient, when I visit the appointment index" do
 
     visit patient_appointments_path(patient)
 
-    click_on "Edit Appointment"
+    click_on "Edit"
 
     expect(current_path).to eq edit_patient_appointment_path(patient, appt)
 
