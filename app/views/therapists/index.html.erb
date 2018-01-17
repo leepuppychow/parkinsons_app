@@ -14,7 +14,11 @@
       <h4>Appointments:</h4>
       <%= link_to "New Appointment", new_patient_appointment_path(current_user) %>
       <% doctor.current_appointments(current_user).each do |appointment|  %>
-        <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %></li>
+        <li>
+          <%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %>
+          <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
+          <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
+        </li>
       <% end %>
     </div>
     <div class="row-container">
@@ -40,7 +44,11 @@
         <h4>Appointments:</h4>
         <%= link_to "New Appointment", new_patient_appointment_path(current_user) %>
         <% therapist.current_appointments(current_user).each do |appointment|  %>
-          <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %></li>
+          <li>
+            <%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %>
+            <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
+            <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
+          </li>
         <% end %>
       </div>
       <div class="row-container">
