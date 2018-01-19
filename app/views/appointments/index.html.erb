@@ -4,7 +4,16 @@
   </h1>
 </div>
 
-<% @appointments.each do |appointment| %>
+<h2>Future appointments</h2>
+<% @appointments.future.each do |appointment| %>
+  <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.appointable.name %>
+      <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
+      <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
+  </li>
+<% end %>
+
+<h2>Past appointments</h2>
+<% @appointments.past.each do |appointment| %>
   <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.appointable.name %>
       <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
       <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
