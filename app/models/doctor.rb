@@ -9,7 +9,7 @@ class Doctor < ApplicationRecord
   has_many :appointments, as: :appointable
 
   def current_appointments(current_user)
-    appointments.where(patient_id: current_user.id)
+    appointments.where(patient_id: current_user.id).future
   end
 
 end

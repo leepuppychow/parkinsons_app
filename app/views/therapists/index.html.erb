@@ -11,8 +11,7 @@
     <%= doctor.location %></br>
     <%= doctor.phone %>
     <div class="appointments">
-      <h4>Appointments:</h4>
-      <%= link_to "New Appointment", new_patient_appointment_path(current_user) %>
+      <h4>Upcoming Appointments:</h4>
       <% doctor.current_appointments(current_user).each do |appointment|  %>
         <li>
           <%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %>
@@ -20,6 +19,7 @@
           <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
         </li>
       <% end %>
+      <%= link_to "New Appointment", new_patient_appointment_path(current_user) %>
     </div>
     <div class="row-container">
       <%= form_for [current_user, doctor, doctor.note] do |f| %>
@@ -41,14 +41,14 @@
       <%= therapist.location %></br>
       <%= therapist.phone %>
       <div class="appointments">
-        <h4>Appointments:</h4>
-        <%= link_to "New Appointment", new_patient_appointment_path(current_user) %>
+        <h4>Upcoming Appointments:</h4>
         <% therapist.current_appointments(current_user).each do |appointment|  %>
           <li>
             <%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %>
             <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
             <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
           </li>
+          <%= link_to "New Appointment", new_patient_appointment_path(current_user) %>
         <% end %>
       </div>
       <div class="row-container">
