@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def specialties
     @specialties = ["Cardiologist", "Family-Practitioner", "Neurologist",
       "Neurosurgeon", "Orthopedic-Surgeon", "Physiatrist" ,"Psychiatrist",
-      "Psychologist", "Occupational-Therapist", "Physical-Therapist", 
+      "Psychologist", "Occupational-Therapist", "Physical-Therapist",
       "Speech-Therapist", "Mental-Health-Counselor"]
   end
 
@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
               "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC",
               "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT",
               "VT", "VA", "WA", "WV", "WI", "WY"]
+  end
+
+  def blank_note(provider)
+    Note.create(contents: "", noteable_id: provider.id, noteable_type: provider.class.name)
   end
 
 end
