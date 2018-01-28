@@ -11,12 +11,12 @@ class DoctorsController < ApplicationController
                             location: params[:find_doctor][2],
                             specialty: params[:find_doctor][1],
                             phone: params[:find_doctor][3])
-      @doctor.note = Note.create(contents: "", noteable_id: @doctor.id, noteable_type: @doctor.class.name)
+      @doctor.note = blank_note(@doctor)
       redirect_to patient_therapists_path(current_user)
     else
       @doctor = current_user.doctors.find_or_create_by(doctor_params)
       if @doctor.save
-        @doctor.note = Note.create(contents: "", noteable_id: @doctor.id, noteable_type: @doctor.class.name)
+        @doctor.note = blank_note(@doctor)
         redirect_to patient_therapists_path(current_user)
       else
         flash[:notice] = "Please enter all information."
@@ -47,9 +47,6 @@ class DoctorsController < ApplicationController
   private
 
     def doctor_params
-      params.require(:doctor).permit(:name,
-                                    :phone,
-                                    :specialty,
-                                    :location)
+      params.require(:doctor).permit(:name, :phone, :specialty, :location)
     end
 end
