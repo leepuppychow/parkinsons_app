@@ -3,6 +3,7 @@ class PatientsController < ApplicationController
   def show
     @medications = current_user.patient_medications
     @appointments = current_user.appointments.today
+    @activity_graph = current_user.activities_with_duration_summed_per_day
   end
 
   def new

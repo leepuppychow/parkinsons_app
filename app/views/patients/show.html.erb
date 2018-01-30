@@ -24,4 +24,8 @@
     <% end %>
     <hr>
   <% end %>
+
+  <h2>Your Recent Activity Levels:</h2>
+  <%= line_chart @activity_graph, xtitle: "Date Performed", ytitle: "Duration(min)" %>
+
 </div>

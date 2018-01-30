@@ -1,6 +1,7 @@
 <%= render partial: "partials/header"%>
 
 <div class="column-container">
+  <h2>My Care Providers:</h2>
   <% current_user.doctors.each do |doctor|  %>
   <div class="healthprovider-box">
     <h2><%= doctor.name %> (<%= doctor.specialty %>)</h2>
