@@ -4,6 +4,33 @@
   </h1>
 </div>
 
+<div class="reminders">
+  <h2><%= Date.today.strftime('%A, %b %d, %Y') %></h2>
+  <hr>
+  <h2 class="med-reminder">Remember to Take:</h2>
+    <% @medications.each do |medication| %>
+    <table>
+      <tr>
+        <th id="med-name"><%=medication.medication.name.upcase%>: </th>
+        <% medication.freq_per_day.times do %>
+          <th id="pill-icon"><%= render partial: "svg/pill" %></th>
+        <% end %>
+      </tr>
+    </table>
+    <% end  %>
+  <hr>
+  <% if @appointments.empty? == false %>
+    <h2>Today's Appointments:</h2>
+    <% @appointments.each do |appointment| %>
+      <li><%= appointment.date_time %> with
+        <%= appointment.appointable.name %>
+      </li>
+    <% end %>
+    <hr>
+  <% end %>
+
+</div>
+
 <div class="column-container">
   <%= link_to "My Care Team", patient_therapists_path(current_user), class: "main-page-link" %>
   <%= link_to "My Medications", patient_medications_path(current_user), class: "main-page-link"  %>

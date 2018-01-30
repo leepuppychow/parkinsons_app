@@ -1,6 +1,8 @@
 class PatientsController < ApplicationController
 
   def show
+    @medications = current_user.patient_medications
+    @appointments = current_user.appointments.today
   end
 
   def new
