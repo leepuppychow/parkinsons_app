@@ -1,2 +1,17 @@
-<%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-<%= link_to "Home", patient_path(current_user), class: "nav-bar-links"%>
+<div class="header">
+  <div class="dropdown">
+    <button class="dropbutton"><%= current_user.first_name %>'s Health Tracker</button>
+    <div class="dropdown-content">
+      <%= link_to "My Care Team", patient_therapists_path(current_user), class: "drop-links"%></br>
+      <%= link_to "Medications", patient_medications_path(current_user), class: "drop-links" %><br>
+      <%= link_to "Appointments", patient_appointments_path(current_user), class: "drop-links" %><br>
+      <%= link_to "Activity Tracker", patient_activities_path(current_user), class: "drop-links" %><br>
+      <%= link_to "Today's Workout", patient_exercises_path(current_user), class: "drop-links" %><br>
+      <%= link_to "Article Search", patient_articles_path(current_user), class: "drop-links" %><br>
+      <%= link_to "Twitter", patient_article_path(current_user, 1), class: "drop-links" %><br>
+      <%= link_to "Find a Care Provider", patient_find_doctor_index_path(current_user), class: "drop-links" %><br>
+    </div>
+  </div>
+  <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
+  <%= link_to "Home", patient_path(current_user), class: "nav-bar-links" %>
+</div>
