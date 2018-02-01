@@ -1,23 +1,6 @@
-<div class="header">
-  <h1>My Medications
-    <%= render partial: "partials/header"%>
-  </h1>
-</div>
+<%= render partial: "partials/header"%>
 
 <div class="column-container">
-  <h2><%= Date.today.strftime('%A, %b %d, %Y') %> </h2>
-  <h2 class="med-reminder">Remember to Take:</h2>
-    <% @medications.each do |medication| %>
-    <table>
-      <tr>
-        <th id="med-name"><%=medication.medication.name.upcase%>: </th>
-        <% medication.freq_per_day.times do %>
-          <th id="pill-icon"><%= render partial: "svg/pill" %></th>
-        <% end %>
-      </tr>
-    </table>
-    <% end  %>
-
   <h2 class="med-reminder"> <%= current_user.first_name %>'s Medications </h2>
 
   <% @medications.each do |medication| %>

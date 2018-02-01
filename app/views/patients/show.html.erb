@@ -1,16 +1,31 @@
-<div class="header">
-  <h1> Hi, <%= current_user.first_name %>
-    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-  </h1>
-</div>
+<%= render partial: "/partials/header" %>
 
 <div class="column-container">
-  <%= link_to "My Care Team", patient_therapists_path(current_user), class: "main-page-link" %>
-  <%= link_to "My Medications", patient_medications_path(current_user), class: "main-page-link"  %>
-  <%= link_to "My Appointments", patient_appointments_path(current_user), class: "main-page-link"  %>
-  <%= link_to "Activity Tracker", patient_activities_path(current_user), class: "main-page-link"  %>
-  <%= link_to "Today's Workout", patient_exercises_path(current_user), class: "main-page-link"  %>
-  <%= link_to "Parkinson's on Twitter", patient_article_path(current_user), class: "main-page-link"  %>
-  <%= link_to "Search for Articles", patient_articles_path(current_user), class: "main-page-link"  %>
-  <%= link_to "Find a Care Provider", patient_find_doctor_index_path(current_user), class: "main-page-link"  %>
+  <h2><%= Date.today.strftime('%A, %b %d, %Y') %> </h2>
+
+  <h2 class="med-reminder">Remember to Take:</h2>
+    <% @medications.each do |medication| %>
+    <table>
+      <tr>
+        <th id="med-name"><%=medication.medication.name.upcase%>: </th>
+        <% medication.freq_per_day.times do %>
+          <th id="pill-icon"><%= render partial: "svg/pill" %></th>
+        <% end %>
+      </tr>
+    </table>
+    <% end  %>
+  <hr>
+  <% if @appointments.empty? == false %>
+    <h2>Today's Appointments:</h2>
+    <% @appointments.each do |appointment| %>
+      <li><%= appointment.date_time %> with
+        <%= appointment.appointable.name %>
+      </li>
+    <% end %>
+    <hr>
+  <% end %>
+
+  <h2>Your Recent Activity Levels:</h2>
+  <%= line_chart @activity_graph, xtitle: "Date Performed", ytitle: "Duration(min)" %>
+
 </div>

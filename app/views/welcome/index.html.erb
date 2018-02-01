@@ -4,12 +4,16 @@
 
 <div class="column-container">
   <div class="homepage-section">
-    <h3>New user?</h3>
-    <%= link_to "Sign Up", new_patient_path, class: "homepage-link" %>
+    <h3>Already have an account?</h3>
+    <%= link_to "Login with Google Account", login_path %>
   </div>
-  <div class="homepage-section">
+  <!-- <div class="homepage-section">
     <h3>Already have an account?</h3>
     <%= link_to "Log In", login_path, class: "homepage-link" %>
+  </div> -->
+  <div class="homepage-section">
+    <h3>New user?</h3>
+    <%= link_to "Sign Up", new_patient_path, class: "homepage-link" %>
   </div>
   <div class="homepage-section">
     <h3>Check out the app!</h3>
