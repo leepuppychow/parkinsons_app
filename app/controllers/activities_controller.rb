@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
 
   def index
     params[:activity_sort] ||= "date_performed"
-    @activities = Activity.sort_by(params[:activity_sort].downcase)
+    @activities = current_user.activities
     @activity_graph = current_user.activities_with_duration_summed_per_day
   end
 
