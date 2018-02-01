@@ -1,5 +1,3 @@
-require './app/authentication_keys'
-
 class Visitor::FindDoctorController < ApplicationController
   before_action :specialties, :states
 
