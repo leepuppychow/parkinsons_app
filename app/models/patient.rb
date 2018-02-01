@@ -27,7 +27,7 @@ class Patient < ApplicationRecord
 
   def self.from_omniauth(auth)
 		where(uid: auth.uid).first_or_initialize.tap do |patient|
-			patient.uid = auth.uid
+      # patient.uid = auth.uid
       patient.first_name = auth.info.first_name
       patient.last_name = auth.info.last_name
 			patient.username = auth.info.name

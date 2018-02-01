@@ -8,10 +8,10 @@
 
 yimeng = Doctor.create!(name: "Yiming Yen", specialty: "ortho", location: "02312 Street Boston, MA", phone: "760-123-4567")
 yimeng.note = Note.create(contents: "", noteable_id: yimeng.id, noteable_type: yimeng.class.name)
-lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", password: "password", role: 2)
+lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", uid: "hello", role: 2)
 lee.doctors << yimeng
 
-admin = Patient.create!(first_name: "admin", last_name: "admin", age: 0, username: "admin", password: "admin", role: 1)
+admin = Patient.create!(first_name: "admin", last_name: "admin", age: 0, username: "admin", uid: "admin", role: 1)
 
 lee.activities.create!(duration: 30, date_performed: Date.today, description: "Hello")
 lee.activities.create!(duration: 40, date_performed: Date.today-1, description: "Hello")
