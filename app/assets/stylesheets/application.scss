@@ -18,10 +18,9 @@
    background-color: white;
    font-family: Arial;
  }
-
 .header {
   height: 45px;
-  background-color: #73baae;
+  background-color: #373b42;
    h1 {
      font-size:28px;
      color: white;
@@ -35,14 +34,22 @@
      padding-top: 4px;
      padding-right: 20px;
    }
-   .nav-bar-links:hover {
-     color: black;
-   }
-
  }
-
+ .homepage-box {
+   padding-right: 10px;
+   padding-left: 10px;
+   border-radius: 10%;
+   margin-top: 20px;
+   font-size: 24px;
+   text-decoration: underline;
+ }
+ #chart-1 {
+   background-color: rgba(215, 225, 242, 0.3);
+   margin-top: 20px;
+   border-radius: 5%;
+ }
  .dropbutton{
-   background-color: #73baae;
+   background-color: #373b42;
    height: 45px;
    color: white;
    font-size: 22px;
@@ -52,29 +59,31 @@
    position: relative;
    display: inline-block;
  }
-
  .dropdown-content {
    display: none;
    position: absolute;
-   background-color: #f9f9f9;
+   background-color: #e8edf7;
    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
    z-index: 1;
    width: 200px;
    .drop-links{
      text-decoration: none;
      font-size: 20px;
+     color: black;
    }
  }
  .dropdown-content a:hover {background-color: grey}
-
  .dropdown:hover .dropdown-content {
    display: block;
  }
-
- .dropdown:hover .dropbutton {
-    background-color: #3e8e41;
-}
-
+ .column-container-left {
+   display: flex;
+   flex: {
+     direction: column;
+     wrap: wrap;
+   }
+   align-items: flex-start;
+ }
  .column-container {
    display: flex;
    flex: {
@@ -93,13 +102,13 @@
  }
 
  .homepage-section {
-   background: #106053;
+   background-color: rgba(215, 225, 242, 0.7);
    border-radius: 5%;
    opacity: 0.8;
    text-align: center;
    padding-top: 10px;
    text-decoration: none;
-   color: white;
+   color: black;
    font-size: 20px;
    height: 150px;
    width: 250px;
@@ -108,7 +117,7 @@
 
  .homepage-link {
    font-size: 18px;
-   color: white;
+   color: black;
  }
 
  .homepage-link:hover{
@@ -148,7 +157,7 @@
  }
 
  .medication-table {
-   background: #a6dbd0;
+   background-color: rgba(215, 225, 242, 0.7);
    text-align: left;
    border-radius: 5%;
    .headers{
@@ -163,14 +172,13 @@
  }
 
  .provider-table{
-   background: #a6dbd0;
+   background-color: rgba(215, 225, 242, 0.7);
    text-align: left;
    border-radius: 5%;
    th {
      padding: 10px;
    }
    tr:hover {
-     background: #77a59e;
    }
    .column-headers{
      font-size: 18px;
@@ -179,7 +187,7 @@
  }
 
  .exercise {
-   background: #73baae;
+   background-color: rgba(215, 225, 242, 0.7);
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -197,7 +205,7 @@
  }
 
  .doctor-search, .healthprovider-box, .medication-box{
-   background-color: #a6dbd0;
+   background-color: rgba(215, 225, 242, 0.7);
    width: 500px;
    margin-bottom: 20px;
    margin-top: 20px;
@@ -257,7 +265,9 @@
   height: 50px;
   width: 50px;
 }
-#med-name{
+#med-name, #today-appt{
+  margin-top: 10px;
+  margin-left:25px;
   font-size: 18px;
 }
 #insurance-info{
