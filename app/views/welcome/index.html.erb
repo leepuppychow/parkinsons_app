@@ -5,12 +5,8 @@
 <div class="column-container">
   <div class="homepage-section">
     <h3>Already have an account?</h3>
-    <%= link_to "Login with Google Account", login_path %>
+    <%= link_to "Login with Google Account", '/auth/google_oauth2' %>
   </div>
-  <!-- <div class="homepage-section">
-    <h3>Already have an account?</h3>
-    <%= link_to "Log In", login_path, class: "homepage-link" %>
-  </div> -->
   <div class="homepage-section">
     <h3>New user?</h3>
     <%= link_to "Sign Up", new_patient_path, class: "homepage-link" %>
