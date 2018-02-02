@@ -1,6 +1,8 @@
 <div class="header">
   <div class="dropdown">
-    <button class="dropbutton"><%= current_user.first_name %>'s Health Tracker</button>
+    <button class="dropbutton"><%= current_user.first_name %>'s Health Tracker:
+      <%= Date.today.strftime('%a, %m/%d/%y') %>
+    </button>
     <div class="dropdown-content">
       <%= link_to "My Care Team", patient_therapists_path(current_user), class: "drop-links"%></br>
       <%= link_to "Medications", patient_medications_path(current_user), class: "drop-links" %><br>

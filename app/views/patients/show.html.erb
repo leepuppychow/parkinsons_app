@@ -1,31 +1,23 @@
 <%= render partial: "/partials/header" %>
-
-<div class="column-container">
-  <h2><%= Date.today.strftime('%A, %b %d, %Y') %> </h2>
-
-  <h2 class="med-reminder">Remember to Take:</h2>
-    <% @medications.each do |medication| %>
-    <table>
-      <tr>
-        <th id="med-name"><%=medication.medication.name.upcase%>: </th>
-        <% medication.freq_per_day.times do %>
-          <th id="pill-icon"><%= render partial: "svg/pill" %></th>
-        <% end %>
-      </tr>
-    </table>
-    <% end  %>
-  <hr>
-  <% if @appointments.empty? == false %>
-    <h2>Today's Appointments:</h2>
-    <% @appointments.each do |appointment| %>
-      <li><%= appointment.date_time %> with
-        <%= appointment.appointable.name %>
-      </li>
-    <% end %>
-    <hr>
+<div class="column-container-left">
+  <% if !@medications.empty? %>
+    <div class="homepage-box">Medication Reminders:</div>
+      <% @medications.each do |medication| %>
+        <div id="med-name">Take <%=medication.freq_per_day%> x <%=medication.medication.name.capitalize%></div>
+        <br>
+      <% end  %>
   <% end %>
 
-  <h2>Your Recent Activity Levels:</h2>
+  <% if @appointments.empty? == false %>
+    <div class="homepage-box">Today's Appointments:</div>
+    <% @appointments.each do |appointment| %>
+      <div id="today-appt"><%= appointment.date_time.strftime('%I:%M %p') %> with
+        <%= appointment.appointable.name %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="homepage-box">Your Recent Activity Levels:</div>
   <%= line_chart @activity_graph, xtitle: "Date Performed", ytitle: "Duration(min)" %>
 
 </div>
