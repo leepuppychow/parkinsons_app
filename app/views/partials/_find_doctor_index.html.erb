@@ -24,18 +24,18 @@
       <section class="doctor-search">
         <h4 class="name"><%= doctor.name %></h4>
         <div class="location"><%= doctor.location %></div>
-        <div class="phone"><%= doctor.phone_number %></div></br>
+        <div class="phone"><%= doctor.phone %></div></br>
         <% if current_user %>
           <%= button_to "Add to My Care Team", patient_doctors_path(current_user),
-              params: {:find_doctor => [doctor.name, @specialty, doctor.location, doctor.phone_number]} %>
+              params: {:find_doctor => [doctor.name, @specialty, doctor.location, doctor.phone]} %>
           </br>
         <% end %>
         <div id="show-insurance">INSURANCE(S) ACCEPTED
           <div id="insurance-info">
-            <% if doctor.insurance.empty? %>
+            <% if doctor.insurances.empty? %>
               Sorry, no insurance information found.
             <% else %>
-              <% doctor.insurance.each do |insurance| %>
+              <% doctor.insurances.each do |insurance| %>
                 <li><%= insurance.capitalize %></li>
               <% end %>
             <% end %>

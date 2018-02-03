@@ -14,7 +14,7 @@ describe "As a logged in user(patient)" do
           select "Neurologist", from: "specialty"
           click_on "Search!"
 
-          expect(page).to have_css(".doctor-search", count: 16)
+          expect(page).to have_css(".doctor-search", count: 20)
           within(first(".doctor-search")) do
             expect(page).to have_css(".name")
             expect(page).to have_css(".location")
