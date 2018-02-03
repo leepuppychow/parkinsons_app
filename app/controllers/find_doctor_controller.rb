@@ -9,11 +9,18 @@ class FindDoctorController < ApplicationController
   end
 
   def create
+    city = city_formatted(params[:city])
+    state = params[:state].strip.downcase
+    specialty = params[:specialty].strip.downcase
+    @doctors = DoctorDataService.new(city, state, specialty)
+
+
+
+
     @city = city_formatted(params[:city])
     @state = params[:state].strip.downcase
     @specialty = params[:specialty].strip.downcase
     @doctors = Hash.new()
-
     response = Faraday.get("https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=#{@specialty}&location=#{@state}-#{@city}&limit=20&user_key=#{ENV["BETTER_DOCTOR_KEY"]}")
     data = JSON.parse(response.body)
 
