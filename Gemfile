@@ -37,6 +37,10 @@ gem 'groupdate'
 gem 'figaro'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
