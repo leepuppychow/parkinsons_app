@@ -22,9 +22,9 @@
     <h2><%= @specialty.capitalize%>(s) in: <%=@city.capitalize%>,  <%=@state.upcase%></h2>
     <% @doctors.each do |name, info| %>
       <section class="doctor-search">
-        <h4><%= name %></h4>
-        <div><%= info[:location] %></div>
-        <div><%= info[:phone_number] %></div></br>
+        <h4 class="name"><%= name %></h4>
+        <div class="location"><%= info[:location] %></div>
+        <div class="phone"><%= info[:phone_number] %></div></br>
         <% if current_user %>
           <%= button_to "Add to My Care Team", patient_doctors_path(current_user),
               params: {:find_doctor => [name, @specialty, info[:location], info[:phone_number]]} %>

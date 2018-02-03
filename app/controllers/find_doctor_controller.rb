@@ -8,29 +8,6 @@ class FindDoctorController < ApplicationController
     @state = ""
   end
 
-  def doctor_name(practice)
-    practice["practices"].first["name"]
-  end
-
-  def full_address(practice)
-    practice["practices"].first["visit_address"]["street"] + " " +
-    practice["practices"].first["visit_address"]["city"] + ", " +
-    practice["practices"].first["visit_address"]["state"] + " " +
-    practice["practices"].first["visit_address"]["zip"]
-  end
-
-  def phone_number(practice)
-    practice["practices"].first["phones"].first["number"]
-  end
-
-  def insurances_accepted(practice)
-    practice["practices"].first["insurance_uids"]
-  end
-
-  def city_formatted(city)
-    city.strip.downcase.tr(" ", "-")
-  end
-
   def create
     @city = city_formatted(params[:city])
     @state = params[:state].strip.downcase
@@ -53,4 +30,29 @@ class FindDoctorController < ApplicationController
 
     render :index
   end
+
+  private
+
+    def doctor_name(practice)
+      practice["practices"].first["name"]
+    end
+
+    def full_address(practice)
+      practice["practices"].first["visit_address"]["street"] + " " +
+      practice["practices"].first["visit_address"]["city"] + ", " +
+      practice["practices"].first["visit_address"]["state"] + " " +
+      practice["practices"].first["visit_address"]["zip"]
+    end
+
+    def phone_number(practice)
+      practice["practices"].first["phones"].first["number"]
+    end
+
+    def insurances_accepted(practice)
+      practice["practices"].first["insurance_uids"]
+    end
+
+    def city_formatted(city)
+      city.strip.downcase.tr(" ", "-")
+    end
 end
