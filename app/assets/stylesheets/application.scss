@@ -228,6 +228,7 @@
    .dosage, .frequency {
      margin-left: 20px;
      margin-bottom: 5px;
+     font-size: 18px;
    }
    .note-box{
      font-size: 14px;
@@ -244,9 +245,9 @@
    text-decoration: none;
    font-size: 12px;
    padding: 5px;
-   margin: 8px;
+   margin: 3px;
    background: #4e6b65;
-   opacity: 0.6;
+   opacity: 0.8;
    color: white;
    border-radius: 10%;
  }
@@ -256,12 +257,13 @@
    padding: 10px;
    margin-top: 10px;
    background: #4e6b65;
-   opacity: 0.6;
+   opacity: 0.8;
    color: white;
    border-radius: 10%;
  }
  .med-reminder{
-   font-size:24px;
+   font-size:30px;
+   text-decoration: underline;
  }
  #new-medication:hover{
    background: #4e6b65;
