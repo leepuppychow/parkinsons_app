@@ -1,32 +1,25 @@
 <%= render partial: "partials/header"%>
 
 <div class="column-container">
-  <h2 class="med-reminder"> <%= current_user.first_name %>'s Medications </h2>
-
+  <h1 class="med-reminder">Your Current Medications</h1>
+  <%= link_to "New Medication?", new_patient_medication_path(current_user), id: "new-medication" %>
   <% @medications.each do |medication| %>
     <div class="medication-box">
-      <h4><%=medication.medication.name%></h4>
-      <table>
-        <tr>
-          <th>Dosage: <%=medication.dosage%></th>
-        </tr>
-        <tr>
-          <th>Frequency: <%=medication.freq_per_day%></th>
-        </tr>
-      </table>
+      <h2><%=medication.medication.name%>
+        <%= link_to "Edit", edit_patient_medication_path(current_user, medication), class: "edit-link" %>
+        <%= link_to "Remove", patient_medication_path(current_user, medication), method: "delete", class: "delete-link"%>
+        <hr class="line">
+      </h2>
+        <div class="dosage">Dosage: <%=medication.dosage%></div>
+        <div class="frequency">Frequency(per day): <%=medication.freq_per_day%></div>
       <div class="row-container">
         <%= form_for [current_user, medication, medication.note],
             url: patient_medication_note_path(current_user, medication, medication.note) do |f| %>
-          <%= f.label "Notes:" %></br>
-          <%= f.text_area :contents, class: "note-box" %></br>
-          <%= f.submit "Update Note" %>
+          <%= f.text_area :contents, placeholder: "Enter note", class: "note-box" %></br>
+          <%= f.submit "Update Note", class: "update-note-button" %>
         <% end %>
-        <%= link_to "Edit", edit_patient_medication_path(current_user, medication), id: "edit-link" %>
-        <%= link_to "Remove", patient_medication_path(current_user, medication), method: "delete", id: "delete-link"%>
       </div>
     </div>
   <% end  %>
   </table>
-
-  <%= link_to "New Medication?", new_patient_medication_path(current_user), id: "new-medication" %>
 </div>
