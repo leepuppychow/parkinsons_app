@@ -4,13 +4,15 @@ describe "When user visits My Care Team page" do
   context "can click on Delete link next to a therapist name" do
     it "will delete that therapist" do
       patient = create(:patient, role: 2)
-      patient.therapists.create(name: "joe s", specialty: "PT", phone: "1234", location: "here")
+      therapist = create(:therapist)
+      therapist.note = Note.create(contents: "", noteable_id: therapist.id, noteable_type: therapist.class.name)
+      patient.therapists << therapist
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
       visit patient_therapists_path(patient)
 
-      expect(page).to have_content "joe"
+      expect(page).to have_content "Nida Tansinsin"
 
       click_on "Remove"
 

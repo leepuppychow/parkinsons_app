@@ -9,13 +9,6 @@ describe "When user visits My Medications (medication index path)" do
     click_link "New Medication?"
 
     expect(current_path).to eq new_patient_medication_path(patient)
-    expect(page).to have_content "My Medications"
-    expect(page).to have_content "Home"
-    expect(page).to have_content "Logout"
-    expect(page).to have_content "Add New Medication"
-    expect(page).to have_content "Name"
-    expect(page).to have_content "Dosage"
-    expect(page).to have_content "Frequency"
 
     fill_in "medication[name]", with: "Aspirin"
     fill_in "medication[new_medication][dosage]", with: "100mg"

@@ -4,17 +4,7 @@ describe "When user visits My Care Team page" do
   it "can click a New Doctor link to add a new physician" do
     patient = create(:patient)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
-
-    visit patient_therapists_path(patient)
-
-    click_on "New Doctor?"
-
-    expect(current_path).to eq new_patient_doctor_path(patient)
-    expect(page).to have_content "Add New Doctor"
-    expect(page).to have_content "First name"
-    expect(page).to have_content "Last name"
-    expect(page).to have_content "Specialty"
-    expect(page).to have_content "Location"
+    visit new_patient_doctor_path(patient)
 
     fill_in "doctor[name]", with: "Sarah Smith"
     fill_in "doctor[phone]", with: "3031234567"

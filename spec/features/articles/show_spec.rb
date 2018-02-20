@@ -6,12 +6,9 @@ describe "When patient visits their homepage" do
       patient = create(:patient, username: "admin", password: "password", role: 2)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
-      visit patient_path(patient)
+      visit patient_article_path(patient, 1)
 
-      click_on "Parkinson's on Twitter"
-
-      expect(current_path).to eq patient_article_path(patient, patient)
-      expect(page).to have_content "Parkinson's on Twitter"
+      expect(page).to have_content "Tweets about Parkinsons"
     end
   end
 end

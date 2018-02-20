@@ -10,9 +10,6 @@ describe "When a patient visits activity index" do
     click_on "Log New Activity"
 
     expect(current_path).to eq new_patient_activity_path(patient)
-    expect(page).to have_content "Log Activity Levels"
-    expect(page).to have_content "Total(min)"
-    expect(page).to have_content "Date"
     fill_in "activity[description]", with: "Did today's workout"
     fill_in "activity[duration]", with: 20
     fill_in "activity[date_performed]", with: "2017-12-25"

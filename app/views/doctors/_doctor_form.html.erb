@@ -2,23 +2,19 @@
   <%= form_for [current_user, @doctor] do |f| %>
   <table class="form-table">
     <tr>
-      <th><%= f.label :name %></th>
-      <th><%= f.text_field :name, class: "entry-form" %></th>
+      <th><%= f.text_field :name, placeholder: "Full name", class: "entry-form" %></th>
     </tr>
     <tr>
-      <th><%= f.label :specialty %></th>
+      <th><%= f.text_field :phone, placeholder: "Phone number", class: "entry-form" %></th>
+    </tr>
+    <tr>
+      <th><%= f.text_field :location, placeholder: "Full address", class: "entry-form" %></th>
+    </tr>
+    <tr>
       <th><%= f.select :specialty, options_for_select(@specialties), {}, class: "entry-form"%></th>
     </tr>
     <tr>
-      <th><%= f.label :phone %></th>
-      <th><%= f.text_field :phone, class: "entry-form" %></th>
-    </tr>
-    <tr>
-      <th><%= f.label :location %></th>
-      <th><%= f.text_field :location, class: "entry-form" %></th>
-    </tr>
-    <tr>
-      <th><%= f.submit id: "submit-button" %></th>
+      <th><%= f.submit id: "submit-button" %></th> 
     </tr>
   <% end %>
 </table>

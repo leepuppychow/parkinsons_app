@@ -7,7 +7,7 @@ describe "Visitor signs up for account" do
         it "a new user account is created " do
           visit '/'
 
-          click_on "Sign Up"
+          click_on "Create New Account"
 
           expect(current_path).to eq(new_patient_path)
 
@@ -19,7 +19,7 @@ describe "Visitor signs up for account" do
 
           click_on "Submit"
 
-          expect(page).to have_content("Hi, Lee")
+          expect(page).to have_content("Lee")
         end
       end
     end

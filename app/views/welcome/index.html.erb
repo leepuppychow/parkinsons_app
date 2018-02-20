@@ -11,9 +11,9 @@
     <%= form_tag do %>
       <%= text_field_tag :username, nil, placeholder: "Enter Username", class: "form-table" %><br>
       <%= password_field_tag :password, nil, placeholder: "Password", class: "form-table" %><br>
-      <%= submit_tag "Log In", class: "button"%>
+      <%= submit_tag "Log In", class: "login-button"%>
     <% end  %>
     <br>
-    <%= link_to "Create New Account", new_patient_path, class: "button" %>
+    <%= link_to "Create New Account", new_patient_path, class: "login-button" %>
   </div>
 </div>

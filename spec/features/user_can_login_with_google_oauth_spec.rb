@@ -7,6 +7,6 @@ describe "When a user visits the root path" do
 
     click_on "Login with Google"
     expect(current_path).to eq patient_path(Patient.last)
-    expect(page).to have_content "test"
+    expect(page).to have_content "lee"
   end
 end
