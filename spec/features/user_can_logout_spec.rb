@@ -16,7 +16,7 @@ describe "When a patient(logged-in user) is on their homepage" do
 
       click_on "Log In"
 
-      expect(page).to have_content("Hi, #{patient.first_name}")
+      expect(page).to have_content("#{patient.first_name}")
       expect(current_path).to eq patient_path(patient)
 
       click_on "Logout"
