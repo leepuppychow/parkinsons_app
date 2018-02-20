@@ -22,8 +22,8 @@ def stub_omniauth
     provider: 'google_oauth2',
     uid: "1234",
     info: {
-      first_name: "test",
-      last_name: "person",
+      first_name: "lee",
+      last_name: "chow",
       username: "leepuppychow",
       password: "password"
     },
