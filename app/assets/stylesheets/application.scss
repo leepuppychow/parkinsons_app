@@ -116,7 +116,7 @@
    font-size: 20px;
    height: auto;
    width: 300px;
-   margin: 10px;
+   margin: 20px;
  }
 
  .homepage-link {
@@ -246,8 +246,19 @@
    }
  }
 
- .button, .edit-link, .delete-link, .update-note-button{
+.edit-link, .delete-link, .update-note-button{
    text-decoration: none;
+   font-size: 16px;
+   padding: 5px;
+   margin: 3px;
+   background: #373b42;
+   color: white;
+   border-radius: 10%;
+ }
+
+ .login-button {
+   text-decoration: none;
+   width: 160px;
    font-size: 16px;
    padding: 5px;
    margin: 3px;
