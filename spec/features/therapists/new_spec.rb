@@ -11,22 +11,18 @@ describe "When user visits My Care Team" do
 
     click_link "New Therapist?"
     expect(current_path).to eq new_patient_therapist_path(patient)
-    expect(page).to have_content "Add New Therapist"
-    expect(page).to have_content "First name"
-    expect(page).to have_content "Last name"
-    expect(page).to have_content "Specialty"
 
     fill_in "therapist[name]", with: "Taylor McCulloch"
     fill_in "therapist[location]", with: "Denver"
     fill_in "therapist[phone]", with: "12345567890"
-    select "Physical Therapy", :from => "therapist[specialty]"
+    select "PT", :from => "therapist[specialty]"
 
     click_on "Create Therapist"
 
     expect(current_path).to eq patient_therapists_path(patient)
     expect(page).to have_content "Taylor"
     expect(page).to have_content "McCulloch"
-    expect(page).to have_content "Physical Therapy"
+    expect(page).to have_content "PT"
 
   end
 
