@@ -8,11 +8,11 @@ describe "When Patient visits activity index page" do
 
     visit patient_activities_path(patient)
 
+    expect(Activity.count).to eq 1
     expect(page).to have_content(activity.description)
-
     click_on "Remove"
 
     expect(current_path).to eq patient_activities_path(patient)
-    expect(page).to_not have_content(activity.description)
+    expect(Activity.count).to eq 0
   end
 end
