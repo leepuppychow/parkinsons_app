@@ -20,7 +20,7 @@ class SessionController < ApplicationController
       end
     else
       flash[:notice] = "Either username or password is incorrect."
-      render :new
+      redirect_to root_path
     end
   end
 
