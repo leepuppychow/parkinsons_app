@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root "welcome#index"
   get 'logout', to: "session#destroy", as: 'logout'
-  get "/auth/google_oauth2/callback", to: "session#create"
+  post "/", to: "session#create", as: 'login'
+
+  get "/auth/google_oauth2/callback", to: "session#create_from_google"
   get '/patients/activity_filter', to: "activities#index"
 
   resources :patients, only: [:new, :create, :show] do

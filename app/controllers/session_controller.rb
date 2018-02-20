@@ -3,22 +3,25 @@ class SessionController < ApplicationController
   def new
   end
 
-  def create
+  def create_from_google
     @patient = Patient.from_omniauth(auth_hash)
     session[:user_id] = @patient.id
     redirect_to patient_path(@patient)
-    # @patient = Patient.find_by(username: params[:username])
-    # if @patient && @patient.authenticate(params[:password])
-    #   session[:user_id] = @patient.id
-    #   if @patient.username == "admin"
-    #     redirect_to admin_welcome_index_path
-    #   else
-    #     redirect_to patient_path(@patient)
-    #   end
-    # else
-    #   flash[:notice] = "Either username or password is incorrect."
-    #   render :new
-    # end
+  end
+
+  def create
+    @patient = Patient.find_by(username: params[:username])
+    if @patient && @patient.authenticate(params[:password])
+      session[:user_id] = @patient.id
+      if @patient.username == "admin"
+        redirect_to admin_welcome_index_path
+      else
+        redirect_to patient_path(@patient)
+      end
+    else
+      flash[:notice] = "Either username or password is incorrect."
+      redirect_to root_path
+    end
   end
 
   def destroy
