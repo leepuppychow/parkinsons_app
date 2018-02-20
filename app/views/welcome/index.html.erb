@@ -5,12 +5,17 @@
 <div class="column-container">
   <div class="homepage-section">
     <%= link_to "Login with Google Account", '/auth/google_oauth2', class: "homepage-link" %>
+    <%= form_tag do %>
+      <%= text_field_tag :username, nil, placeholder: "Enter Username" %>
+      <%= password_field_tag :password, nil, placeholder: "Password" %>
+      <%= submit_tag "Log In"%>
+    <% end  %>
   </div>
-  <!-- <div class="homepage-section">
+  <div class="homepage-section">
     <h3>New user?</h3>
     <%= link_to "Sign Up", new_patient_path, class: "homepage-link" %>
   </div>
-  <div class="homepage-section">
+  <!-- <div class="homepage-section">
     <h3>Check out the app!</h3>
     <%= link_to "Visitor", visitor_welcome_index_path, class: "homepage-link" %>
   </div> -->
