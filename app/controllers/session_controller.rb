@@ -3,10 +3,10 @@ class SessionController < ApplicationController
   def new
   end
 
-  def create_google
-    # @patient = Patient.from_omniauth(auth_hash)
-    # session[:user_id] = @patient.id
-    # redirect_to patient_path(@patient)
+  def create_from_google
+    @patient = Patient.from_omniauth(auth_hash)
+    session[:user_id] = @patient.id
+    redirect_to patient_path(@patient)
   end
 
   def create

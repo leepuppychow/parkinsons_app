@@ -1,6 +1,5 @@
 class Patient < ApplicationRecord
   has_secure_password
-  # validates :first_name, :last_name, :age, :password, presence: true
   validates :first_name, :last_name, presence: true
   validates :username, presence: true, uniqueness: true
   has_many :patient_doctors
@@ -32,7 +31,8 @@ class Patient < ApplicationRecord
       patient.last_name = auth.info.last_name
 			patient.username = auth.info.name
       patient.token = auth.credentials.token
-			# patient.save
+
+      patient.password = auth.info.password
 		end
 	end
 
