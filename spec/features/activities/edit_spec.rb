@@ -12,13 +12,13 @@ describe "When a patient visits activity index" do
 
     expect(current_path).to eq edit_patient_activity_path(patient, activity)
 
-    fill_in "activity[des cription]", with: "Run"
+    fill_in "activity[description]", with: "Run"
     fill_in "activity[duration]", with: 20
     fill_in "activity[date_performed]", with: Date.today
     click_button "Update Activity"
 
     expect(current_path).to eq patient_activities_path(patient)
     expect(page).to have_content 20
-    expect(page).to have_content "Run"
+    expect(Activity.first.description).to eq "Run"
   end
 end
