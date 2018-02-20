@@ -12,7 +12,7 @@ describe "When user visits homepage" do
         click_on "Log In"
 
         expect(current_path).to eq patient_path(patient)
-        expect(page).to have_content("Hi, #{patient.first_name}")
+        expect(page).to have_content("#{patient.first_name}'s Health Tracker")
       end
     end
   end
