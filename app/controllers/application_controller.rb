@@ -3,17 +3,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    @patient ||= Patient.find(session[:user_id]) if session[:user_id]
+    @user ||= User.find(session[:user_id]) if session[:user_id]
+    return @user.patient if @user.patient
+    return @user.doctor if @user.doctor
   end
-
-  # def current_user
-  #   @user ||= User.find(session[:user_id]) if session[:user_id]
-  #   if @user.patient
-  #     @user.patient
-  #   else
-  #     @user.doctor
-  #   end
-  # end
 
   def current_admin?
     current_user && current_user.admin?

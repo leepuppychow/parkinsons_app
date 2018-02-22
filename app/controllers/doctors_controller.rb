@@ -5,6 +5,9 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.new
   end
 
+  def show
+  end
+
   def create
     if params[:find_doctor]
       @doctor = current_user.doctors.create!(name: params[:find_doctor][0],
