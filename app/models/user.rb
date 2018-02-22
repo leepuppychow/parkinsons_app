@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
   validates :username, presence: true, uniqueness: true
-  has_one :patient, optional: true
-  has_one :doctor, optional: true
+  has_one :patient, required: false
+  has_one :doctor, required: false
 
   enum role: ["admin", "patient", "provider"]
 

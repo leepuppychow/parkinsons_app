@@ -10,7 +10,7 @@ class Patient < ApplicationRecord
   has_many :therapists, through: :therapist_patients
   has_many :activities
   has_many :appointments
-  belongs_to :user
+  belongs_to :user, optional: true
 
   enum role: ["visitor", "admin", "patient"]
 
