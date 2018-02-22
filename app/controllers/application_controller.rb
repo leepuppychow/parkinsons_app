@@ -6,6 +6,15 @@ class ApplicationController < ActionController::Base
     @patient ||= Patient.find(session[:user_id]) if session[:user_id]
   end
 
+  # def current_user
+  #   @user ||= User.find(session[:user_id]) if session[:user_id]
+  #   if @user.patient
+  #     @user.patient
+  #   else
+  #     @user.doctor
+  #   end
+  # end
+
   def current_admin?
     current_user && current_user.admin?
   end

@@ -9,6 +9,12 @@ class SessionController < ApplicationController
     redirect_to patient_path(@patient)
   end
 
+  # def create_from_google
+  #   @user = User.from_omniauth(auth_hash)
+  #   session[:user_id] = @user.id
+  #   redirect_to patient_path(current_user)
+  # end
+
   def create
     @patient = Patient.find_by(username: params[:username])
     if @patient && @patient.authenticate(params[:password])
