@@ -4,7 +4,7 @@
       <%= Date.today.strftime('%a, %m/%d/%y') %>
     </button>
     <div class="dropdown-content">
-      <%= link_to "My Care Team", patient_therapists_path(current_user), class: "drop-links"%></br>
+      <%= link_to "My Care Team", patient_doctors_path(current_user), class: "drop-links"%></br>
       <%= link_to "Find a Care Provider", patient_find_doctor_index_path(current_user), class: "drop-links" %><br>
       <%= link_to "Medications", patient_medications_path(current_user), class: "drop-links" %><br>
       <%= link_to "Appointments", patient_appointments_path(current_user), class: "drop-links" %><br>

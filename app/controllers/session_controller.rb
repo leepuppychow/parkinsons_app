@@ -6,21 +6,14 @@ class SessionController < ApplicationController
   def create_from_google
     @user = User.from_omniauth(auth_hash)
     session[:user_id] = @user.id
-
     if current_user.class == Patient
       redirect_to patient_path(current_user)
     elsif current_user.class == Doctor
       redirect_to doctor_path(current_user)
-    else
-      # redirect to create new account??
+    elsif current_user.class == User
+      render :new
     end
   end
-
-  # def create_from_google
-  #   @patient = Patient.from_omniauth(auth_hash)
-  #   session[:user_id] = @patient.id
-  #   redirect_to patient_path(@patient)
-  # end
 
   def create
     user = User.find_by(username: params[:username])
@@ -54,6 +47,5 @@ class SessionController < ApplicationController
         redirect_to doctor_path(current_user)
       end
     end
-
 
 end

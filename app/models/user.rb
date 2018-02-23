@@ -9,9 +9,7 @@ class User < ApplicationRecord
       user.uid = auth.uid
       user.username = auth.info.name
       user.token = auth.credentials.token
-      user.password = auth.info.password
-      # user.first_name = auth.info.first_name
-      # user.last_name = auth.info.last_name
+      user.password = "google_oauth2"
     end
   end
 

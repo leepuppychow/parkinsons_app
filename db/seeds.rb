@@ -56,7 +56,7 @@ appointment2 = Appointment.create(date_time: DateTime.now, status: "late",
 appointment3 = Appointment.create(date_time: DateTime.now, status: "late",
   appointable_id: therapist3.id, appointable_type: therapist3.class.name)
 
-lee_patient.doctors << [therapist1, therapist2]
+lee_patient.doctors << [therapist1, therapist2, therapist3]
 lee_patient.appointments << [appointment1, appointment2, appointment3]
 
 exercise1 = Exercise.create!(name: "Squats", description: "Squat down then stand up", image: "https://www.cdn.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg")

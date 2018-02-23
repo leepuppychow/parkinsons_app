@@ -21,6 +21,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if patient_params
+      create_user_as_patient(current_user)
+      redirect_to patient_path(current_user)
+    elsif doctor_params
+      create_user_as_doctor(current_user)
+      redirect_to doctor_path(current_user)
+    end
+  end
+
   private
 
     def create_user_as_patient(user)

@@ -24,8 +24,8 @@ def stub_omniauth
     info: {
       first_name: "lee",
       last_name: "chow",
-      username: "leepuppychow",
-      password: "password"
+      username: "lee1",
+      password: "oohsecret1"
     },
     credentials: {
       token: ENV["MY_TOKEN"],
