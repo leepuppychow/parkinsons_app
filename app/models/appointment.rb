@@ -3,7 +3,6 @@ class Appointment < ApplicationRecord
   belongs_to :patient
   belongs_to :doctor
 
-  # belongs_to :appointable, polymorphic: true
   scope :future, -> {where("date_time >= '#{DateTime.now}'")}
   scope :past, -> {where("date_time < '#{DateTime.now}'")}
   scope :today, -> {where(date_time: Date.today...Date.today+1)}
