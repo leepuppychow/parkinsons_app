@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :appointment do
-    date_time DateTime.now
+    date Date.today
+    time DateTime.now
     status "Attended"
     patient
-    doctor 
+    doctor
   end
 end

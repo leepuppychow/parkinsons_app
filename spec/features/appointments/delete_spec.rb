@@ -17,6 +17,6 @@ describe "As a logged-in patient, when I visit the appointment index" do
     click_on "Delete"
 
     expect(current_path).to eq patient_appointments_path(patient)
-    expect(page).to_not have_content appt.date_time
+    expect(page).to_not have_content appt.date
   end
 end

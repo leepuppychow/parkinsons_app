@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Appointment do
   describe "Validations" do
-    it {is_expected.to validate_presence_of(:date_time)}
+    it {is_expected.to validate_presence_of(:date)}
+    it {is_expected.to validate_presence_of(:time)}
   end
 
   describe "Relationships" do

@@ -5,7 +5,7 @@
 
   <h2>Future appointments</h2>
   <% @appointments.future.each do |appointment| %>
-  <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.doctor.name %>
+  <li><%= appointment.date.strftime("%b %e, %Y") %> --> <%= appointment.time.strftime("%I:%M %p") %> with: <%= appointment.doctor.name %>
     <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
     <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
   </li>
@@ -13,7 +13,7 @@
 
   <h2>Past appointments</h2>
   <% @appointments.past.each do |appointment| %>
-  <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.doctor.name %>
+  <li><%= appointment.date.strftime("%b %e, %Y") %> --> <%= appointment.time.strftime("%I:%M %p") %> with: <%= appointment.doctor.name %>
     <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
     <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
   </li>

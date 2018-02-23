@@ -18,7 +18,8 @@ describe "As a logged-in patient, when I visit the appointment index" do
 
     expect(current_path).to eq edit_patient_appointment_path(patient, appt)
 
-    fill_in "appointment[date_time]", with: DateTime.now + 7
+    fill_in "appointment[date]", with: Date.today + 7
+    fill_in "appointment[time]", with: Time.now
     select "#{doctor.name}", :from => "appointment[doctor_id]"
     click_on "Update Appointment"
 
@@ -26,6 +27,6 @@ describe "As a logged-in patient, when I visit the appointment index" do
 
     visit patient_doctors_path(patient)
     expect(page).to have_content doctor.name
-    expect(page).to have_content (DateTime.now + 7).strftime("%b %e, %Y")
+    expect(page).to have_content (Date.today + 7).strftime("%b %e, %Y")
   end
 end

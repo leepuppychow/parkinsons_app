@@ -9,13 +9,12 @@ describe "As a logged-in patient when I visit My Appointments" do
 
     doctor = create(:doctor)
     doctor.note = Note.create(contents: "", noteable_id: doctor.id, noteable_type: doctor.class.name)
-    appointment1 = Appointment.create(date_time: DateTime.now, status: "attended",
-      doctor: doctor)
+    appointment1 = create(:appointment, doctor: doctor, patient: patient)
     patient.appointments << appointment1
 
     visit patient_appointments_path(patient)
 
-    expect(page).to have_content appointment1.date_time.strftime("%b %e, %Y --> %I:%M %p")
+    expect(page).to have_content appointment1.date.strftime("%b %e, %Y")
     expect(page).to have_content doctor.name
   end
 end
@@ -29,15 +28,14 @@ describe "As a logged-in patient when I visit My Care Team" do
 
     doctor = create(:doctor)
     doctor.note = Note.create(contents: "", noteable_id: doctor.id, noteable_type: doctor.class.name)
-    appointment1 = Appointment.create(date_time: DateTime.now, status: "attended",
-      doctor: doctor)
+    appointment1 = create(:appointment, doctor: doctor, patient: patient)
 
     patient.doctors << doctor
     patient.appointments << appointment1
 
     visit patient_doctors_path(patient)
 
-    expect(page).to have_content appointment1.date_time.strftime("%b %e, %Y --> %I:%M %p")
+    expect(page).to have_content appointment1.date.strftime("%b %e, %Y")
     expect(page).to have_content doctor.name
   end
 end

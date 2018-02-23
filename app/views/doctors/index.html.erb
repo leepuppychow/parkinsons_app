@@ -15,7 +15,7 @@
       <h4>Upcoming Appointments:</h4>
       <% doctor.current_appointments(current_user).each do |appointment|  %>
         <li>
-          <%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %>
+          <%= appointment.date.strftime("%b %e, %Y") %> --> <%= appointment.time.strftime("%I:%M %p") %>
           <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
           <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
         </li>

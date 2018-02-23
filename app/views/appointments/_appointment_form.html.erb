@@ -1,8 +1,8 @@
 <div class="column-container">
   <div class="column-form">
     <%= form_for [current_user, @appointment] do |f|%>
-    <div class="entry-form"><%= f.date_field :date_time %></div>
-    <div class="entry-form"><%= f.time_field :date_time %></div>
+    <div class="entry-form"><%= f.date_field :date %></div>
+    <div class="entry-form"><%= f.time_field :time %></div>
     <div class="entry-form"><%= f.collection_select :doctor_id, current_user.doctors, :id, :name %></div>
     <div><%= f.submit id: "submit-button"%></div>
     <% end %>

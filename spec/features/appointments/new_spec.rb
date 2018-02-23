@@ -12,8 +12,10 @@ describe "As a logged-in patient, when I visit the appointment index" do
     patient.doctors << doctor
 
     visit patient_appointments_path(patient)
+    click_on "New Appointment?"
 
-    fill_in "appointment[date_time]", with: DateTime.now
+    fill_in "appointment[date]", with: Date.today + 7
+    fill_in "appointment[time]", with: Time.now
     select "#{doctor.name}", :from => "appointment[doctor_id]"
     click_on "Create Appointment"
 
