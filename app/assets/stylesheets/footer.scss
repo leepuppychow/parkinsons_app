@@ -1,0 +1,17 @@
+.footer {
+  height: 45px;
+  background-color: #373b42;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+   .nav-bar-links {
+     text-decoration: none;
+     font-size: 16px;
+     color: white;
+     margin: auto;
+   }
+ }

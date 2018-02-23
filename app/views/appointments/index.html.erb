@@ -1,19 +1,29 @@
-<%= render partial: "partials/header"%>
+<%= render partial: "partials/patient_header"%>
 
-<h2>Future appointments</h2>
-<% @appointments.future.each do |appointment| %>
+<div class="column-container">
+  <div class="column-form">
+    <%= form_for [current_user, @appointment] do |f|%>
+    <div class="entry-form"><%= f.datetime_local_field :date_time %></div>
+    <div class="entry-form"><%= f.collection_select :appointable, current_user.doctors, :name, :name %></div>
+    <div><%= f.submit "New Appointment", id: "submit-button"%></div>
+    <% end %>
+  </div>
+  <h2>Future appointments</h2>
+  <% @appointments.future.each do |appointment| %>
   <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.appointable.name %>
-      <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
-      <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
+    <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
+    <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
   </li>
-<% end %>
+  <% end %>
 
-<h2>Past appointments</h2>
-<% @appointments.past.each do |appointment| %>
+  <h2>Past appointments</h2>
+  <% @appointments.past.each do |appointment| %>
   <li><%= appointment.date_time.strftime("%b %e, %Y --> %I:%M %p") %> with: <%= appointment.appointable.name %>
-      <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
-      <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
+    <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
+    <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
   </li>
-<% end %>
+  <% end %>
+</div>
 
-<%= link_to "New Appointment", new_patient_appointment_path %>
+
+<%= render partial: "partials/patient_footer"%>

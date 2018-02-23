@@ -16,28 +16,14 @@
 
  @import "google_button";
  @import "facebook_button";
+ @import "header";
+ @import "footer";
 
  body {
    background-color: white;
    font-family: Arial;
  }
-.header {
-  height: 45px;
-  background-color: #373b42;
-   h1 {
-     font-size:28px;
-     color: white;
-     margin-left: 10px;
-   }
-   .nav-bar-links {
-     text-decoration: none;
-     font-size: 16px;
-     color: white;
-     float: right;
-     padding-top: 4px;
-     padding-right: 20px;
-   }
- }
+
  .homepage-box {
    padding-right: 10px;
    padding-left: 10px;
@@ -52,35 +38,8 @@
    border-radius: 5%;
  }
 
- .dropbutton{
-   background-color: #373b42;
-   height: 45px;
-   color: white;
-   font-size: 22px;
-   border: none;
- }
- .dropdown {
-   position: relative;
-   display: inline-block;
- }
- .dropdown-content {
-   display: none;
-   position: absolute;
-   background-color: #e8edf7;
-   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-   z-index: 1;
-   width: 200px;
-   .drop-links{
-     text-decoration: none;
-     font-size: 20px;
-     color: black;
-   }
- }
- .dropdown-content a:hover {background-color: grey}
- .dropdown:hover .dropdown-content {
-   display: block;
- }
  .column-container-left {
+   margin-top: 50px;
    display: flex;
    flex: {
      direction: column;
@@ -89,6 +48,7 @@
    align-items: flex-start;
  }
  .column-container {
+   margin-top: 50px;
    display: flex;
    flex: {
      direction: column;
@@ -96,17 +56,24 @@
    }
    align-items: center;
  }
+ .column-form{
+   flex: {
+     direction: column;
+     wrap: wrap;
+   }
+ }
 
  .row-container{
    display: flex;
    flex-flow: row wrap;
    justify-content: space-between;
    align-items: flex-end;
-   width: 375px;
+   width: auto;
  }
 
  .homepage-section {
    background-color: rgba(215, 225, 242, 0.7);
+   border: solid #7899cc 2px;
    border-radius: 5%;
    opacity: 0.8;
    text-align: center;
@@ -147,18 +114,20 @@
    opacity: 1.0;
  }
 
+ .entry-form {
+   margin: 5px;
+   font-size: 16px;
+   width: 175px;
+ }
+ #submit-button{
+   font-size: 16px;
+   width: 175px;
+ }
  .form-table {
    margin-top: 10px;
    margin-bottom: 10px;
    text-align: left;
    font-size: 20px;
-   .entry-form {
-     font-size: 20px;
-   }
-   #submit-button{
-     font-size: 16px;
-     float: right;
-   }
  }
 
  .medication-table {
@@ -267,7 +236,7 @@
    border-radius: 10%;
  }
 
- #new-medication, #new-doctor{
+ #new-medication, #new-doctor, #new-appointment, #new-activity{
    text-decoration: none;
    padding: 10px;
    margin-top: 10px;
@@ -314,4 +283,8 @@
 #show-insurance:hover #insurance-info{
   color:blue;
   display: block;
+}
+
+#login-container {
+  margin-top: 150px;
 }

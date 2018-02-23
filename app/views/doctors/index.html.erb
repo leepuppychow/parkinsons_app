@@ -1,8 +1,11 @@
-<%= render partial: "partials/header"%>
-
+<%= render partial: "partials/patient_header"%>
 
 <div class="column-container">
-  <%= link_to "New Doctor?", new_patient_doctor_path(current_user), id: "new-doctor" %>
+  <br>
+  <div class="">
+    <%= link_to "New Doctor?", new_patient_doctor_path(current_user), id: "new-doctor" %>
+    <%= link_to "Find Doctor Tool", patient_find_doctor_index_path(current_user), id: "new-doctor" %>
+  </div>
   <% current_user.doctors.each do |doctor|  %>
   <div class="healthprovider-box">
     <h2><%= doctor.name %> (<%= doctor.specialty %>)</h2>
@@ -31,3 +34,5 @@
   </div>
   <% end  %>
 </div>
+
+<%= render partial: "partials/patient_footer"%>

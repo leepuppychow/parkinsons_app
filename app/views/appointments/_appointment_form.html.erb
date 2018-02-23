@@ -1,7 +1,1 @@
-<%= form_for [current_user, @appointment] do |f|%>
-  <%= f.label "Appointment Date" %>
-  <%= f.datetime_local_field :date_time %>
-  <%= f.label "Care Provider" %>
-  <%= f.collection_select :appointable, current_user.doctors, :name, :name %>
-  <%= f.submit %>
-<% end %>
+

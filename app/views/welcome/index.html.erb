@@ -1,8 +1,8 @@
 <div class="header">
-  <h1>Health Tracker (Parkinson's)</h1>
+  <h3>PD Health Tracker</h3>
 </div>
 
-<div class="column-container">
+<div class="column-container" id="login-container">
   <div class="homepage-section">
     <%= link_to "Login with Google", '/auth/google_oauth2', class: "loginBtn loginBtn--google" %>
     <br><br>
@@ -16,4 +16,7 @@
     <br>
     <%= link_to "Create New Account", new_user_path, class: "login-button" %>
   </div>
+</div>
+
+<div class="footer">
 </div>

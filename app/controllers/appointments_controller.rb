@@ -2,6 +2,7 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = current_user.appointments
+    @appointment = Appointment.new
   end
 
   def new
