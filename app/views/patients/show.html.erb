@@ -13,7 +13,7 @@
     <div class="homepage-box">Today's Appointments:</div>
     <% @appointments.each do |appointment| %>
       <div id="today-appt"><%= appointment.date_time.strftime('%I:%M %p') %> with
-        <%= appointment.appointable.name %>
+        <%= appointment.doctor.name %>
       </div>
     <% end %>
   <% end %>
