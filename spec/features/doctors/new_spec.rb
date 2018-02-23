@@ -13,7 +13,7 @@ describe "When user visits My Care Team page" do
 
     click_on "Create Doctor"
 
-    expect(current_path).to eq patient_therapists_path(patient)
+    expect(current_path).to eq patient_doctors_path(patient)
     expect(page).to have_content "Sarah"
     expect(page).to have_content "Smith"
     expect(page).to have_content "Neurologist"

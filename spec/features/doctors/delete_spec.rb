@@ -8,13 +8,13 @@ describe "When user visits My Care Team" do
     patient.doctors << doctor
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
-    visit patient_therapists_path(patient)
+    visit patient_doctors_path(patient)
 
     expect(page).to have_content doctor.name
 
     click_on "Remove"
 
-    expect(current_path).to eq patient_therapists_path(patient)
+    expect(current_path).to eq patient_doctors_path(patient)
     expect(patient.patient_doctors.count).to eq 0
   end
 end

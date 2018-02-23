@@ -10,13 +10,7 @@ class AppointmentsController < ApplicationController
 
   def create
     @doctor = Doctor.find_by(name: appointment_params[:appointable])
-    @therapist = Therapist.find_by(name: appointment_params[:appointable])
-
-    if @doctor != nil
-      create_provider(@doctor)
-    elsif @therapist != nil
-      create_provider(@therapist)
-    end
+    create_provider(@doctor)
   end
 
   def edit
@@ -26,13 +20,7 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
     @doctor = Doctor.find_by(name: appointment_params[:appointable])
-    @therapist = Therapist.find_by(name: appointment_params[:appointable])
-
-    if @doctor != nil
-      update_provider(@doctor)
-    elsif @therapist != nil
-      update_provider(@therapist)
-    end
+    update_provider(@doctor)
   end
 
   def destroy

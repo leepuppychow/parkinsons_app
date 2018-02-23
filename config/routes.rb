@@ -17,9 +17,6 @@ Rails.application.routes.draw do
     resources :medications do
       resources :note, only: [:update]
     end
-    resources :therapists do
-      resources :note, only: [:update]
-    end
     resources :doctors do
       resources :note, only: [:update]
     end
@@ -36,7 +33,6 @@ Rails.application.routes.draw do
     resources :doctors, only: [:index]
     resources :medications, only: [:index]
     resources :exercises
-    resources :therapists, only: [:index]
     resources :note, only: [:index]
   end
 

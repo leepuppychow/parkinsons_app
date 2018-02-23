@@ -2,7 +2,7 @@ class DoctorsController < ApplicationController
   before_action :specialties
 
   def index
-  end 
+  end
 
   def new
     @doctor = Doctor.new
@@ -18,12 +18,12 @@ class DoctorsController < ApplicationController
                             specialty: params[:find_doctor][1],
                             phone: params[:find_doctor][3])
       @doctor.note = blank_note(@doctor)
-      redirect_to patient_therapists_path(current_user)
+      redirect_to patient_doctors_path(current_user)
     else
       @doctor = current_user.doctors.find_or_create_by(doctor_params)
       if @doctor.save
         @doctor.note = blank_note(@doctor)
-        redirect_to patient_therapists_path(current_user)
+        redirect_to patient_doctors_path(current_user)
       else
         flash[:notice] = "Please enter all information."
         render :new
@@ -38,7 +38,7 @@ class DoctorsController < ApplicationController
   def update
     @doctor = current_user.doctors.find(params[:id])
     if @doctor.update(doctor_params)
-      redirect_to patient_therapists_path(current_user)
+      redirect_to patient_doctors_path(current_user)
     else
       flash[:notice] = "Please enter all information."
       render :edit
@@ -47,7 +47,7 @@ class DoctorsController < ApplicationController
 
   def destroy
     current_user.patient_doctors.find_by(doctor_id: params[:id]).destroy
-    redirect_to patient_therapists_path(current_user)
+    redirect_to patient_doctors_path(current_user)
   end
 
   private

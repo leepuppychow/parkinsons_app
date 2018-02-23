@@ -2,6 +2,6 @@
   <%= f.label "Appointment Date" %>
   <%= f.datetime_local_field :date_time %>
   <%= f.label "Care Provider" %>
-  <%= f.collection_select :appointable, current_user.all_providers, :name, :name %>
+  <%= f.collection_select :appointable, current_user.doctors, :name, :name %>
   <%= f.submit %>
 <% end %>
