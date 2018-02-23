@@ -7,6 +7,6 @@ describe Appointment do
 
   describe "Relationships" do
     it {is_expected.to belong_to :patient}
-    it {should respond_to(:appointable)}
+    it {is_expected.to belong_to :doctor}
   end
 end
