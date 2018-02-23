@@ -9,8 +9,8 @@
     <%= link_to "Login with Facebook", '/auth/google_oauth2', class: "loginBtn loginBtn--facebook" %>
     <br><br>
     <%= form_tag do %>
-      <%= text_field_tag :username, nil, placeholder: "Enter Username", class: "form-table" %><br>
-      <%= password_field_tag :password, nil, placeholder: "Password", class: "form-table" %><br>
+      <%= text_field_tag "username", nil, placeholder: "Enter Username", class: "form-table" %><br>
+      <%= password_field_tag "password", nil, placeholder: "Password", class: "form-table" %><br>
       <%= submit_tag "Log In", class: "login-button"%>
     <% end  %>
     <br>

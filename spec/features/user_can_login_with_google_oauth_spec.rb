@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "When a user visits the root path" do
-  it "can click on a link to Login with Google account" do
+  it "can click on a link to Login with Google account as a Patient" do
     stub_omniauth
     visit "/"
 
