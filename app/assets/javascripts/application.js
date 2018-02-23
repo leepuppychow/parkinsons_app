@@ -12,5 +12,20 @@
 //
 //= require Chart.bundle
 //= require chartkick
+//= require jquery3
 //= require rails-ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $('.new-doctor-form').hide();  
+  $('.provider-dropdown').change(function(){
+    if ($('.provider-dropdown').val() === "No") {
+      $('.new-doctor-form').hide();
+      $('.new-patient-form').show();
+    }
+    if ($('.provider-dropdown').val() === "Yes") {
+      $('.new-doctor-form').show();
+      $('.new-patient-form').hide();
+    }
+  })
+})

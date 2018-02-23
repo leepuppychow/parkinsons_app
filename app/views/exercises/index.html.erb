@@ -1,2 +1,18 @@
-<%= render partial: "partials/header"%>
-<%= render partial: "partials/exercises_index" %>
+<%= render partial: "partials/patient_header"%>
+
+<div class="column-container">
+  <br>
+  <div class="">
+    <%= link_to "Log New Activity", new_patient_activity_path(current_user), id: "new-activity" %>
+    <%= link_to "Exercise Stats", patient_exercises_path(current_user), id: "new-activity" %>
+  </div>
+<% @workout.each do |exercise| %>
+  <div class="exercise" id="<%= exercise.name %>">
+    <h4><%= exercise.name %></h4>
+    <img src="<%=exercise.image%>">
+    <%= exercise.description %>
+  </div>
+<% end  %>
+</div>
+
+<%= render partial: "partials/patient_footer"%>

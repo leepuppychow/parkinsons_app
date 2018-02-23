@@ -1,15 +1,12 @@
 class Patient < ApplicationRecord
-  has_secure_password
   validates :first_name, :last_name, presence: true
-  validates :username, presence: true, uniqueness: true
   has_many :patient_doctors
   has_many :doctors, through: :patient_doctors
   has_many :patient_medications
   has_many :medications, through: :patient_medications
-  has_many :therapist_patients
-  has_many :therapists, through: :therapist_patients
   has_many :activities
   has_many :appointments
+  belongs_to :user, optional: true
 
   enum role: ["visitor", "admin", "patient"]
 
@@ -18,10 +15,6 @@ class Patient < ApplicationRecord
     .order("date_performed DESC")
     .limit(7)
     .sum(:duration)
-  end
-
-  def all_providers
-    doctors + therapists
   end
 
   def self.from_omniauth(auth)
@@ -35,6 +28,4 @@ class Patient < ApplicationRecord
       patient.password = auth.info.password
 		end
 	end
-
-
 end

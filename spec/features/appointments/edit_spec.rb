@@ -21,7 +21,7 @@ describe "As a logged-in patient, when I visit the appointment index" do
 
     expect(current_path).to eq patient_appointments_path(patient)
 
-    visit patient_therapists_path(patient)
+    visit patient_doctors_path(patient)
     expect(page).to have_content doctor.name
     expect(page).to have_content (DateTime.now + 7).strftime("%b %e, %Y")
   end

@@ -7,6 +7,7 @@ class Doctor < ApplicationRecord
   has_many :patients, through: :patient_doctors
   has_one :note, as: :noteable, dependent: :destroy
   has_many :appointments, as: :appointable
+  belongs_to :user, optional: true
 
   def current_appointments(current_user)
     appointments.where(patient_id: current_user.id).future

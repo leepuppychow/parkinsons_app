@@ -1,13 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :specialties
   helper_method :current_user
 
   def current_user
-    @patient ||= Patient.find(session[:user_id]) if session[:user_id]
+    @user ||= User.find(session[:user_id]) if session[:user_id]
+    if @user.patient
+      return @user.patient
+    elsif @user.doctor
+      return @user.doctor
+    else
+      @user
+    end
   end
 
   def current_admin?
-    current_user && current_user.admin?
+    current_user.username == "admin"
   end
 
   def specialties

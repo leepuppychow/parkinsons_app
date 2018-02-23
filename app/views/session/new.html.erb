@@ -1,23 +1,32 @@
 <div class="header">
-  <h1> Login
+  <h1> Complete Account
   <%= link_to "Home", "/", class: "nav-bar-links"%>
   </h1>
 </div>
 
 <div class="column-container">
-  <table class="form-table">
-    <%= form_tag do %>
-    <tr>
-      <th><%= label_tag :username %></th>
-      <th><%= text_field_tag :username, "", class: "entry-form" %></th>
-    </tr>
-    <tr>
-      <th><%= label_tag :password %></th>
-      <th><%= password_field_tag :password, "", class: "entry-form" %></th>
-    </tr>
-    <tr>
-      <th><%= submit_tag "Log In"%></th>
-    </tr>
-    <% end  %>
-  </table>
+  <h2>We just need a little more info, <%= @user.username %>. </h2>
+  <h2>Are you a Healthcare Provider?</h2>
+  <%= select_tag "provider", options_for_select(["No", "Yes"]), class: "provider-dropdown" %>
+
+  <div class="new-patient-form">
+    <%= form_for @user, method: :patch do %>
+      <%= text_field_tag "patient[first_name]", nil, placeholder: "Enter First Name" %>
+      <%= text_field_tag "patient[last_name]", nil, placeholder: "Enter Last Name" %>
+      <%= hidden_field_tag "user[username]", @user.username %>
+      <%= submit_tag "Submit"%>
+    <% end %>
+  </div>
+
+  <div class="new-doctor-form">
+    <%= form_for @user, method: :patch do %>
+      <%= text_field_tag "doctor[name]", nil, placeholder: "Enter Full Name" %>
+      <%= text_area_tag "doctor[location]", nil, placeholder: "Enter Full Address" %>
+      <%= text_field_tag "doctor[phone]", nil, placeholder: "Phone Number" %>
+      <%= select_tag "doctor[specialty]", options_for_select(@specialties), class: "entry-form"%>
+      <%= hidden_field_tag "user[username]", @user.username %>
+      <%= submit_tag "Submit"%>
+    <% end %>
+  </div>
+
 </div>

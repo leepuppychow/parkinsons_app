@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   get "/auth/google_oauth2/callback", to: "session#create_from_google"
   get '/patients/activity_filter', to: "activities#index"
 
+  resources :users, only: [:new, :create, :update]
+
+  resources :doctors, only: [:show]
+
   resources :patients, only: [:new, :create, :show] do
     resources :appointments, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :medications do
-      resources :note, only: [:update]
-    end
-    resources :therapists do
       resources :note, only: [:update]
     end
     resources :doctors do
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
     resources :doctors, only: [:index]
     resources :medications, only: [:index]
     resources :exercises
-    resources :therapists, only: [:index]
     resources :note, only: [:index]
   end
 

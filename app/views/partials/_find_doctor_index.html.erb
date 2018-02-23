@@ -1,23 +1,12 @@
 <div class="column-container">
-  <table class="form-table">
-  <%= form_tag do %>
-    <tr>
-      <th><%= label_tag "City:" %></th>
-      <th><%= text_field_tag :city, "", class: "entry-form" %></th>
-    </tr>
-    <tr>
-      <th><%= label_tag "State:" %></th>
-      <th><%= select_tag :state, options_for_select(@states), class: "entry-form"%> </th>
-    </tr>
-    <tr>
-      <th><%= label_tag "Specialty:" %></th>
-      <th><%= select_tag :specialty, options_for_select(@specialties), class: "entry-form"%> </th>
-    </tr>
-    <tr>
-      <th><%= submit_tag "Search!" %></th>
-    </tr>
-  <% end  %>
-</table>
+    <%= form_tag do %>
+    <div class="column-form">
+      <div><%= text_field_tag :city, "", placeholder: "City", class: "entry-form" %></div>
+      <div><%= select_tag :state, options_for_select(@states), prompt: "State", class: "entry-form"%></div>
+      <div><%= select_tag :specialty, options_for_select(@specialties), prompt: "Specialty", class: "entry-form"%></div>
+      <div><%= submit_tag "Search!", id: "submit-button" %></div>
+    </div>
+    <% end  %>
   <% if @doctors.empty? == false %>
     <h2><%= @specialty.capitalize%>(s) in: <%=@city.capitalize%>,  <%=@state.upcase%></h2>
     <% @doctors.each do |doctor| %>

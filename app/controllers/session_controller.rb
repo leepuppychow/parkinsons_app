@@ -4,20 +4,22 @@ class SessionController < ApplicationController
   end
 
   def create_from_google
-    @patient = Patient.from_omniauth(auth_hash)
-    session[:user_id] = @patient.id
-    redirect_to patient_path(@patient)
+    @user = User.from_omniauth(auth_hash)
+    session[:user_id] = @user.id
+    if current_user.class == Patient
+      redirect_to patient_path(current_user)
+    elsif current_user.class == Doctor
+      redirect_to doctor_path(current_user)
+    elsif current_user.class == User
+      render :new
+    end
   end
 
   def create
-    @patient = Patient.find_by(username: params[:username])
-    if @patient && @patient.authenticate(params[:password])
-      session[:user_id] = @patient.id
-      if @patient.username == "admin"
-        redirect_to admin_welcome_index_path
-      else
-        redirect_to patient_path(@patient)
-      end
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      take_user_to_landing_page(user)
     else
       flash[:notice] = "Either username or password is incorrect."
       redirect_to root_path
@@ -36,5 +38,14 @@ class SessionController < ApplicationController
   		request.env['omniauth.auth']
     end
 
+    def take_user_to_landing_page(user)
+      if user.username == "admin"
+        redirect_to admin_welcome_index_path
+      elsif user.patient
+        redirect_to patient_path(current_user)
+      elsif user.doctor
+        redirect_to doctor_path(current_user)
+      end
+    end
 
 end

@@ -11,7 +11,6 @@ describe Patient, type: :model do
   describe "Relationships" do
     it {is_expected.to have_many(:doctors).through(:patient_doctors)}
     it {is_expected.to have_many(:medications).through(:patient_medications)}
-    it {is_expected.to have_many(:therapists).through(:therapist_patients)}
     it {is_expected.to have_many(:activities)}
   end
 

@@ -1,4 +1,5 @@
-<%= render partial: "/partials/header" %>
+<%= render partial: "/partials/patient_header" %>
+
 <div class="column-container-left">
   <% if !@medications.empty? %>
     <div class="homepage-box">Medication Reminders:</div>
@@ -19,5 +20,6 @@
 
   <div class="homepage-box">Your Recent Activity Levels:</div>
   <%= line_chart @activity_graph, xtitle: "Date Performed", ytitle: "Duration(min)" %>
-
 </div>
+
+<%= render partial: "partials/patient_footer" %>

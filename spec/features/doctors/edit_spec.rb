@@ -9,7 +9,7 @@ describe "When user visits My Care Team page" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
-    visit patient_therapists_path(patient)
+    visit patient_doctors_path(patient)
     click_on "Edit"
 
     expect(current_path).to eq edit_patient_doctor_path(patient, doctor)
@@ -23,7 +23,7 @@ describe "When user visits My Care Team page" do
 
     doctor = Doctor.first
 
-    expect(current_path).to eq patient_therapists_path(patient)
+    expect(current_path).to eq patient_doctors_path(patient)
     expect(doctor.name).to eq "Sarah Smith"
     expect(doctor.phone).to eq "3031234556"
     expect(doctor.specialty).to eq "Neurologist"

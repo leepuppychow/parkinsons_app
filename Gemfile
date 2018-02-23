@@ -36,6 +36,7 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'figaro'
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'jquery-rails'
 
 group :test do
   gem 'vcr'

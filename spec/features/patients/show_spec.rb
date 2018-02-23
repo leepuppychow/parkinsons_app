@@ -4,14 +4,12 @@ describe "As a user when I visit the user show page" do
   before(:each) do
     @patient = create(:patient, username: "test", password: "password", role: 2)
     @patient.doctors << create(:doctor)
+    @patient.doctors << create(:doctor, name: "Taylor")
 
     @medication1 = create(:medication)
     @medication2 = create(:medication)
     @patient.patient_medications << create(:patient_medication, medication: @medication1)
     @patient.patient_medications << create(:patient_medication, medication: @medication2)
-
-    @patient.therapists << create(:therapist)
-    @patient.therapists << create(:therapist, name: "Taylor")
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@patient)
     visit patient_path(@patient)
@@ -38,13 +36,12 @@ describe "As a user when I visit the user show page" do
   # end
   #
   # it "when My Care Team is clicked it takes me to and index page showing
-  #     my doctors and current therapists" do
+  #     my doctors" do
   #   click_link "My Care Team"
   #
-  #   expect(current_path).to eq patient_therapists_path(@patient)
+  #   expect(current_path).to eq patient_doctors_path(@patient)
   #   expect(page).to have_content "My Care Team"
   #   expect(page).to have_content "DOCTOR"
-  #   expect(page).to have_content "THERAPIST(S)"
   #   expect(page).to have_content "Yimeng"
   #   expect(page).to have_content "Taylor"
   # end

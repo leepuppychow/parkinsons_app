@@ -1,16 +1,15 @@
 <div class="column-container">
-
-<h2>Search for PubMed Articles</h2>
-  <%= form_tag do %>
-    <%= label_tag "Search Terms:" %>
-    <%= text_field_tag :search %>
-    <%= label_tag "Year:" %>
-    <%= text_field_tag :year %>
+  <div class="article-search-box">
+    <h3>PubMed Article Search:</h3>
+    <%= form_tag do %>
+    <%= text_field_tag :search, nil, placeholder: "Search terms" %>
+    <%= number_field_tag :year, nil, placeholder: "Year" %>
     <%= submit_tag "Search!" %>
-<% end  %>
-
+    <% end  %>
+  </div>
 </div>
-</br>
+<br><br>
+<hr>
 <% @articles.each do |article| %>
   <p><%= link_to article[1], "https://www.ncbi.nlm.nih.gov/pubmed/#{article[0]}/"%></p>
 <% end %>

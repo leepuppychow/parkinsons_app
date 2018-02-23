@@ -1,7 +1,6 @@
-<%= render partial: "partials/header"%>
+<%= render partial: "partials/patient_header"%>
 
 <div class="column-container">
-  <h1 class="med-reminder">Your Current Medications</h1>
   <%= link_to "New Medication?", new_patient_medication_path(current_user), id: "new-medication" %>
   <% @medications.each do |medication| %>
     <div class="medication-box">
@@ -23,3 +22,5 @@
   <% end  %>
   </table>
 </div>
+
+<%= render partial: "partials/patient_footer"%>

@@ -13,7 +13,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = current_user.activities.new(activity_params)
     if @activity.save
-      redirect_to patient_activities_path(current_user)
+      redirect_to patient_path(current_user)
     else
       flash[:notice] = "Please enter all information."
       render :new
