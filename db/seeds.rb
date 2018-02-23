@@ -49,13 +49,13 @@ therapist3 = Doctor.create(name: "Amanda T", specialty: "Speech Therapy", locati
 user3.doctor = therapist3
 therapist3.note = Note.create(contents: "", noteable_id: therapist3.id, noteable_type: therapist3.class.name)
 
-appointment1 = Appointment.create(date_time: DateTime.now, status: "attended",
+appointment1 = Appointment.create(date: Date.today, time: Time.now, status: "attended",
   doctor: yimeng_doctor)
-appointment2 = Appointment.create(date_time: DateTime.now, status: "late",
+appointment2 = Appointment.create(date: Date.today, time: Time.now, status: "late",
   doctor: therapist1)
-appointment3 = Appointment.create(date_time: DateTime.now, status: "late",
+appointment3 = Appointment.create(date: Date.today, time: Time.now, status: "late",
   doctor: therapist3)
-appointment4 = Appointment.create(date_time: DateTime.now, status: "late",
+appointment4 = Appointment.create(date: Date.today, time: Time.now, status: "late",
   doctor: therapist2)
 
 lee_patient.doctors << [therapist1, therapist2, therapist3]
