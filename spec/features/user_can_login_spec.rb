@@ -14,7 +14,6 @@ describe "When user visits homepage" do
         click_on "Log In"
 
         expect(current_path).to eq patient_path(patient)
-        expect(page).to have_content("#{patient.first_name}")
       end
 
       it "can access his/her homepage (as a doctor/provider)" do
@@ -28,8 +27,6 @@ describe "When user visits homepage" do
         click_on "Log In"
 
         expect(current_path).to eq doctor_path(doctor)
-        expect(page).to have_content("#{doctor.name}")
-
       end
     end
   end

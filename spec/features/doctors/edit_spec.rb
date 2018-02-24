@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe "When user visits My Care Team page" do
   it "can click on Edit to edit doctor's information" do
-    patient = create(:patient, username: "test", password: "password", role: 2)
+    user = create(:user)
+    patient = create(:patient)
+    user.patient = patient
     doctor = create(:doctor)
     doctor.note = Note.create(contents: "", noteable_id: doctor.id, noteable_type: doctor.class.name)
     patient.doctors << doctor

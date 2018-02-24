@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe "When user visits My Medications (medications index path)" do
   it "can click on Edit to access form to edit a medication" do
+    user = create(:user)
     patient = create(:patient)
+    user.patient = patient
     medication = create(:medication)
     pm1 = create(:patient_medication, medication: medication)
     pm1.note = Note.create(contents: "", noteable_id: pm1.id, noteable_type: pm1.class.name)
