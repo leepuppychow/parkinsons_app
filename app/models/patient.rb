@@ -17,6 +17,10 @@ class Patient < ApplicationRecord
     .sum(:duration)
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 
   def self.from_omniauth(auth)
 		where(uid: auth.uid).first_or_create do |patient|

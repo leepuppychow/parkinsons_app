@@ -1,0 +1,37 @@
+.form-table {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.medication-table {
+  background-color: rgba(215, 225, 242, 0.7);
+  text-align: left;
+  border-radius: 5%;
+  .headers{
+    text-decoration: underline;
+  }
+  th {
+    padding: 10px;
+  }
+  tr:hover {
+    background: #77a59e;
+  }
+}
+
+.provider-table{
+  background-color: rgba(215, 225, 242, 0.7);
+  text-align: left;
+  border-collapse: collapse;
+  th {
+    padding: 10px;
+    border: solid black 1px;
+  }
+  tr:hover {
+  }
+  .column-headers{
+    font-size: 18px;
+    text-decoration: underline;
+  }
+}

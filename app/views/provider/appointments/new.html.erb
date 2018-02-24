@@ -1,0 +1,12 @@
+<%= render partial: "partials/doctor_header"%>
+<div class="column-container">
+  <div class="column-form">
+    <%= form_for [current_user, @appointment] do |f|%>
+    <div class="entry-form"><%= f.date_field :date %></div>
+    <div class="entry-form"><%= f.time_field :time %></div>
+    <div class="entry-form"><%= f.collection_select :patient_id, current_user.patients, :id, :full_name %></div>
+    <div><%= f.submit id: "submit-button"%></div>
+    <% end %>
+  </div>
+</div>
+<%= render partial: "partials/doctor_footer"%>
