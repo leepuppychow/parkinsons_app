@@ -2,10 +2,12 @@ require 'rails_helper'
 
 describe "When a patient visits activity index" do
   it "can click on Log Activity link and be sent to a form to add a new activity" do
-    patient = create(:patient, username: "test", password: "password", role: 2)
+    user = create(:user)
+    patient = create(:patient)
+    user.patient = patient
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
-    visit patient_activities_path(patient)
+    visit patient_exercises_path(patient)
 
     click_on "Log New Activity"
 
@@ -16,8 +18,6 @@ describe "When a patient visits activity index" do
 
     click_on "Create Activity"
 
-    expect(current_path).to eq patient_activities_path(patient)
-    expect(page).to have_content 20
-    expect(page).to have_content "Did today's workout"
+    expect(current_path).to eq patient_path(patient)
   end
 end
