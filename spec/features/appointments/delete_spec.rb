@@ -13,10 +13,8 @@ describe "As a logged-in patient, when I visit the appointment index" do
     appt = create(:appointment, doctor: doctor, patient: patient)
 
     visit patient_appointments_path(patient)
-    click_on "#{appt.time.strftime("%I:%M %p")}"
-    expect(current_path).to eq edit_patient_appointment_path(patient, appt)
 
-    click_on "Delete Appointment"
+    click_on "Cancel"
 
     expect(current_path).to eq patient_appointments_path(patient)
     expect(Appointment.count).to eq 0
