@@ -1,0 +1,28 @@
+.column-container-left {
+ margin-top: 50px;
+ display: flex;
+ flex: {
+   direction: column;
+   wrap: wrap;
+ }
+ align-items: flex-start;
+}
+.column-container {
+ margin-top: 50px;
+ display: flex;
+ flex: {
+   direction: column;
+   wrap: wrap;
+ }
+ align-items: center;
+}
+.row-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: auto;
+}
+#login-container {
+  margin-top: 150px;
+}

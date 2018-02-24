@@ -10,10 +10,17 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :update]
 
-  resources :doctors, only: [:show]
+  resources :doctors, only: [:show] do
+    scope module: 'provider' do
+      resources :appointments, only: [:index, :new, :create, :edit, :update, :destroy]
+    end
+    resources :patients, only: [:index]
+    get "/tools", to: "tools#index"
+  end
 
   resources :patients, only: [:new, :create, :show] do
-    resources :appointments, only: [:index, :new, :create, :edit, :update, :destroy]
+    # resources :appointments, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :appointments, only: [:index, :destroy]
     resources :medications do
       resources :note, only: [:update]
     end
@@ -22,8 +29,7 @@ Rails.application.routes.draw do
     end
     resources :activities
     resources :exercises, only: [:index]
-    resources :articles, only: [:index, :create, :show]
-      #Note: the articles show page is the patient's twitter search page
+    resources :articles, only: [:index, :create]
     resources :find_doctor, only: [:index, :create]
   end
 
@@ -34,14 +40,6 @@ Rails.application.routes.draw do
     resources :medications, only: [:index]
     resources :exercises
     resources :note, only: [:index]
-  end
-
-  namespace :visitor do
-    resources :welcome, only: [:index]
-    resources :exercises, only: [:index]
-    resources :articles, only: [:index, :create]
-    resources :twitter, only: [:index]
-    resources :find_doctor, only: [:index, :create]
   end
 
 end

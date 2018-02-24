@@ -1,14 +1,13 @@
 <%= render partial: "partials/patient_header"%>
 
 <div class="column-container">
-  <%= link_to "New Appointment?", new_patient_appointment_path(current_user), id: "new-appointment" %>
-  <br>
   <%= month_calendar events: @appointments do |date, appointments| %>
     <%= date.day %>
     <% appointments.each do |appointment| %>
       <div class="appointment_on_calendar">
-        <%= link_to appointment.time.strftime("%I:%M %p"), edit_patient_appointment_path(current_user, appointment) %>
+        <%= appointment.time.strftime("%I:%M %p")%>
       </div><br>
+      <%= button_to "Cancel", patient_appointment_path(current_user, appointment), method: :delete%>
     <% end %>
   <% end %>
 </div>

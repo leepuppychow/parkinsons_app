@@ -1,22 +1,21 @@
 <%= render partial: "/partials/patient_header" %>
 
 <div class="column-container-left">
+  <% if @appointments.empty? == false %>
+    <div class="homepage-box">Today's Appointments:</div>
+    <% @appointments.each do |appointment| %>
+      <div id="today-appt">
+        <%= appointment.time.strftime("%I:%M %p") %> with: <%= link_to appointment.doctor.name, patient_doctors_path(current_user) %>
+      </div>
+    <% end %>
+  <% end %>
+
   <% if !@medications.empty? %>
     <div class="homepage-box">Medication Reminders:</div>
       <% @medications.each do |medication| %>
         <div id="med-name">Take <%=medication.freq_per_day%> x <%=medication.medication.name.capitalize%></div>
         <br>
       <% end  %>
-  <% end %>
-
-  <% if @appointments.empty? == false %>
-    <div class="homepage-box">Today's Appointments:</div>
-    <% @appointments.each do |appointment| %>
-      <div id="today-appt">
-        <%= appointment.date.strftime("%b %e, %Y") %> --> <%= appointment.time.strftime("%I:%M %p") %> 
-        with: <%= appointment.doctor.name %>
-      </div>
-    <% end %>
   <% end %>
 
   <div class="homepage-box">Your Recent Activity Levels:</div>

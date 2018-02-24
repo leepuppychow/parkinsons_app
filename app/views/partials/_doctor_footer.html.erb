@@ -1,5 +1,5 @@
 <div class="footer">
-  <%= link_to "Appts", root_path, class: "nav-bar-links" %>
-  <%= link_to "Patients", root_path, class: "nav-bar-links" %>
-  <%= link_to "Tools", root_path, class: "nav-bar-links" %>
+  <%= link_to "Appts", doctor_appointments_path(current_user), class: "nav-bar-links" %>
+  <%= link_to "Patients", doctor_patients_path(current_user), class: "nav-bar-links" %>
+  <%= link_to "Tools", doctor_tools_path(current_user), class: "nav-bar-links" %>
 </div>

@@ -16,10 +16,22 @@ yimeng_doctor.note = Note.create(contents: "", noteable_id: yimeng.id, noteable_
 lee = User.create(username: "leeuser", password: "password", uid: "1234", token: "token1")
 lee_patient = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32)
 lee.patient = lee_patient
-# lee = Patient.create!(first_name: "Lee", last_name: "Chow", age: 32, username: "lee", uid: "hello", role: 2)
 lee_patient.doctors << yimeng_doctor
 
-# admin_patient = Patient.create!(first_name: "admin", last_name: "admin", age: 0)
+lee2 = User.create(username: "lee2user", password: "password", uid: "1234", token: "token1")
+lee2_patient = Patient.create!(first_name: "Lee2", last_name: "Chow", age: 32)
+lee2.patient = lee2_patient
+lee2_patient.doctors << yimeng_doctor
+
+lee3 = User.create(username: "lee3user", password: "password", uid: "1234", token: "token1")
+lee3_patient = Patient.create!(first_name: "Lee3", last_name: "Chow", age: 32)
+lee3.patient = lee3_patient
+lee3_patient.doctors << yimeng_doctor
+
+lee4 = User.create(username: "lee4user", password: "password", uid: "1234", token: "token1")
+lee4_patient = Patient.create!(first_name: "Lee4", last_name: "Chow", age: 32)
+lee4.patient = lee4_patient
+lee4_patient.doctors << yimeng_doctor
 
 lee_patient.activities.create!(duration: 30, date_performed: Date.today, description: "Hello")
 lee_patient.activities.create!(duration: 40, date_performed: Date.today-1, description: "Hello")
@@ -57,6 +69,12 @@ appointment3 = Appointment.create(date: Date.today, time: Time.now, status: "lat
   doctor: therapist3)
 appointment4 = Appointment.create(date: Date.today, time: Time.now, status: "late",
   doctor: therapist2)
+appt5 = Appointment.create(date: Date.today, time: Time.now, status: "late",
+  doctor: yimeng_doctor, patient: lee2_patient)
+appt6 = Appointment.create(date: Date.today, time: Time.now, status: "late",
+  doctor: yimeng_doctor, patient: lee3_patient)
+appt7 = Appointment.create(date: Date.today, time: Time.now, status: "late",
+  doctor: yimeng_doctor, patient: lee4_patient)
 
 lee_patient.doctors << [therapist1, therapist2, therapist3]
 lee_patient.appointments << [appointment1, appointment2, appointment3, appointment4]

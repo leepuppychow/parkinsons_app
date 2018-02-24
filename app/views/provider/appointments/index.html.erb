@@ -1,0 +1,16 @@
+<%= render partial: "partials/doctor_header" %>
+
+<div class="column-container">
+  <%= week_calendar number_of_weeks: 1, events: @appointments do |date, appointments| %>
+    <%= date.day %>
+    <% appointments.each do |appointment| %>
+      <div class="appointment_on_calendar">
+        <%= link_to appointment.time.strftime("%I:%M %p"), edit_doctor_appointment_path(current_user, appointment) %>
+      </div><br>
+    <% end %>
+  <% end %>
+  <br>
+  <%= link_to "Schedule New Appointment", new_doctor_appointment_path(current_user), id: "new-appointment" %>
+</div>
+
+<%= render partial: "partials/doctor_footer" %>
