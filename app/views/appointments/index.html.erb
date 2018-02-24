@@ -2,27 +2,15 @@
 
 <div class="column-container">
   <%= link_to "New Appointment?", new_patient_appointment_path(current_user), id: "new-appointment" %>
-
-  <%= month_calendar do |date| %>
+  <br>
+  <%= month_calendar events: @appointments do |date, appointments| %>
     <%= date.day %>
-  <% end %>
-
-  <h2>Future appointments</h2>
-  <% @appointments.future.each do |appointment| %>
-  <li><%= appointment.date.strftime("%b %e, %Y") %> --> <%= appointment.time.strftime("%I:%M %p") %> with: <%= appointment.doctor.name %>
-    <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
-    <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
-  </li>
-  <% end %>
-
-  <h2>Past appointments</h2>
-  <% @appointments.past.each do |appointment| %>
-  <li><%= appointment.date.strftime("%b %e, %Y") %> --> <%= appointment.time.strftime("%I:%M %p") %> with: <%= appointment.doctor.name %>
-    <%= link_to "Edit", edit_patient_appointment_path(current_user, appointment) %>
-    <%= link_to "Delete", patient_appointment_path(current_user, appointment), method: :delete %>
-  </li>
+    <% appointments.each do |appointment| %>
+      <div class="appointment_on_calendar">
+        <%= link_to appointment.time.strftime("%I:%M %p"), edit_patient_appointment_path(current_user, appointment) %>
+      </div><br>
+    <% end %>
   <% end %>
 </div>
-
 
 <%= render partial: "partials/patient_footer"%>

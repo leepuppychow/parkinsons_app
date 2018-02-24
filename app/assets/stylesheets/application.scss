@@ -120,7 +120,7 @@
    font-size: 16px;
    width: 175px;
  }
- #submit-button{
+ #submit-button, #delete-button{
    font-size: 16px;
    width: 175px;
  }
@@ -236,6 +236,14 @@
    color: white;
    border-radius: 10%;
  }
+ .med-reminder{
+   font-size:30px;
+   text-decoration: underline;
+ }
+
+ .appointment_on_calendar{
+   background-color: #b3cbf2;
+ }
 
  #new-medication, #new-doctor, #new-appointment, #new-activity{
    text-decoration: none;
@@ -246,10 +254,7 @@
    color: white;
    border-radius: 10%;
  }
- .med-reminder{
-   font-size:30px;
-   text-decoration: underline;
- }
+
  #new-medication:hover{
    background: #4e6b65;
    opacity: 1.0;
