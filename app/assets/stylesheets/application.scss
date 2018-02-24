@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
@@ -73,7 +74,7 @@
 
  .homepage-section {
    background-color: rgba(215, 225, 242, 0.7);
-   border: solid #7899cc 2px;
+   border: solid #7899cc 1px;
    border-radius: 5%;
    opacity: 0.8;
    text-align: center;
@@ -119,7 +120,7 @@
    font-size: 16px;
    width: 175px;
  }
- #submit-button{
+ #submit-button, #delete-button{
    font-size: 16px;
    width: 175px;
  }
@@ -235,6 +236,14 @@
    color: white;
    border-radius: 10%;
  }
+ .med-reminder{
+   font-size:30px;
+   text-decoration: underline;
+ }
+
+ .appointment_on_calendar{
+   background-color: #b3cbf2;
+ }
 
  #new-medication, #new-doctor, #new-appointment, #new-activity{
    text-decoration: none;
@@ -245,10 +254,7 @@
    color: white;
    border-radius: 10%;
  }
- .med-reminder{
-   font-size:30px;
-   text-decoration: underline;
- }
+
  #new-medication:hover{
    background: #4e6b65;
    opacity: 1.0;

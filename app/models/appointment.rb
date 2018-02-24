@@ -6,4 +6,10 @@ class Appointment < ApplicationRecord
   scope :future, -> {where("date >= '#{DateTime.now}'")}
   scope :past, -> {where("date < '#{DateTime.now}'")}
   scope :today, -> {where(date: Date.today...Date.today+1)}
+
+  # This method is needed for simple_calendar gem
+  def start_time
+    self.date
+  end
+
 end

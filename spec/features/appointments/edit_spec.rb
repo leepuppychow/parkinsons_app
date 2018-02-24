@@ -14,7 +14,7 @@ describe "As a logged-in patient, when I visit the appointment index" do
 
     visit patient_appointments_path(patient)
 
-    click_on "Edit"
+    click_on "#{appt.time.strftime("%I:%M %p")}"
 
     expect(current_path).to eq edit_patient_appointment_path(patient, appt)
 
@@ -24,9 +24,7 @@ describe "As a logged-in patient, when I visit the appointment index" do
     click_on "Update Appointment"
 
     expect(current_path).to eq patient_appointments_path(patient)
-
-    visit patient_doctors_path(patient)
-    expect(page).to have_content doctor.name
-    expect(page).to have_content (Date.today + 7).strftime("%b %e, %Y")
+    expect(page).to have_css ".simple-calendar"
+    expect(page).to have_content appt.time.strftime("%I:%M %p")
   end
 end
