@@ -1,8 +1,23 @@
 <%= render partial: "partials/doctor_header" %>
 
 <div class="column-container">
-  <h1>Welcome <%= current_user.name %> </h1>
-
+  <h2>Welcome, <%= current_user.name %></h2>
+  <table>
+    <tr>
+      <th>Time</th>
+      <th>Patient First Name</th>
+      <th>Patient Last Name</th>
+      <th>Age</th>
+    </tr>
+    <% current_user.appointments.each do |appointment| %>
+      <tr class="appointment">
+        <th> <%= appointment.pretty_time %> </th>
+        <th> <%= appointment.patient.first_name %></th>
+        <th> <%= appointment.patient.last_name %></th>
+        <th> <%= appointment.patient.age %></th>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <%= render partial: "partials/doctor_footer" %>
