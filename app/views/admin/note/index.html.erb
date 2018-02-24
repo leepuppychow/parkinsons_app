@@ -1,17 +1,18 @@
 <%= render partial: "partials/admin_header" %>
-
-<table>
-  <tr>
-    <th>Note Type</th>
-    <th>Note Contents</th>
-  </tr>
-<% @notes.each do |note| %>
-  <tr>
-    <th><%= note.noteable.class %></th>
-    <th><%= note.contents %></th>
-  </tr>
-<% end %>
-</table>
+<div class="column-container-left">
+  <table>
+    <tr>
+      <th>Note Type</th>
+      <th>Note Contents</th>
+    </tr>
+    <% @notes.each do |note| %>
+    <tr>
+      <th><%= note.noteable.class %></th>
+      <th><%= note.contents %></th>
+    </tr>
+    <% end %>
+  </table>
+</div>
 
 <div class="footer">
 </div>
