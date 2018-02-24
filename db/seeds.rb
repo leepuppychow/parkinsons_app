@@ -69,6 +69,12 @@ appointment3 = Appointment.create(date: Date.today, time: Time.now, status: "lat
   doctor: therapist3)
 appointment4 = Appointment.create(date: Date.today, time: Time.now, status: "late",
   doctor: therapist2)
+appt5 = Appointment.create(date: Date.today, time: Time.now, status: "late",
+  doctor: yimeng_doctor, patient: lee2_patient)
+appt6 = Appointment.create(date: Date.today, time: Time.now, status: "late",
+  doctor: yimeng_doctor, patient: lee3_patient)
+appt7 = Appointment.create(date: Date.today, time: Time.now, status: "late",
+  doctor: yimeng_doctor, patient: lee4_patient)
 
 lee_patient.doctors << [therapist1, therapist2, therapist3]
 lee_patient.appointments << [appointment1, appointment2, appointment3, appointment4]
