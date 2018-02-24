@@ -1,24 +1,26 @@
-<div class="header">
-  <h1>Admin: All current doctors
-    <%= render partial: "admin/admin_header" %>
-  </h1>
+<%= render partial: "partials/admin_header" %>
+
+<div class="column-container-left">
+  <h2>All Current Providers</h2>
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Specialty</th>
+      <th>Location</th>
+      <th>Patient Count</th>
+    </tr>
+    <% @doctors.each do |doctor| %>
+    <tr>
+      <th><%= doctor.name %></th>
+      <th><%= doctor.phone %></th>
+      <th><%= doctor.specialty %></th>
+      <th><%= doctor.location %></th>
+      <th><%= doctor.patients.count %></th>
+    </tr>
+    <% end %>
+  </table>
 </div>
 
-<table>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Specialty</th>
-    <th>Location</th>
-    <th>Patient Count</th>
-  </tr>
-<% @doctors.each do |doctor| %>
-  <tr>
-    <th><%= doctor.name %></th>
-    <th><%= doctor.phone %></th>
-    <th><%= doctor.specialty %></th>
-    <th><%= doctor.location %></th>
-    <th><%= doctor.patients.count %></th>
-  </tr>
-<% end %>
-</table>
+<div class="footer">
+</div>

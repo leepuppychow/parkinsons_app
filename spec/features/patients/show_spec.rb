@@ -2,7 +2,10 @@ require 'rails_helper'
 
 describe "As a user when I visit the user show page" do
   before(:each) do
-    @patient = create(:patient, username: "test", password: "password", role: 2)
+    user = create(:user)
+    @patient = create(:patient)
+    user.patient = @patient
+
     @patient.doctors << create(:doctor)
     @patient.doctors << create(:doctor, name: "Taylor")
 
@@ -16,8 +19,6 @@ describe "As a user when I visit the user show page" do
   end
 
   it "sees a User welcome page with links to various tools" do
-    expect(page).to have_content "Logout"
-    expect(page).to have_content "#{@patient.first_name}"
     expect(page).to have_content "Medication Reminders"
     expect(page).to have_content "Activity Levels"
   end

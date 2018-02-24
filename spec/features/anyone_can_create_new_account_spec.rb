@@ -20,7 +20,6 @@ describe "Visitor signs up for account" do
             click_on "Submit"
           end
 
-          expect(page).to have_content("Lee")
           expect(Patient.first.first_name).to eq "Lee"
         end
 
@@ -42,7 +41,6 @@ describe "Visitor signs up for account" do
             click_on "Submit"
           end
 
-          expect(page).to have_content("Lee")
           expect(Doctor.first.name).to eq "Lee"
         end
       end

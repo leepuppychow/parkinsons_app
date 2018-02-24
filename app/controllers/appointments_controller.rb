@@ -10,8 +10,12 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @doctor = Doctor.find_by(name: appointment_params[:appointable])
-    create_provider(@doctor)
+    @appointment = current_user.appointments.new(appointment_params)
+    if @appointment.save
+      redirect_to patient_appointments_path(current_user)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -19,13 +23,16 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    @appointment = Appointment.find(params[:id])
-    @doctor = Doctor.find_by(name: appointment_params[:appointable])
-    update_provider(@doctor)
+    @appointment = current_user.appointments.find(params[:id])
+    if @appointment.update(appointment_params)
+      redirect_to patient_appointments_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    appointment = Appointment.find(params[:id])
+    appointment = current_user.appointments.find(params[:id])
     appointment.destroy
     redirect_to patient_appointments_path(current_user)
   end
@@ -33,33 +40,6 @@ class AppointmentsController < ApplicationController
   private
 
     def appointment_params
-      params.require(:appointment).permit(:date_time, :appointable)
-    end
-
-    def create_provider(provider)
-      @appointment = Appointment.new(patient: current_user,
-                                    appointable_id: provider.id,
-                                    appointable_type: provider.class.name,
-                                    date_time: appointment_params[:date_time])
-      if @appointment.save
-        flash[:notice] = "Appointment added successfully"
-        redirect_to patient_appointments_path(current_user)
-      else
-        flash[:notice] = "Error occurred, please try again."
-        render :new
-      end
-    end
-
-    def update_provider(provider)
-      if @appointment.update(patient: current_user,
-                            appointable_id: provider.id,
-                            appointable_type: provider.class.name,
-                            date_time: appointment_params[:date_time])
-        flash[:notice] = "Appointment was updated successfully"
-        redirect_to patient_appointments_path(current_user)
-      else
-        flash[:notice] = "Some information missing or error occurred, appointment not updated"
-        render :edit
-      end
+      params.require(:appointment).permit(:date, :time, :doctor_id)
     end
 end

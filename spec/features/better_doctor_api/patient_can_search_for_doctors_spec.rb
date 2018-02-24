@@ -5,7 +5,9 @@ describe "As a logged in user(patient)" do
     context "and fill in form to search for a doctor" do
       it "should return a list of doctors with name, address, phone, and insurance info" do
         VCR.use_cassette("neurologists") do
-          patient = create(:patient, username: "LEE", role: 2)
+          user = create(:user)
+          patient = create(:patient)
+          user.patient = patient
           allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
           visit patient_find_doctor_index_path(patient)

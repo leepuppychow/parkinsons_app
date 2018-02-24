@@ -1,27 +1,29 @@
-<div class="header">
-  <h1>Admin: All Exercises
-    <%= render partial: "admin/admin_header" %>
-  </h1>
+<%= render partial: "partials/admin_header" %>
+<div class="column-container-left">
+  <%= link_to "Add New Exercise", new_admin_exercise_path %>
+  <h2>All Exercises</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date added</th>
+      <th>Image </th>
+    </tr>
+    <% @exercises.each do |exercise| %>
+    <tr>
+      <th><%= exercise.name %></th>
+      <th><%= exercise.description %></th>
+      <th><%= exercise.created_at.strftime("%m/%d/%y") %></th>
+      <th><img id="admin-exercise-image" src="<%= exercise.image%>"></th>
+      <th>
+        <%= link_to "Edit", edit_admin_exercise_path(exercise), id: "edit-link" %></br>
+        <%= link_to "Remove", admin_exercise_path(exercise), method: "delete", id: "delete-link"%>
+      </th>
+    </tr>
+    <% end %>
+  </table>
+
 </div>
 
-<p><%= link_to "Add New Exercise", new_admin_exercise_path %></p>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Date added</th>
-    <th>Image </th>
-  </tr>
-<% @exercises.each do |exercise| %>
-  <tr>
-    <th><%= exercise.name %></th>
-    <th><%= exercise.description %></th>
-    <th><%= exercise.created_at.strftime("%m/%d/%y") %></th>
-    <th><img id="admin-exercise-image" src="<%= exercise.image%>"></th>
-    <th>
-      <%= link_to "Edit", edit_admin_exercise_path(exercise), id: "edit-link" %></br>
-      <%= link_to "Remove", admin_exercise_path(exercise), method: "delete", id: "delete-link"%>
-    </th>
-  </tr>
-<% end %>
-</table>
+<div class="footer">
+</div>

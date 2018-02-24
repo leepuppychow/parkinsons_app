@@ -5,7 +5,9 @@ describe "when anyone visits their homepage" do
     context "he/she can click on a link Find a Doctor" do
       it "will see a page with a form to search for a physician" do
         VCR.use_cassette("better_doctor_search") do
-          patient = create(:patient, username: "test", password: "password", role: 2)
+          user = create(:user)
+          patient = create(:patient)
+          user.patient = patient
           allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
 
           visit patient_find_doctor_index_path(patient)

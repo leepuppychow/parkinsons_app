@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "When Admin visits admin exercises index page" do
   context "can click on a link to Edit Exercise" do
     it "can fill out a form with info for exercise" do
-      admin = create(:patient, username: "admin", password: "password", role: 1)
+      admin = create(:user, username: "admin", password: "password")
       exercise = create(:exercise)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)

@@ -2,11 +2,12 @@ require 'rails_helper'
 
 describe Appointment do
   describe "Validations" do
-    it {is_expected.to validate_presence_of(:date_time)}
+    it {is_expected.to validate_presence_of(:date)}
+    it {is_expected.to validate_presence_of(:time)}
   end
 
   describe "Relationships" do
     it {is_expected.to belong_to :patient}
-    it {should respond_to(:appointable)}
+    it {is_expected.to belong_to :doctor}
   end
 end
