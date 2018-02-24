@@ -1,18 +1,20 @@
-<div class="header">
-  <h1>Admin: All Medications
-    <%= render partial: "admin/admin_header" %>
-  </h1>
+<%= render partial: "partials/admin_header" %>
+
+<div class="column-container-left">
+  <h2>All Medications</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Date added</th>
+    </tr>
+    <% @medications.each do |medication| %>
+    <tr>
+      <th><%= medication.name %></th>
+      <th><%= medication.created_at.strftime("%m/%d/%y") %></th>
+    </tr>
+    <% end %>
+  </table>
 </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Date added</th>
-  </tr>
-<% @medications.each do |medication| %>
-  <tr>
-    <th><%= medication.name %></th>
-    <th><%= medication.created_at.strftime("%m/%d/%y") %></th>
-  </tr>
-<% end %>
-</table>
+<div class="footer">
+</div>

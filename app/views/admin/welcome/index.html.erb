@@ -1,13 +1,13 @@
-<div class="header">
-  <h1>Welcome Admin!
-    <%= link_to "Logout", logout_path, class: "nav-bar-links" %>
-  </h1>
-</div>
+<%= render partial: "partials/admin_header" %>
 
-<ul>
+<div class="column-container-left">
   <li> <%= link_to "Patients Index", admin_patients_path %> </li>
   <li> <%= link_to "Doctors Index", admin_doctors_path %> </li>
   <li> <%= link_to "Exercises Index", admin_exercises_path %> </li>
   <li> <%= link_to "Medications Index", admin_medications_path %> </li>
   <li> <%= link_to "Notes Index", admin_note_index_path %> </li>
-</ul>
+
+</div>
+
+<div class="footer">
+</div>

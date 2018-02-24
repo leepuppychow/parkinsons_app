@@ -1,9 +1,6 @@
-<div class="header">
-  <h1>Admin - Edit Exercise
-    <%= render partial: "admin/admin_header" %>
-    <%= link_to "Exercises", admin_exercises_path, class: "nav-bar-links" %>
-  </h1>
-</div>
+<%= render partial: "partials/admin_header" %>
+
+<%= link_to "Exercises", admin_exercises_path, class: "nav-bar-links" %>
 
 <table class="form-table">
 <%= form_for @exercise, url: admin_exercise_path(@exercise) do |f| %>
@@ -25,3 +22,6 @@
 <% end %>
 
 </table>
+
+<div class="footer">
+</div>
