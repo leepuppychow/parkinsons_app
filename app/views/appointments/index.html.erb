@@ -3,6 +3,10 @@
 <div class="column-container">
   <%= link_to "New Appointment?", new_patient_appointment_path(current_user), id: "new-appointment" %>
 
+  <%= month_calendar do |date| %>
+    <%= date.day %>
+  <% end %>
+
   <h2>Future appointments</h2>
   <% @appointments.future.each do |appointment| %>
   <li><%= appointment.date.strftime("%b %e, %Y") %> --> <%= appointment.time.strftime("%I:%M %p") %> with: <%= appointment.doctor.name %>
