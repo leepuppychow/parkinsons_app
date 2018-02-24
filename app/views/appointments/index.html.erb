@@ -6,8 +6,9 @@
     <% appointments.each do |appointment| %>
       <div class="appointment_on_calendar">
         <%= appointment.time.strftime("%I:%M %p")%>
-      </div><br>
+      </div>
       <%= button_to "Cancel", patient_appointment_path(current_user, appointment), method: :delete%>
+      <br>
     <% end %>
   <% end %>
 </div>
