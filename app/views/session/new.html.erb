@@ -3,30 +3,33 @@
 </div>
 
 <div class="column-container">
-  <h2>We just need a little more info, <%= @user.username %>. </h2>
-  <h2>Are you a Healthcare Provider?</h2>
+  <h3>We just need a little more info, <%= @user.username %>.</h3>
+  <h3>Are you a Healthcare Provider?</h3>
   <%= select_tag "provider", options_for_select(["No", "Yes"]), class: "provider-dropdown" %>
 
   <div class="new-patient-form">
-    <%= form_for @user, method: :patch do %>
-      <%= text_field_tag "patient[first_name]", nil, placeholder: "Enter First Name" %>
-      <%= text_field_tag "patient[last_name]", nil, placeholder: "Enter Last Name" %>
-      <%= hidden_field_tag "user[username]", @user.username %>
-      <%= submit_tag "Submit"%>
-    <% end %>
+    <div class="column-form">
+      <%= form_tag(users_path, method: :post) do %>
+      <div><%= text_field_tag "patient[first_name]", nil, placeholder: "Enter First Name", class: "entry-form" %></div>
+      <div><%= text_field_tag "patient[last_name]", nil, placeholder: "Enter Last Name", class: "entry-form" %></div>
+      <div><%= text_field_tag "user[username]", nil, placeholder: "Username", class: "entry-form" %></div>
+      <div><%= submit_tag "Submit"%></div>
+      <% end %>
+    </div>
   </div>
 
   <div class="new-doctor-form">
-    <%= form_for @user, method: :patch do %>
-      <%= text_field_tag "doctor[name]", nil, placeholder: "Enter Full Name" %>
-      <%= text_area_tag "doctor[location]", nil, placeholder: "Enter Full Address" %>
-      <%= text_field_tag "doctor[phone]", nil, placeholder: "Phone Number" %>
-      <%= select_tag "doctor[specialty]", options_for_select(@specialties), class: "entry-form"%>
-      <%= hidden_field_tag "user[username]", @user.username %>
-      <%= submit_tag "Submit"%>
+    <%= form_tag(users_path, method: :post) do %>
+    <div class="column-form">
+      <div><%= select_tag "doctor[specialty]", options_for_select(@specialties), prompt: "Select Specialty", class: "entry-form"%></div>
+      <div><%= text_field_tag "doctor[name]", nil, placeholder: "Enter Full Name", class: "entry-form" %></div>
+      <div><%= text_area_tag "doctor[location]", nil, placeholder: "Enter Full Address", class: "entry-form" %></div>
+      <div><%= text_field_tag "doctor[phone]", nil, placeholder: "Phone Number", class: "entry-form" %></div>
+      <div><%= text_field_tag "user[username]", nil, placeholder: "Username", class: "entry-form" %></div>
+      <div><%= submit_tag "Submit"%></div>
+    </div>
     <% end %>
   </div>
 </div>
 
-<div class="footer">
-</div>
+<div class="footer"></div>
