@@ -7,7 +7,9 @@
       <div class="appointment_on_calendar">
         <%= appointment.time.strftime("%I:%M %p")%>
       </div>
-      <%= button_to "Cancel", patient_appointment_path(current_user, appointment), method: :delete%>
+      <% unless appointment.past_appointment? %>
+        <%= button_to "Cancel", patient_appointment_path(current_user, appointment), method: :delete%>
+      <% end %>
       <br>
     <% end %>
   <% end %>

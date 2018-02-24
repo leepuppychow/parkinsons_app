@@ -16,4 +16,8 @@ class Appointment < ApplicationRecord
     time.strftime("%I:%M %p")
   end
 
+  def past_appointment?
+    return true if date < Date.today
+  end
+
 end
