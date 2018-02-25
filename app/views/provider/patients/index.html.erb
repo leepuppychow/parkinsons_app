@@ -1,0 +1,23 @@
+<%= render partial: "partials/doctor_header" %>
+
+<div class="column-container-left">
+  <h2>My Patients</h2>
+  <table class="provider-table">
+    <tr>
+      <th class="column-headers">Last Name</th>
+      <th class="column-headers">First Name</th>
+      <th class="column-headers">Age</th>
+      <th></th>
+    </tr>
+  <% @patients.each do |patient| %>
+    <tr class="providers-patient">
+      <th><%= patient.last_name %></th>
+      <th><%= patient.first_name %></th>
+      <th><%= patient.age %></th>
+      <th><%= link_to "Send Message", doctor_patients_path(current_user)%></th>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<%= render partial: "partials/doctor_footer" %>

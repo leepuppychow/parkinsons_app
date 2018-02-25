@@ -6,6 +6,7 @@ describe "As a Doctor/Provider user" do
       user = create(:user)
       doctor = create(:doctor)
       user.doctor = doctor
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(doctor)
 
       visit doctor_tools_path(doctor)
 
