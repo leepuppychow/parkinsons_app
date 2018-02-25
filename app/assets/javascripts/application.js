@@ -51,25 +51,54 @@ function fallRiskAPI(){
     berg = (berg / 56) * 100;
     // callback=? in URL to help with Cross Domain AJAX request
     var endpoint = "https://fall-risk-api.herokuapp.com/v1/predict?callback=?&gait="+gait+"&berg="+berg+"&age="+age;
-    $.getJSON(endpoint, function callback(data){
-
-    })
-
-    // fetch(endpoint)
-    // .then(function(){
-    //   debugger;
+    // $.ajax({
+    //   url: endpoint,
+    //   type: 'GET',
+    //   dataType: 'json',
+    //   crossDomain: true,
+    //   success: function(data){
+    //     debugger;
+    //   },
+    //   error: function(){
+    //   }
     // })
-    // .catch(function(){
-    //
-    // });
+    $.getJSON(endpoint, function(data){
+      debugger;
+    })
   })
 }
-
-
 
 
 $(document).ready(function() {
   createAccount();
   appointmentOnCalendar();
   fallRiskAPI();
+
+  $.rails.allowAction = function(link){
+  if (link.data("confirm") == undefined){
+    debugger;
+    return true;
+  }
+  $.rails.showConfirmationDialog(link);
+    debugger;
+    return false;
+  }
+  //User click confirm button
+  $.rails.confirmed = function(link){
+    link.data("confirm", null);
+    link.trigger("click.rails");
+  }
+  //Display the confirmation dialog
+  $.rails.showConfirmationDialog = function(link){
+    var message = link.data("confirm");
+    $.fn.SimpleModal({
+      model: "modal",
+      title: "Please confirm",
+      contents: message
+    }).addButton("Yes", "button alert", function(){
+      $.rails.confirmed(link);
+      this.hideModal();
+    }).addButton("No", "button secondary").showModal();
+  }
+
 })
