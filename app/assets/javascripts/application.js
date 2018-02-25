@@ -16,8 +16,21 @@
 //= require rails-ujs
 //= require_tree .
 
-$(document).ready(function() {
-  $('.new-doctor-form').hide();  
+function appointmentOnCalendar(){
+  $('.appointment-on-calendar').hover(function(e){
+    $(this.firstElementChild).show()
+    .css('top', e.pageY + 10)
+    .css('left', e.pageX + 10)
+  }, function(){
+    $('.appointment-info').hide();
+  });
+  $('.appointment-on-calendar').mousemove(function(e) {
+    $('.appointment-info').css('top', e.pageY + 10).css('left', e.pageX + 10);
+  });
+}
+
+function createAccount(){
+  $('.new-doctor-form').hide();
   $('.provider-dropdown').change(function(){
     if ($('.provider-dropdown').val() === "No") {
       $('.new-doctor-form').hide();
@@ -28,4 +41,9 @@ $(document).ready(function() {
       $('.new-patient-form').hide();
     }
   })
+}
+
+$(document).ready(function() {
+  createAccount();
+  appointmentOnCalendar();
 })

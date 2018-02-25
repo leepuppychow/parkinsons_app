@@ -21,6 +21,7 @@
  @import "header";
  @import "footer";
  @import "tables";
+ @import "appointment";
 
  body {
    background-color: white;
@@ -180,9 +181,7 @@
    text-decoration: underline;
  }
 
- .appointment_on_calendar{
-   background-color: #b3cbf2;
- }
+
 
  #new-medication, #new-doctor, #new-appointment, #new-activity{
    text-decoration: none;
