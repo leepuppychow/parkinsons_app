@@ -4,10 +4,18 @@
   <%= month_calendar events: @appointments do |date, appointments| %>
     <%= date.day %>
     <% appointments.each do |appointment| %>
-      <div class="appointment_on_calendar">
+      <div class="appointment-on-calendar">
         <%= appointment.time.strftime("%I:%M %p")%>
-      </div><br>
-      <%= button_to "Cancel", patient_appointment_path(current_user, appointment), method: :delete%>
+        <div class="appointment-info">
+          <h4><%= appointment.doctor.name %></h4>
+          <p><%= appointment.doctor.location %></p>
+          <p><%= appointment.doctor.phone %></p>
+        </div>
+      </div>
+      <% unless appointment.past_appointment? %>
+        <%= button_to "Cancel", patient_appointment_path(current_user, appointment), method: :delete%>
+      <% end %>
+      <br>
     <% end %>
   <% end %>
 </div>
