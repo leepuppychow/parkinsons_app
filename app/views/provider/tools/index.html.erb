@@ -1,0 +1,18 @@
+<%= render partial: "partials/doctor_header" %>
+
+<div class="column-container">
+  <div class="column-form">
+    <%= form_tag do %>
+      <div><%= number_field_tag :age, nil, placeholder: "Age (years)", class: "entry-form", id: "age-form" %></div>
+      <div><%= number_field_tag :berg, nil, placeholder: "Berg (out of 56)", class: "entry-form", id: "berg-form" %></div>
+      <div><%= number_field_tag :gait, nil, placeholder: "Gait Speed (m/s)", class: "entry-form", id: "gait-form" %></div>
+      <br>
+      <div id="predict-fall-risk">Predict Fall Risk</div>
+    <% end %>
+  </div>
+  <div class="fall-results">
+    
+  </div>
+</div>
+
+<%= render partial: "partials/doctor_footer" %>

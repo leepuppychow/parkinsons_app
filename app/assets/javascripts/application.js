@@ -43,7 +43,33 @@ function createAccount(){
   })
 }
 
+function fallRiskAPI(){
+  $("#predict-fall-risk").click(function(){
+    var age = parseInt($("#age-form").val());
+    var berg = parseInt($("#berg-form").val());
+    var gait = parseFloat($("#gait-form").val());
+    berg = (berg / 56) * 100;
+    // callback=? in URL to help with Cross Domain AJAX request
+    var endpoint = "https://fall-risk-api.herokuapp.com/v1/predict?callback=?&gait="+gait+"&berg="+berg+"&age="+age;
+    $.getJSON(endpoint, function callback(data){
+
+    })
+
+    // fetch(endpoint)
+    // .then(function(){
+    //   debugger;
+    // })
+    // .catch(function(){
+    //
+    // });
+  })
+}
+
+
+
+
 $(document).ready(function() {
   createAccount();
   appointmentOnCalendar();
+  fallRiskAPI();
 })
