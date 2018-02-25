@@ -8,8 +8,8 @@ class Patient < ApplicationRecord
   has_many :appointments
   belongs_to :user, optional: true
 
-  enum role: ["visitor", "admin", "patient"]
-
+  scope :sorted_by_last_name, -> {order(:last_name)}
+  
   def activities_with_duration_summed_per_day
     activities.group(:date_performed)
     .order("date_performed DESC")
