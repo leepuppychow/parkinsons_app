@@ -4,7 +4,6 @@ describe Doctor, type: :model do
   describe "Validations" do
     it {is_expected.to validate_presence_of(:name)}
     it {is_expected.to validate_presence_of(:phone)}
-    it {is_expected.to validate_presence_of(:specialty)}
     it {is_expected.to validate_presence_of(:location)}
   end
 
