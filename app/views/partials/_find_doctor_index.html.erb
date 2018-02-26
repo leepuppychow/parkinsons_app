@@ -1,6 +1,7 @@
 <div class="column-container">
     <%= form_tag do %>
     <div class="column-form">
+      <div><%= text_field_tag :name, "", placeholder: "Name (optional)", class: "entry-form", id: "find-doctor-name" %></div>
       <div><%= text_field_tag :city, "", placeholder: "City", class: "entry-form" %></div>
       <div><%= select_tag :state, options_for_select(@states), prompt: "State", class: "entry-form"%></div>
       <div><%= select_tag :specialty, options_for_select(@specialties), prompt: "Specialty", class: "entry-form"%></div>

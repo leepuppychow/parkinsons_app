@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   get "/auth/google_oauth2/callback", to: "session#create_from_google"
   get '/patients/activity_filter', to: "activities#index"
 
+  namespace "api" do
+    namespace "v1" do
+      resources :doctors, only: [:index]
+    end
+  end
+
   resources :users, only: [:new, :create, :update]
 
   resources :doctors, only: [:show] do

@@ -96,7 +96,7 @@
    font-size: 16px;
    width: 175px;
  }
- #submit-button-doctor, #submit-button-patient, #delete-button{
+ #submit-button, #submit-button-doctor, #submit-button-patient, #delete-button{
    font-size: 16px;
    width: 175px;
    margin-left: 7px;
@@ -188,18 +188,18 @@
    text-decoration: none;
    padding: 10px;
    margin-top: 10px;
-   background: #4e6b65;
+   background: #373b42;
    opacity: 0.8;
    color: white;
    border-radius: 10%;
  }
 
  #new-medication:hover{
-   background: #4e6b65;
+   background: #373b42;
    opacity: 1.0;
  }
  #new-doctor:hover{
-   background: #4e6b65;
+   background: #373b42;
    opacity: 1.0;
  }
 #admin-exercise-image{

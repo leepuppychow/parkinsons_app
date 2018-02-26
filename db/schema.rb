@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223134803) do
+ActiveRecord::Schema.define(version: 20180226030748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "citext"
 
   create_table "activities", force: :cascade do |t|
     t.integer "duration"
@@ -44,9 +45,9 @@ ActiveRecord::Schema.define(version: 20180223134803) do
   end
 
   create_table "doctors", force: :cascade do |t|
-    t.string "name"
-    t.string "specialty"
-    t.string "location"
+    t.citext "name"
+    t.citext "specialty"
+    t.citext "location"
     t.string "phone"
     t.string "insurance"
     t.datetime "created_at", null: false

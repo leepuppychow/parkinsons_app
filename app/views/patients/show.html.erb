@@ -10,7 +10,6 @@
       </div>
     <% end %>
   <% end %>
-
   <% if !@medications.empty? %>
     <div class="homepage-box">Medication Reminders:</div>
       <% @medications.each do |medication| %>
@@ -18,9 +17,7 @@
         <br>
       <% end  %>
   <% end %>
-
-  <div class="homepage-box">Your Recent Activity Levels:</div>
-  <%= line_chart @activity_graph, xtitle: "Date Performed", ytitle: "Duration(min)" %>
+  <%= line_chart @activity_graph, title: "Your Recent Activity Levels:", xtitle: "Date Performed", ytitle: "Duration(min)" %>
 </div>
 
 <%= render partial: "partials/patient_footer" %>

@@ -6,6 +6,7 @@ class FindDoctorController < ApplicationController
     @specialty = ""
     @city = ""
     @state = ""
+    @existing_doctors = Doctor.all
   end
 
   def create
