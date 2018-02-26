@@ -1,5 +1,6 @@
 <%= render partial: "partials/patient_header"%>
 <div class="column-container">
+  <h3>Add a New Medication:</h3>
   <div class="column-form">
     <%= form_for [current_user, @medication] do |f| %>
       <div><%= f.text_field :name, placeholder: "Medication Name", class: "entry-form" %></div>
@@ -11,5 +12,4 @@
     <% end %>
   </div>
 </div>
-
 <%= render partial: "partials/patient_footer"%>

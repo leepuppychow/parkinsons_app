@@ -1,27 +1,15 @@
 <%= render partial: "partials/patient_header"%>
-
 <div class="column-container">
-  <table class="form-table">
-  <%= form_for [current_user, @medication] do |f| %>
-  <tr>
-    <th><%= f.label :name %></th>
-    <th><%= f.text_field :name, class: "entry-form" %></th>
-  </tr>
-    <%= f.fields_for :patient_medications do |patient_med| %>
-  <tr>
-      <th><%= patient_med.label :dosage %></th>
-      <th><%= patient_med.text_field :dosage, class: "entry-form" %></th>
-  </tr>
-  <tr>
-      <th><%= patient_med.label "Frequency"%></th>
-      <th><%= patient_med.number_field :freq_per_day, class: "entry-form" %></th>
-  </tr>
-    <% end  %>
-  <tr>
-    <th><%= f.submit id: "submit-button" %></th>
-  </tr>
-  <% end %>
-  </table>
+  <h3>Edit Medication:</h3>
+  <div class="column-form">
+    <%= form_for [current_user, @medication] do |f| %>
+      <div><%= f.text_field :name, placeholder: "Medication Name", class: "entry-form" %></div>
+      <div><%= f.fields_for :patient_medications do |patient_med| %></div>
+        <div><%= patient_med.text_field :dosage, placeholder: "Dosage(mg)", class: "entry-form" %></div>
+        <div><%= patient_med.number_field :freq_per_day, placeholder: "Frequency(per day)", class: "entry-form" %></div>
+      <% end %>
+    <%= f.submit id: "submit-button" %>
+    <% end %>
+  </div>
 </div>
-
 <%= render partial: "partials/patient_footer" %>

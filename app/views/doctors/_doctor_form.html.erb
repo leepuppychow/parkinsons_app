@@ -1,4 +1,3 @@
-<div class="column-container">
   <%= form_for [current_user, @doctor] do |f| %>
   <table class="form-table">
     <tr>
@@ -14,8 +13,7 @@
       <th><%= f.select :specialty, options_for_select(@specialties), {}, class: "entry-form"%></th>
     </tr>
     <tr>
-      <th><%= f.submit id: "submit-button" %></th> 
+      <th><%= f.submit id: "submit-button" %></th>
     </tr>
   <% end %>
 </table>
-</div>

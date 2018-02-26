@@ -3,12 +3,16 @@
 <div class="column-container">
   <br>
   <div class="">
-    <%= link_to "New Doctor?", new_patient_doctor_path(current_user), id: "new-doctor" %>
-    <%= link_to "Find Doctor Tool", patient_find_doctor_index_path(current_user), id: "new-doctor" %>
+    <%= link_to "New Doctor?", new_patient_doctor_path(current_user), id: "new-doctor", class: "edit-link" %>
+    <%= link_to "Find Doctor Tool", patient_find_doctor_index_path(current_user), id: "new-doctor", class: "delete-link" %>
   </div>
   <% current_user.doctors.each do |doctor|  %>
   <div class="healthprovider-box">
-    <h2><%= doctor.name %> (<%= doctor.specialty %>)</h2>
+    <h3><%= doctor.name %> (<%= doctor.specialty %>)
+      <%= link_to "Edit", edit_patient_doctor_path(current_user, doctor), method: :get, class: "edit-link" %>
+      <%= link_to "Remove", patient_doctor_path(current_user, doctor), method: "delete", class: "delete-link"%>
+      <hr class="line">
+    </h3>
     <%= doctor.location %></br>
     <%= doctor.phone %>
     <div class="row-container">
@@ -16,8 +20,6 @@
         <%= f.text_area :contents, placeholder: "Enter notes here", class: "note-box" %></br>
         <%= f.submit "Update Note" %>
       <% end %>
-      <%= link_to "Edit", edit_patient_doctor_path(current_user, doctor), method: :get, id: "edit-link" %>
-      <%= link_to "Remove", patient_doctor_path(current_user, doctor), method: "delete", id: "delete-link"%>
     </div>
   </div>
   <% end  %>

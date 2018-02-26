@@ -1,10 +1,8 @@
-<div class="column-container">
-  <div class="column-form">
-    <%= form_for [current_user, @activity] do |f| %>
-      <div><%= f.text_field :description, placeholder: "Description", class: "entry-form" %></div>
-      <div><%= f.number_field :duration, placeholder: "Time(minutes)", class: "entry-form" %></div>
-      <div> <%= f.date_field :date_performed, class: "entry-form" %></div>
-      <%= f.submit id: "submit-button" %>
-    <% end  %>
-  </div>
+<div class="column-form">
+  <%= form_for [current_user, @activity] do |f| %>
+    <div><%= f.text_field :description, placeholder: "Description", class: "entry-form" %></div>
+    <div><%= f.number_field :duration, placeholder: "Time(minutes)", class: "entry-form" %></div>
+    <div> <%= f.date_field :date_performed, class: "entry-form" %></div>
+    <%= f.submit id: "submit-button" %>
+  <% end  %>
 </div>
