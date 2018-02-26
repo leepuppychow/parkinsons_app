@@ -1,0 +1,13 @@
+<%= render partial: "partials/patient_header" %>
+<div class="column-container">
+  <h3>New Message for: <%= @doctor.name %> </h3>
+  <div class="column-form">
+    <%= form_for [current_user, @message] do |f| %>
+      <div><%= f.text_field :title, placeholder: "Message title", id: "message-title" %></div>
+      <div><%= f.text_area :content, placeholder: "Message contents...", id: "message-contents" %></div>
+      <%= f.hidden_field :doctor, value: @doctor.id %>
+      <div><%= f.submit "Send!", id: "message-send-button"%></div>
+    <% end  %>
+  </div>
+</div>
+<%= render partial: "partials/patient_footer" %>

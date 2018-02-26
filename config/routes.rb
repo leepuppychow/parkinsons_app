@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resources :doctors do
       resources :note, only: [:update]
     end
+    resources :messages, only: [:new, :create]
     post "/new_doctor", to: "patients/doctors#create"
     post "/doctors/new_doctor", to: "patients/doctors#create"
     resources :activities
