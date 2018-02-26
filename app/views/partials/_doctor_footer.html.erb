@@ -1,5 +1,11 @@
 <div class="footer">
-  <%= link_to "Appts", doctor_appointments_path(current_user), class: "nav-bar-links" %>
-  <%= link_to "Patients", doctor_patients_path(current_user), class: "nav-bar-links" %>
-  <%= link_to "Tools", doctor_tools_path(current_user), class: "nav-bar-links" %>
+  <%= link_to doctor_appointments_path(current_user), class: "nav-bar-links" do %>
+    <i class="fas fa-calendar-alt fa-lg" id="icon"></i>
+  <% end %>
+  <%= link_to doctor_patients_path(current_user), class: "nav-bar-links" do %>
+    <i class="fas fa-users fa-lg" id="icon"></i>
+  <% end %>
+  <%= link_to doctor_tools_path(current_user), class: "nav-bar-links" do %>
+    <i class="fas fa-wrench fa-lg" id="icon"></i>
+  <% end %>
 </div>

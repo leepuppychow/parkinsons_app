@@ -1,7 +1,17 @@
 <div class="footer">
-  <%= link_to "Drs", patient_doctors_path(current_user), class: "nav-bar-links" %>
-  <%= link_to "Meds", patient_medications_path(current_user), class: "nav-bar-links" %>
-  <%= link_to "Appts", patient_appointments_path(current_user), class: "nav-bar-links" %>
-  <%= link_to "Exer", patient_exercises_path(current_user), class: "nav-bar-links" %>
-  <%= link_to "Read", patient_articles_path(current_user), class: "nav-bar-links" %>
+  <%= link_to patient_doctors_path(current_user), class: "nav-bar-links" do %>
+    <i class="fas fa-user-md fa-lg" id="icon"></i>
+  <% end %>
+  <%= link_to patient_medications_path(current_user), class: "nav-bar-links" do %>
+    <i class="fas fa-medkit fa-lg" id="icon"></i>
+  <% end %>
+  <%= link_to patient_appointments_path(current_user), class: "nav-bar-links" do %>
+    <i class="fas fa-calendar-alt fa-lg" id="icon"></i>
+  <% end %>
+  <%= link_to patient_exercises_path(current_user), class: "nav-bar-links" do %>
+    <i class="fas fa-basketball-ball fa-lg" id="icon"></i>
+  <% end %>
+  <%= link_to patient_articles_path(current_user), class: "nav-bar-links" do %>
+    <i class="fas fa-book fa-lg" id="icon"></i>
+  <% end %>
 </div>

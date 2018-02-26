@@ -13,7 +13,7 @@
       <div><%= text_field_tag "patient[last_name]", nil, placeholder: "Enter Last Name", class: "entry-form" %></div>
       <div><%= text_field_tag "user[username]", nil, placeholder: "Username", class: "entry-form" %></div>
       <div><%= password_field_tag "user[password]", nil, placeholder: "Password", class: "entry-form" %></div>
-      <div><%= submit_tag "Submit"%></div>
+      <div><%= submit_tag "Submit", id: "submit-button"%></div>
       <% end %>
     </div>
   </div>
@@ -27,7 +27,7 @@
       <div><%= text_field_tag "doctor[phone]", nil, placeholder: "Phone Number", class: "entry-form" %></div>
       <div><%= text_field_tag "user[username]", nil, placeholder: "Username", class: "entry-form" %></div>
       <div><%= password_field_tag "user[password]", nil, placeholder: "Password", class: "entry-form" %></div>
-      <div><%= submit_tag "Submit"%></div>
+      <div><%= submit_tag "Submit", id: "submit-button"%></div>
     </div>
     <% end %>
   </div>
