@@ -91,11 +91,7 @@ function findDoctors(){
             return "<h4 class='doctor-db-name'>"+doctor["name"]+"</h4>" +
               "<li class='doctor-db-specialty'>SPECIALTY: "+doctor["specialty"]+"</li>" +
               "<li class='doctor-db-location'>ADDRESS: "+doctor["location"]+"</li>" +
-              "<li class='doctor-db-phone'>PHONE: "+doctor["phone"]+"</li>"+
-              "<form class='button_to' method='post' action='new_doctor'>"+
-              "<input id='submit-button' type='submit' value='Add to My Care Team'>"+
-              "<input type='hidden' name='authenticity_token' value='quVqhOBIHkll/GIgn4jksQoLkpHDwPiTwyfk7BUbfwjBa22Nj6672wUt2lWgn2yxdp+BiShHGwgUkagezh200A=='>"+
-              "<input type='hidden' name='doctor_id' value="+doctor["id"]+"></form>";
+              "<li class='doctor-db-phone'>PHONE: "+doctor["phone"]+"</li>"
           })
           $(".doctor-db").html("<h2>Doctors in our system:</h2>"+doctors);
         })

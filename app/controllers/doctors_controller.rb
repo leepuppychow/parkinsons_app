@@ -49,10 +49,17 @@ class DoctorsController < ApplicationController
 
   def destroy
     current_user.patient_doctors.find_by(doctor_id: params[:id]).destroy
+    delete_associated_appointments
     redirect_to patient_doctors_path(current_user)
   end
 
   private
+
+    def delete_associated_appointments
+      if current_user.appointments.find_by(doctor_id: params[:id])
+        current_user.appointments.find_by(doctor_id: params[:id]).destroy
+      end
+    end
 
     def doctor_params
       params.require(:doctor).permit(:name, :phone, :specialty, :location)
