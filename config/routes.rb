@@ -18,9 +18,8 @@ Rails.application.routes.draw do
 
   resources :doctors, only: [:show] do
     scope module: 'provider' do
+      resources :messages, only: [:new, :create]
       resources :appointments, only: [:index, :new, :create, :edit, :update, :destroy]
-    end
-    scope module: 'provider' do
       resources :patients, only: [:index]
     end
     get "/tools", to: "provider/tools#index"
