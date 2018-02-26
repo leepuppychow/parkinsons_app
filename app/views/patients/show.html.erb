@@ -1,7 +1,6 @@
 <%= render partial: "/partials/patient_header" %>
 
 <div class="column-container-left">
-  <h3>Hello, <%=current_user.first_name%> </h3>
   <% if @appointments.empty? == false %>
     <div class="homepage-box">Today's Appointments:</div>
     <% @appointments.each do |appointment| %>

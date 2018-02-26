@@ -1,5 +1,6 @@
 <%= render partial: "partials/doctor_header"%>
 <div class="column-container">
+  <h3>Make a New Appointment:</h3>
   <div class="column-form">
     <%= form_for [current_user, @appointment] do |f|%>
     <div><%= f.date_field :date, class: "entry-form" %></div>
