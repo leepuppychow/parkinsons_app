@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :specialties
+  before_action :specialties, :set_beginning_of_week
   helper_method :current_user
+
+  def set_beginning_of_week
+    Date.beginning_of_week = :sunday
+  end
 
   def current_user
     @user ||= User.find(session[:user_id]) if session[:user_id]

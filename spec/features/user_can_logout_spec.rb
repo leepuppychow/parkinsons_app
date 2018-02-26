@@ -15,8 +15,7 @@ describe "When a patient(logged-in user) is on their homepage" do
       click_on "Log In"
 
       expect(current_path).to eq patient_path(patient)
-
-      click_on "Logout"
+      click_on "logout"
 
       expect(current_path).to eq "/"
     end
