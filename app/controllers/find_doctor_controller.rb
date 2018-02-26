@@ -6,7 +6,7 @@ class FindDoctorController < ApplicationController
     @specialty = ""
     @city = ""
     @state = ""
-    @existing_doctors = Doctor.all
+    @all_doctors = Doctor.all
   end
 
   def create
@@ -14,6 +14,7 @@ class FindDoctorController < ApplicationController
     @state = params[:state].strip.downcase
     @specialty = params[:specialty].strip.downcase
     @doctors = DoctorDataService.new(@city, @state, @specialty).practices
+    @all_doctors = Doctor.all
     render :index
   end
 

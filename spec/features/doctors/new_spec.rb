@@ -11,7 +11,7 @@ describe "When user visits My Care Team page" do
     select "Neurologist", :from => "doctor[specialty]"
     fill_in "doctor[location]", with: "Denver"
 
-    click_on "Create Doctor"
+    click_on "Add Doctor"
 
     expect(current_path).to eq patient_doctors_path(patient)
     expect(page).to have_content "Sarah"

@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     resources :doctors do
       resources :note, only: [:update]
     end
+    post "/new_doctor", to: "patients/doctors#create"
+    post "/doctors/new_doctor", to: "patients/doctors#create"
     resources :activities
     resources :exercises, only: [:index]
     resources :articles, only: [:index, :create]

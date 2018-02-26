@@ -13,10 +13,10 @@ class DoctorsController < ApplicationController
 
   def create
     if params[:find_doctor]
-      @doctor = current_user.doctors.create!(name: params[:find_doctor][0],
-                            location: params[:find_doctor][2],
-                            specialty: params[:find_doctor][1],
-                            phone: params[:find_doctor][3])
+      @doctor = current_user.doctors.find_or_create_by(name: params[:find_doctor][0],
+                                              location: params[:find_doctor][2],
+                                              specialty: params[:find_doctor][1],
+                                              phone: params[:find_doctor][3])
       @doctor.note = blank_note(@doctor)
       redirect_to patient_doctors_path(current_user)
     else

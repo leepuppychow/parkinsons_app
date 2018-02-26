@@ -8,8 +8,6 @@
         <%= appointment.time.strftime("%I:%M %p")%>
         <div class="appointment-info">
           <h4><%= appointment.doctor.name %></h4>
-          <p><%= appointment.doctor.location %></p>
-          <p><%= appointment.doctor.phone %></p>
         </div>
       </div>
       <% unless appointment.past_appointment? %>
