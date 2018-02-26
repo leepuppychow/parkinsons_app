@@ -22,7 +22,7 @@ $(document).ready(function() {
   fallRiskAPI();
   allDoctors();
   // confirmDeleteAppointment();
-  // findDoctors();
+  findDoctors();
 })
 
 function allDoctors(){
@@ -60,45 +60,49 @@ function createAccount(){
 }
 
 function fallRiskAPI(){
-  $("#predict-fall-risk").click(function(){
+  $(".predict-fall-risk").click(function(){
     var age = parseInt($("#age-form").val());
     var berg = parseInt($("#berg-form").val());
     var gait = parseFloat($("#gait-form").val());
     berg = (berg / 56) * 100;
-    // callback=? in URL to help with Cross Domain AJAX request
-    var endpoint = "https://fall-risk-api.herokuapp.com/v1/predict?callback=?&gait="+gait+"&berg="+berg+"&age="+age;
-    $.getJSON(endpoint, function(data){
-      debugger;
+    var endpoint = "https://fall-risk-api.herokuapp.com/v1/predict?gait="+gait+"&berg="+berg+"&age="+age;
+    fetch(endpoint)
+      .then((response) => response.json())
+      .then((data) => {
+        var modelAccuracy = data['model_accuracy'] * 100;
+        $(".fall-risk").html(`Predicted Fall Risk: ${data["fall_risk"]}`)
+        $(".model-accuracy").html(`Model Accuracy: ${modelAccuracy}%`)
+        }
+      )
+      .catch(() => alert("Error occurred, please check for missing data?"))
     })
-  })
 }
 
-
-// function findDoctors(){
-//   $("#doctor-search-name").keyup(function(event){
-//     var name = $("#doctor-search-name").val();
-//     var domain = window.location.origin;
-//     var endpoint = domain + "/api/v1/doctors?name="+name;
-//       if (name === "") {
-//         $(".doctor-db").html("");
-//       } else {
-//         $.getJSON(endpoint, function(data) {
-//           var doctors = data.map(function(doctor){
-//             return "<h4 class='doctor-db-name'>"+doctor["name"]+"</h4>" +
-//               "<li class='doctor-db-specialty'>SPECIALTY: "+doctor["specialty"]+"</li>" +
-//               "<li class='doctor-db-location'>ADDRESS: "+doctor["location"]+"</li>" +
-//               "<li class='doctor-db-phone'>PHONE: "+doctor["phone"]+"</li>"+
-//               "<form class='button_to' method='post' action='new_doctor'>"+
-//               "<input id='submit-button' type='submit' value='Add to My Care Team'>"+
-//               "<input type='hidden' name='authenticity_token' value='quVqhOBIHkll/GIgn4jksQoLkpHDwPiTwyfk7BUbfwjBa22Nj6672wUt2lWgn2yxdp+BiShHGwgUkagezh200A=='>"+
-//               "<input type='hidden' name='doctor_id' value="+doctor["id"]+"></form>";
-//           })
-//           $(".doctor-db").html("<h2>Doctors in our system:</h2>"+doctors);
-//         })
-//       }
-//     event.preventDefault();
-//   })
-// }
+function findDoctors(){
+  $("#doctor-search-name").keyup(function(event){
+    var name = $("#doctor-search-name").val();
+    var domain = window.location.origin;
+    var endpoint = domain + "/api/v1/doctors?name="+name;
+      if (name === "") {
+        $(".doctor-db").html("");
+      } else {
+        $.getJSON(endpoint, function(data) {
+          var doctors = data.map(function(doctor){
+            return "<h4 class='doctor-db-name'>"+doctor["name"]+"</h4>" +
+              "<li class='doctor-db-specialty'>SPECIALTY: "+doctor["specialty"]+"</li>" +
+              "<li class='doctor-db-location'>ADDRESS: "+doctor["location"]+"</li>" +
+              "<li class='doctor-db-phone'>PHONE: "+doctor["phone"]+"</li>"+
+              "<form class='button_to' method='post' action='new_doctor'>"+
+              "<input id='submit-button' type='submit' value='Add to My Care Team'>"+
+              "<input type='hidden' name='authenticity_token' value='quVqhOBIHkll/GIgn4jksQoLkpHDwPiTwyfk7BUbfwjBa22Nj6672wUt2lWgn2yxdp+BiShHGwgUkagezh200A=='>"+
+              "<input type='hidden' name='doctor_id' value="+doctor["id"]+"></form>";
+          })
+          $(".doctor-db").html("<h2>Doctors in our system:</h2>"+doctors);
+        })
+      }
+    event.preventDefault();
+  })
+}
 
 // function confirmDeleteAppointment(){
 //   $.rails.allowAction = function(link){

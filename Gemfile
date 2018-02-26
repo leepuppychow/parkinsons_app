@@ -38,7 +38,6 @@ gem 'figaro'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'jquery-rails'
 gem "simple_calendar", "~> 2.0"
-gem 'rack-cors'
 
 group :test do
   gem 'vcr'

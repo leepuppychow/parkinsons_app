@@ -2,9 +2,9 @@
   <div class="article-search-box">
     <h3>PubMed Article Search:</h3>
     <%= form_tag do %>
-    <%= text_field_tag :search, nil, placeholder: "Search terms" %>
-    <%= number_field_tag :year, nil, placeholder: "Year" %>
-    <%= submit_tag "Search!" %>
+      <%= text_field_tag :search, nil, placeholder: "Search terms", class: "entry-form" %>
+      <%= number_field_tag :year, nil, placeholder: "Year", class: "entry-form" %>
+      <%= submit_tag "Search!" %>
     <% end  %>
   </div>
 </div>
