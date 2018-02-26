@@ -14,7 +14,7 @@ describe "As a logged-in patient, when I visit the appointment index" do
 
     visit patient_appointments_path(patient)
 
-    click_on "Cancel"
+    click_on "Remove"
 
     expect(current_path).to eq patient_appointments_path(patient)
     expect(Appointment.count).to eq 0
