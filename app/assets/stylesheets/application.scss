@@ -99,6 +99,7 @@
  #submit-button, #delete-button{
    font-size: 16px;
    width: 175px;
+   margin-left: 7px;
  }
 
  .exercise {
@@ -227,4 +228,12 @@
 #show-insurance:hover #insurance-info{
   color:blue;
   display: block;
+}
+#predict-fall-risk{
+  padding: 3px;
+  border: solid black 1px;
+  text-align: center;
+}
+#icon{
+  color: white;
 }

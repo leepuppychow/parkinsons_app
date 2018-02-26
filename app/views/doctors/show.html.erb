@@ -10,7 +10,7 @@
       <th class="column-headers">Last Name</th>
       <th class="column-headers">Age</th>
     </tr>
-    <% current_user.appointments.each do |appointment| %>
+    <% current_user.appointments.sorted_by_time.each do |appointment| %>
       <tr class="appointment">
         <th> <%= appointment.pretty_time %> </th>
         <th> <%= appointment.patient.first_name %></th>
