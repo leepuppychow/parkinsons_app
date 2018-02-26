@@ -5,6 +5,7 @@ class Doctor < ApplicationRecord
   has_many :patients, through: :patient_doctors
   has_one :note, as: :noteable, dependent: :destroy
   has_many :appointments
+  has_many :messages
   belongs_to :user, optional: true
 
   def current_appointments(current_user)

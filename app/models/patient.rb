@@ -6,10 +6,11 @@ class Patient < ApplicationRecord
   has_many :medications, through: :patient_medications
   has_many :activities
   has_many :appointments
+  has_many :messages
   belongs_to :user, optional: true
 
   scope :sorted_by_last_name, -> {order(:last_name)}
-  
+
   def activities_with_duration_summed_per_day
     activities.group(:date_performed)
     .order("date_performed DESC")
