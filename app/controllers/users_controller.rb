@@ -54,7 +54,9 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:username, :password)
+      if params[:user]
+        params.require(:user).permit(:username, :password)
+      end
     end
 
     def patient_params
