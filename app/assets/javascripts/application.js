@@ -21,7 +21,7 @@ $(document).ready(function() {
   appointmentOnCalendar();
   fallRiskAPI();
   confirmDeleteAppointment();
-  findDoctors();
+  // findDoctors();
   allDoctors();
 })
 
@@ -32,31 +32,31 @@ function allDoctors(){
   })
 }
 
-function findDoctors(){
-  $("#doctor-search-name").keyup(function(event){
-    var name = $("#doctor-search-name").val();
-    var domain = window.location.origin;
-    var endpoint = domain + "/api/v1/doctors?name="+name;
-      if (name === "") {
-        $(".doctor-db").html("");
-      } else {
-        $.getJSON(endpoint, function(data) {
-          var doctors = data.map(function(doctor){
-            return "<h4 class='doctor-db-name'>"+doctor["name"]+"</h4>" +
-              "<li class='doctor-db-specialty'>SPECIALTY: "+doctor["specialty"]+"</li>" +
-              "<li class='doctor-db-location'>ADDRESS: "+doctor["location"]+"</li>" +
-              "<li class='doctor-db-phone'>PHONE: "+doctor["phone"]+"</li>"+
-              "<form class='button_to' method='post' action='new_doctor'>"+
-              "<input id='submit-button' type='submit' value='Add to My Care Team'>"+
-              "<input type='hidden' name='authenticity_token' value='quVqhOBIHkll/GIgn4jksQoLkpHDwPiTwyfk7BUbfwjBa22Nj6672wUt2lWgn2yxdp+BiShHGwgUkagezh200A=='>"+
-              "<input type='hidden' name='doctor_id' value="+doctor["id"]+"></form>";
-          })
-          $(".doctor-db").html("<h2>Doctors in our system:</h2>"+doctors);
-        })
-      }
-    event.preventDefault();
-  })
-}
+// function findDoctors(){
+//   $("#doctor-search-name").keyup(function(event){
+//     var name = $("#doctor-search-name").val();
+//     var domain = window.location.origin;
+//     var endpoint = domain + "/api/v1/doctors?name="+name;
+//       if (name === "") {
+//         $(".doctor-db").html("");
+//       } else {
+//         $.getJSON(endpoint, function(data) {
+//           var doctors = data.map(function(doctor){
+//             return "<h4 class='doctor-db-name'>"+doctor["name"]+"</h4>" +
+//               "<li class='doctor-db-specialty'>SPECIALTY: "+doctor["specialty"]+"</li>" +
+//               "<li class='doctor-db-location'>ADDRESS: "+doctor["location"]+"</li>" +
+//               "<li class='doctor-db-phone'>PHONE: "+doctor["phone"]+"</li>"+
+//               "<form class='button_to' method='post' action='new_doctor'>"+
+//               "<input id='submit-button' type='submit' value='Add to My Care Team'>"+
+//               "<input type='hidden' name='authenticity_token' value='quVqhOBIHkll/GIgn4jksQoLkpHDwPiTwyfk7BUbfwjBa22Nj6672wUt2lWgn2yxdp+BiShHGwgUkagezh200A=='>"+
+//               "<input type='hidden' name='doctor_id' value="+doctor["id"]+"></form>";
+//           })
+//           $(".doctor-db").html("<h2>Doctors in our system:</h2>"+doctors);
+//         })
+//       }
+//     event.preventDefault();
+//   })
+// }
 
 function appointmentOnCalendar(){
   $('.appointment-on-calendar').hover(function(e){
