@@ -10,10 +10,9 @@
   <div class="new-patient-form">
     <div class="column-form">
       <%= form_tag(users_path, method: :post) do %>
-      <div><%= text_field_tag "patient[first_name]", nil, placeholder: "Enter First Name", class: "entry-form" %></div>
-      <div><%= text_field_tag "patient[last_name]", nil, placeholder: "Enter Last Name", class: "entry-form" %></div>
-      <div><%= text_field_tag "user[username]", nil, placeholder: "Username", class: "entry-form" %></div>
-      <div><%= submit_tag "Submit"%></div>
+      <div><%= text_field_tag "patient[first_name]", nil, placeholder: "Enter First Name", class: "entry-form", id: "patient-firstname" %></div>
+      <div><%= text_field_tag "patient[last_name]", nil, placeholder: "Enter Last Name", class: "entry-form", id: "patient-lastname" %></div>
+      <div><%= submit_tag "Submit", id: "submit-button-patient"%></div>
       <% end %>
     </div>
   </div>
@@ -22,11 +21,10 @@
     <%= form_tag(users_path, method: :post) do %>
     <div class="column-form">
       <div><%= select_tag "doctor[specialty]", options_for_select(@specialties), prompt: "Select Specialty", class: "entry-form"%></div>
-      <div><%= text_field_tag "doctor[name]", nil, placeholder: "Enter Full Name", class: "entry-form" %></div>
-      <div><%= text_area_tag "doctor[location]", nil, placeholder: "Enter Full Address", class: "entry-form" %></div>
-      <div><%= text_field_tag "doctor[phone]", nil, placeholder: "Phone Number", class: "entry-form" %></div>
-      <div><%= text_field_tag "user[username]", nil, placeholder: "Username", class: "entry-form" %></div>
-      <div><%= submit_tag "Submit"%></div>
+      <div><%= text_field_tag "doctor[name]", nil, placeholder: "Enter Full Name", class: "entry-form", id: "doctor-fullname" %></div>
+      <div><%= text_area_tag "doctor[location]", nil, placeholder: "Enter Full Address", class: "entry-form", id: "doctor-address" %></div>
+      <div><%= text_field_tag "doctor[phone]", nil, placeholder: "Phone Number", class: "entry-form", id: "doctor-phone" %></div>
+      <div><%= submit_tag "Submit", id: "submit-button-doctor"%></div>
     </div>
     <% end %>
   </div>

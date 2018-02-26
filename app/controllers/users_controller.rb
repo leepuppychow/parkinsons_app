@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params) || current_user
     if @user.save && patient_params
       create_user_as_patient(@user)
       session[:user_id] = @user.id
@@ -54,7 +54,9 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:username, :password)
+      if params[:user]
+        params.require(:user).permit(:username, :password)
+      end
     end
 
     def patient_params
