@@ -10,6 +10,7 @@ class DoctorsController < ApplicationController
   end
 
   def show
+    @appointments = current_user.appointments.today.sorted_by_time
   end
 
   def create
