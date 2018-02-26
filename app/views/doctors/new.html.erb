@@ -1,6 +1,6 @@
 <%= render partial: "partials/patient_header"%>
 
-<div class="column-container">
+<div class="column-container-left">
   <%= form_for [current_user, @doctor] do |f| %>
   <table class="form-table">
     <tr>
@@ -20,11 +20,21 @@
     </tr>
   <% end %>
   </table>
-</div>
-
-<div class="column-container-left">
-  <div class="doctor-db">
+  <br><br>
+  <a id="new-doctor">Or look for providers in our system:</a>
+  <div class="all-doctors">
+    <% @all_doctors.each do |doctor| %>
+    <section class="doctor-search">
+      <h4 class="name"><%= doctor.name %></h4>
+      <div class="specialty"><%= doctor.specialty %></div>
+      <div class="location"><%= doctor.location %></div>
+      <div class="phone"><%= doctor.phone %></div></br>
+      <%= button_to "Add to My Care Team", "new_doctor", params: {doctor_id: doctor.id}, id: "submit-button" %>
+      <br>
+    </section>
+    <% end %>
   </div>
+
 </div>
 
 <%= render partial: "partials/patient_footer"%>

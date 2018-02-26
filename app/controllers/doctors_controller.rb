@@ -6,6 +6,7 @@ class DoctorsController < ApplicationController
 
   def new
     @doctor = Doctor.new
+    @all_doctors = Doctor.all
   end
 
   def show
