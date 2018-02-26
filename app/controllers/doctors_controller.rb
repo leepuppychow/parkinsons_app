@@ -49,6 +49,9 @@ class DoctorsController < ApplicationController
 
   def destroy
     current_user.patient_doctors.find_by(doctor_id: params[:id]).destroy
+    if current_user.appointments.find_by(doctor_id: params[:id])
+      current_user.appointments.find_by(doctor_id: params[:id]).destroy
+    end
     redirect_to patient_doctors_path(current_user)
   end
 
