@@ -1,3 +1,30 @@
 <%= render partial: "partials/patient_header"%>
-<%= render partial: "doctor_form" %>
+
+<div class="column-container">
+  <%= form_for [current_user, @doctor] do |f| %>
+  <table class="form-table">
+    <tr>
+      <th><%= f.text_field :name, placeholder: "Full name", class: "entry-form", id: "doctor-search-name" %></th>
+    </tr>
+    <tr>
+      <th><%= f.text_field :phone, placeholder: "Phone number", class: "entry-form", id: "doctor-search-phone" %></th>
+    </tr>
+    <tr>
+      <th><%= f.text_field :location, placeholder: "Full address", class: "entry-form", id: "doctor-search-location" %></th>
+    </tr>
+    <tr>
+      <th><%= f.select :specialty, options_for_select(@specialties), {}, class: "entry-form", id: "doctor-search-specialty"%></th>
+    </tr>
+    <tr>
+      <th><%= f.submit "Add Doctor", id: "submit-button" %></th>
+    </tr>
+  <% end %>
+  </table>
+</div>
+
+<div class="column-container-left">
+  <div class="doctor-db">
+  </div>
+</div>
+
 <%= render partial: "partials/patient_footer"%>

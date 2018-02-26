@@ -1,4 +1,5 @@
 <div class="column-container">
+    <h3>Search National Database of Providers:</h3>
     <%= form_tag do %>
     <div class="column-form">
       <div><%= text_field_tag :city, "", placeholder: "City", class: "entry-form" %></div>
@@ -7,6 +8,22 @@
       <div><%= submit_tag "Search!", id: "submit-button" %></div>
     </div>
     <% end  %>
+    <hr>
+
+    <a id="new-doctor">Or look for providers in our system:</a>
+    <div class="all-doctors">
+      <% @all_doctors.each do |doctor| %>
+        <section class="doctor-search">
+          <h4 class="name"><%= doctor.name %></h4>
+          <div class="specialty"><%= doctor.specialty %></div>
+          <div class="location"><%= doctor.location %></div>
+          <div class="phone"><%= doctor.phone %></div></br>
+          <%= button_to "Add to My Care Team", "new_doctor", params: {doctor_id: doctor.id}, id: "submit-button" %>
+          <br>
+        </section>
+      <% end %>
+    </div>
+
   <% if @doctors.empty? == false %>
     <h2><%= @specialty.capitalize%>(s) in: <%=@city.capitalize%>,  <%=@state.upcase%></h2>
     <% @doctors.each do |doctor| %>
