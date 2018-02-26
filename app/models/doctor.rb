@@ -11,4 +11,8 @@ class Doctor < ApplicationRecord
     appointments.where(patient_id: current_user.id).future
   end
 
+  def registered_user?
+    return true if self.user
+  end
+
 end
