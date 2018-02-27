@@ -8,9 +8,12 @@
   </div>
   <% current_user.doctors.each do |doctor|  %>
   <div class="healthprovider-box">
-    <h3><%= doctor.name %> (<%= doctor.specialty %>)
+    <h3><%= doctor.name %> (<%= doctor.specialty %>)<br><br>
       <%= link_to "Edit", edit_patient_doctor_path(current_user, doctor), method: :get, class: "edit-link" %>
       <%= link_to "Remove", patient_doctor_path(current_user, doctor), method: "delete", class: "delete-link"%>
+      <% if doctor.registered_user? %>
+        <%= link_to "Send Message", new_patient_message_path(current_user, doctor: doctor.id), class: "edit-link" %>
+      <% end %>
       <hr class="line">
     </h3>
     <%= doctor.location %></br>
