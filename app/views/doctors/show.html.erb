@@ -17,7 +17,7 @@
         <th> <%= appointment.patient.first_name %></th>
         <th> <%= appointment.patient.last_name %></th>
         <th> <%= appointment.patient.age %></th>
-        <th><%= link_to "Send Message", new_doctor_message_path(current_user, patient: appointment.patient.id)%></th>
+        <th><%= link_to "Message", new_doctor_message_path(current_user, patient: appointment.patient.id)%></th>
       </tr>
     <% end %>
   </table>

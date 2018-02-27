@@ -4,10 +4,9 @@
   <%= link_to "New Medication?", new_patient_medication_path(current_user), id: "new-medication" %>
   <% @medications.each do |medication| %>
     <div class="medication-box">
-      <h3><%=medication.medication.name%>
+      <h3><%=medication.medication.name%><br><br>
         <%= link_to "Edit", edit_patient_medication_path(current_user, medication), class: "edit-link" %>
         <%= link_to "Remove", patient_medication_path(current_user, medication), method: "delete", class: "delete-link"%>
-        <hr class="line">
       </h3>
         <div class="dosage">Dosage: <%=medication.dosage%></div>
         <div class="frequency">Frequency(per day): <%=medication.freq_per_day%></div>
