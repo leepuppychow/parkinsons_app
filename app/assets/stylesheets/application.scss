@@ -108,7 +108,8 @@
    flex-direction: column;
    align-items: center;
    height: auto;
-   width: 300px;
+   width: auto;
+   padding: 15px;
    margin-top: 20px;
    border-radius: 5%;
    h4{
@@ -122,15 +123,15 @@
 
  .doctor-search, .healthprovider-box, .medication-box{
    background-color: rgba(215, 225, 242, 0.7);
-   width: 500px;
+   width: auto;
+   padding: 15px;
    margin-bottom: 20px;
    margin-top: 20px;
    display: flex;
    flex-direction: column;
    align-items: flex-start;
    border-radius: 5%;
-   h2{
-     margin-left: 20px;
+   h3{
      margin-right: 5px;
    }
    .line{
@@ -141,19 +142,10 @@
      background-color:black;
      height: 1px;
    }
-   .dosage, .frequency {
-     margin-left: 20px;
-     margin-bottom: 5px;
-     font-size: 18px;
-   }
    .note-box{
      font-size: 14px;
      height: 80px;
      width: 400px;
-     margin-left:20px;
-   }
-   .update-note-button {
-     margin-left:20px;
    }
  }
 

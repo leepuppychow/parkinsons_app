@@ -15,12 +15,12 @@
         <%= link_to "Send Message", new_patient_message_path(current_user, doctor: doctor.id), class: "edit-link" %>
       <% end %>
     </h3>
-    <%= doctor.location %></br>
-    <%= doctor.phone %>
+    <div class="address"> <%= doctor.location %></div>
+    <div class="phone"> <%= doctor.phone %></div>
     <div class="row-container">
       <%= form_for [current_user, doctor, doctor.note] do |f| %>
         <%= f.text_area :contents, placeholder: "Enter notes here", class: "note-box" %></br>
-        <%= f.submit "Update Note" %>
+        <%= f.submit "Update Note", class: "update-note-button" %>
       <% end %>
     </div>
   </div>

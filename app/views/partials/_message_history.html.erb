@@ -2,7 +2,7 @@
   <h3>Message History</h3>
   <% @message_history.each do |message| %>
     <div class="message-in-conversation">
-      <p><%= message.title %>: <%= message.content %></p>
+      <p><%= message.created_at.strftime("%m/%d/%y: %I:%M %p") %>: "<%= message.content %>"</p>
     </div>
   <% end %>
 </div>
