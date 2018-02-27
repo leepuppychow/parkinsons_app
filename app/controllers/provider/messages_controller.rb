@@ -3,6 +3,7 @@ class Provider::MessagesController < ApplicationController
   def new
     @patient = current_user.patients.find(params[:patient].to_i)
     @message = Message.new
+    @message_history = Message.conversation(@patient, current_user)
   end
 
   def create

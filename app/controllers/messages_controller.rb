@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   def new
     @doctor = current_user.doctors.find(params[:doctor].to_i)
     @message = Message.new
+    @message_history = Message.conversation(current_user, @doctor)
   end
 
   def create
@@ -15,7 +16,7 @@ class MessagesController < ApplicationController
     else
       flash[:notice] = "Sorry, message did not send properly. Please try again."
       render :new
-    end 
+    end
   end
 
   private
