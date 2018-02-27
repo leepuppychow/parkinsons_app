@@ -14,7 +14,6 @@
       <% if doctor.registered_user? %>
         <%= link_to "Send Message", new_patient_message_path(current_user, doctor: doctor.id), class: "edit-link" %>
       <% end %>
-      <hr class="line">
     </h3>
     <%= doctor.location %></br>
     <%= doctor.phone %>

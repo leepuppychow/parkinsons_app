@@ -1,0 +1,8 @@
+<div class="column-container-left">
+  <h3>Message History</h3>
+  <% @message_history.each do |message| %>
+    <div class="message-in-conversation">
+      <p><%= message.title %>: <%= message.content %></p>
+    </div>
+  <% end %>
+</div>
