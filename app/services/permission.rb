@@ -32,6 +32,7 @@ class Permission
       return true if controller == "provider/appointments" && action.in?(%w(index new create edit update destroy))
       return true if controller == "provider/patients" && action.in?(%w(index))
       return true if controller == "provider/tools" && action.in?(%w(index))
+      return true if controller == "provider/articles" && action.in?(%w(index create))
       return true if controller == "doctors" && action.in?(%w(show))
     end
 
