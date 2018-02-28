@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/patients/:patient_id/doctors/add/:doctor_id", to: "patients/doctors#create"
+
   resources :users, only: [:new, :create, :update]
 
   resources :doctors, only: [:show] do
@@ -27,7 +29,6 @@ Rails.application.routes.draw do
   end
 
   resources :patients, only: [:new, :create, :show] do
-    # resources :appointments, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :appointments, only: [:index, :destroy]
     resources :medications do
       resources :note, only: [:update]

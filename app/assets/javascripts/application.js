@@ -20,16 +20,8 @@ $(document).ready(function() {
   showDifferentCreateAccountForms();
   showAppointmentOwnersName();
   callFallRiskAPI();
-  toggleShowAllDoctors();
   autosuggestDoctorsInDatabase();
 })
-
-function toggleShowAllDoctors(){
-  $(".all-doctors").hide();
-  $("#new-doctor").click(function(){
-    $(".all-doctors").toggle();
-  })
-}
 
 function showAppointmentOwnersName(){
   $('.appointment-on-calendar').hover(function(e){
@@ -83,16 +75,22 @@ function autosuggestDoctorsInDatabase(){
     var domain = window.location.origin;
     var endpoint = domain + "/api/v1/doctors?name="+name;
       if (name === "") {
-        $(".doctor-db").html("");
+        $(".all-doctors").show();
+        $(".doctor-db").hide();
       } else {
         $.getJSON(endpoint, function(data) {
           var doctors = data.map(function(doctor){
-            return "<h4 class='doctor-db-name'>"+doctor["name"]+"</h4>" +
-              "<li class='doctor-db-specialty'>SPECIALTY: "+doctor["specialty"]+"</li>" +
-              "<li class='doctor-db-location'>ADDRESS: "+doctor["location"]+"</li>" +
-              "<li class='doctor-db-phone'>PHONE: "+doctor["phone"]+"</li>"
+            return "<div class='doctor-search'>"+
+              "<h3 class='doctor-db-name'>"+doctor["name"]+"</h3>" +
+              "<div class='specialty'>SPECIALTY: "+doctor["specialty"]+"</div>" +
+              "<div class='location'>ADDRESS: "+doctor["location"]+"</div>" +
+              "<div class='phone'>PHONE: "+doctor["phone"]+"</div>"+
+              "<a class='submit-link' href=add/"+doctor["id"]+">Add to My Care Team</a>"+
+              "</div>"
           })
-          $(".doctor-db").html("<h2>Doctors in our system:</h2>"+doctors);
+          $(".doctor-db").html(doctors);
+          $(".all-doctors").hide();
+          $(".doctor-db").show();
         })
       }
     event.preventDefault();
