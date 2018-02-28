@@ -17,22 +17,21 @@
 //= require_tree .
 
 $(document).ready(function() {
-  createAccount();
-  appointmentOnCalendar();
-  fallRiskAPI();
-  allDoctors();
-  // confirmDeleteAppointment();
-  findDoctors();
+  showDifferentCreateAccountForms();
+  showAppointmentOwnersName();
+  callFallRiskAPI();
+  toggleShowAllDoctors();
+  autosuggestDoctorsInDatabase();
 })
 
-function allDoctors(){
+function toggleShowAllDoctors(){
   $(".all-doctors").hide();
   $("#new-doctor").click(function(){
     $(".all-doctors").toggle();
   })
 }
 
-function appointmentOnCalendar(){
+function showAppointmentOwnersName(){
   $('.appointment-on-calendar').hover(function(e){
     $(this.firstElementChild).show()
     .css('top', e.pageY + 10)
@@ -45,7 +44,7 @@ function appointmentOnCalendar(){
   });
 }
 
-function createAccount(){
+function showDifferentCreateAccountForms(){
   $('.new-doctor-form').hide();
   $('.provider-dropdown').change(function(){
     if ($('.provider-dropdown').val() === "No") {
@@ -59,7 +58,7 @@ function createAccount(){
   })
 }
 
-function fallRiskAPI(){
+function callFallRiskAPI(){
   $(".predict-fall-risk").click(function(){
     var age = parseInt($("#age-form").val());
     var berg = parseInt($("#berg-form").val());
@@ -78,7 +77,7 @@ function fallRiskAPI(){
     })
 }
 
-function findDoctors(){
+function autosuggestDoctorsInDatabase(){
   $("#doctor-search-name").keyup(function(event){
     var name = $("#doctor-search-name").val();
     var domain = window.location.origin;
@@ -99,30 +98,3 @@ function findDoctors(){
     event.preventDefault();
   })
 }
-
-// function confirmDeleteAppointment(){
-//   $.rails.allowAction = function(link){
-//   if (link.data("confirm") == undefined){
-//     return true;
-//   }
-//   $.rails.showConfirmationDialog(link);
-//     return false;
-//   }
-//   //User click confirm button
-//   $.rails.confirmed = function(link){
-//     link.data("confirm", null);
-//     link.trigger("click.rails");
-//   }
-//   //Display the confirmation dialog
-//   $.rails.showConfirmationDialog = function(link){
-//     var message = link.data("confirm");
-//     $.fn.SimpleModal({
-//       model: "modal",
-//       title: "Please confirm",
-//       contents: message
-//     }).addButton("Yes", "button alert", function(){
-//       $.rails.confirmed(link);
-//       this.hideModal();
-//     }).addButton("No", "button secondary").showModal();
-//   }
-// }
