@@ -91,11 +91,7 @@ function autosuggestDoctorsInDatabase(){
               "<li class='doctor-db-specialty'>SPECIALTY: "+doctor["specialty"]+"</li>" +
               "<li class='doctor-db-location'>ADDRESS: "+doctor["location"]+"</li>" +
               "<li class='doctor-db-phone'>PHONE: "+doctor["phone"]+"</li>"+
-              "<form action="theUrl" method="POST">"+
-                "<input type="hidden" name="param1" value="val" />"+
-                "<input type="hidden" name="param2" value="val2" />"+
-                "<a href="#" onclick="this.parentNode.submit()">Go to that link!</a>"+
-              "</form>"
+              "<a href=add/"+doctor["id"]+">Add to My Care Team</a>"
           })
           $(".doctor-db").html("<h2>Doctors in our system:</h2>"+doctors);
         })
