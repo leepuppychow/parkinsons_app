@@ -22,8 +22,8 @@
   <% end %>
   </table>
   <br><br>
-  <a id="new-doctor">Click to see all doctors in our system:</a>
 
+  <h3>Doctors in our system:</h3>
   <div class="doctor-db">
   </div>
 
@@ -31,12 +31,11 @@
     <div class="all-doctors">
       <% @all_doctors.each do |doctor| %>
       <section class="doctor-search">
-        <h4 class="name"><%= doctor.name %></h4>
-        <div class="specialty"><%= doctor.specialty %></div>
-        <div class="location"><%= doctor.location %></div>
-        <div class="phone"><%= doctor.phone %></div></br>
+        <h3 class="name"><%= doctor.name %></h3>
+        <div class="specialty">SPECIALTY: <%= doctor.specialty %></div>
+        <div class="location">ADDRESS: <%= doctor.location %></div>
+        <div class="phone">PHONE: <%= doctor.phone %></div>
         <%= button_to "Add to My Care Team", "new_doctor", params: {doctor_id: doctor.id}, id: "submit-button" %>
-        <br>
       </section>
       <% end %>
     </div>
