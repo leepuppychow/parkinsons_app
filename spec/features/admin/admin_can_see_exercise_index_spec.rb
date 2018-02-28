@@ -17,11 +17,8 @@ describe "A user visits exercise index page" do
       user = create(:user)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(admin)
 
-      visit admin_exercises_path
-
-      expect(page).to have_content "The page you were looking for doesn't exist"
+      expect{ visit admin_exercises_path }.to raise_error(ActionController::RoutingError)
     end
   end
 end
