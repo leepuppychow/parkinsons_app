@@ -6,10 +6,9 @@
       <%= number_field_tag :year, nil, placeholder: "Year", class: "entry-form" %>
       <%= submit_tag "Search!" %>
     <% end  %>
+    <% @articles.each do |article| %>
+    <p><%= link_to article[1], "https://www.ncbi.nlm.nih.gov/pubmed/#{article[0]}/"%></p>
+    <% end %>
+    <br><br><hr>
   </div>
 </div>
-<br><br>
-<hr>
-<% @articles.each do |article| %>
-  <p><%= link_to article[1], "https://www.ncbi.nlm.nih.gov/pubmed/#{article[0]}/"%></p>
-<% end %>

@@ -36,10 +36,17 @@
    font-size: 24px;
    text-decoration: underline;
  }
- #chart-1 {
-   background-color: rgba(215, 225, 242, 0.3);
-   margin-top: 20px;
-   border-radius: 5%;
+
+ .simple-calendar{
+   .calendar-heading{
+     margin-left: 0%;
+     margin-top: 10px;
+     margin-bottom: 20px;
+     .calendar-title{
+       font-size: 24px;
+       margin: 32px;
+     }
+   }
  }
 
  .column-form{
@@ -95,12 +102,6 @@
    margin: 5px;
    font-size: 16px;
    width: 175px;
- }
- #submit-button, #submit-button-doctor, #submit-button-patient, #delete-button{
-   text-decoration: none;
-   font-size: 16px;
-   width: 175px;
-   margin-left: 7px;
  }
 
  .exercise {
@@ -176,6 +177,12 @@
  }
 
 
+ #submit-button, #submit-button-doctor, #submit-button-patient, #delete-button{
+   text-decoration: none;
+   font-size: 16px;
+   width: 175px;
+   margin-left: 7px;
+ }
 
  #new-medication, #new-doctor, #new-appointment, #new-activity{
    text-decoration: none;
@@ -244,5 +251,9 @@
 #message-send-button{
   font-size: 16px;
   width: 100px;
-
+}
+#chart-1 {
+  background-color: rgba(215, 225, 242, 0.3);
+  margin-top: 20px;
+  border-radius: 5%;
 }
