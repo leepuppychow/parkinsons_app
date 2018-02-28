@@ -60,11 +60,10 @@ function callFallRiskAPI(){
     fetch(endpoint)
       .then((response) => response.json())
       .then((data) => {
-        var modelAccuracy = data['model_accuracy'] * 100;
+        var modelAccuracy = parseInt(data['model_accuracy'] * 100);
         $(".fall-risk").html(`Predicted Fall Risk: ${data["fall_risk"]}`)
         $(".model-accuracy").html(`Model Accuracy: ${modelAccuracy}%`)
-        }
-      )
+      })
       .catch(() => alert("Error occurred, please check for missing data?"))
     })
 }
