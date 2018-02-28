@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:new, :create]
       resources :appointments, only: [:index, :new, :create, :edit, :update, :destroy]
       resources :patients, only: [:index]
-      resources :articles, only: [:index]
+      resources :articles, only: [:index, :create]
     end
     get "/tools", to: "provider/tools#index"
   end
