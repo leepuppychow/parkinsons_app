@@ -10,6 +10,7 @@ describe "When user visits My Medications (medications index path)" do
     pm1.note = Note.create(contents: "", noteable_id: pm1.id, noteable_type: pm1.class.name)
     patient.patient_medications << pm1
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
+    allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(user)
     visit patient_medications_path(patient)
 
     click_link "Edit"

@@ -7,6 +7,7 @@ describe "As a Provider user" do
       doctor = create(:doctor)
       user.doctor = doctor
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(doctor)
+      allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(user)
       patient1, patient2, patient3 = create_list(:patient, 3)
       doctor.patients << [patient1, patient2, patient3]
 

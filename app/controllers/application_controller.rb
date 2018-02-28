@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :specialties, :set_beginning_of_week
+  before_action :specialties,
+                :set_beginning_of_week,
+                :authorize!
   helper_method :current_user
 
   def set_beginning_of_week
@@ -8,7 +10,15 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
+    user_from_sessions
+    return_user_type
+  end
+
+  def user_from_sessions
     @user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def return_user_type
     if @user.patient
       return @user.patient
     elsif @user.doctor
@@ -16,10 +26,6 @@ class ApplicationController < ActionController::Base
     else
       @user
     end
-  end
-
-  def current_admin?
-    current_user.username == "admin"
   end
 
   def specialties
@@ -40,5 +46,19 @@ class ApplicationController < ActionController::Base
   def blank_note(provider)
     Note.create(contents: "", noteable_id: provider.id, noteable_type: provider.class.name)
   end
+
+  private
+
+    def authorize!
+      not_found unless current_permission.authorized?
+    end
+
+    def current_permission
+      @current_permission ||= Permission.new(user_from_sessions, params[:controller], params[:action])
+    end
+
+    def not_found
+      raise ActionController::RoutingError.new('Not Found')
+    end
 
 end

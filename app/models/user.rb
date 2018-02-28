@@ -13,4 +13,23 @@ class User < ApplicationRecord
     end
   end
 
+  def is_patient?
+    return true if self.patient
+  end
+
+  def is_doctor?
+    return true if self.doctor
+  end
+
+  def is_admin?
+    return true if self.username == "admin"
+  end
+
+  private
+
+    def current_permission
+      @current_permission ||= Permission.new(current_user, params[:controller], params[:action])
+    end
+
+
 end

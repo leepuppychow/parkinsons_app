@@ -8,6 +8,7 @@ describe "A user visits Patient index page" do
       admin = create(:user, username: "admin", password: "password")
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(admin)
 
       visit admin_patients_path
       expect(page).to have_content("All Patients")
@@ -19,6 +20,7 @@ describe "A user visits Patient index page" do
       user = create(:user)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(admin)
 
       visit admin_patients_path
 
@@ -34,6 +36,7 @@ describe "A user visits Patient index page" do
       user.patient = patient
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(admin)
 
       visit admin_patients_path
 

@@ -10,6 +10,7 @@ describe "When user visits My Care Team page" do
     patient.doctors << doctor
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
+    allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(user)
 
     visit patient_doctors_path(patient)
     click_on "Edit"

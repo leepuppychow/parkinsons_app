@@ -11,6 +11,7 @@ describe "As a Doctor(Provider) after logging in" do
     appt3 = create(:appointment, patient: patient3, doctor: doctor)
     user.doctor = doctor
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(doctor)
+    allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(user)
 
     visit doctor_path(doctor)
 

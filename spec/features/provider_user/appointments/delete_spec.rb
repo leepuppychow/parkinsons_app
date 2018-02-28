@@ -9,6 +9,7 @@ describe "As a Provider, when I visit the appointment index" do
     appt1 = create(:appointment, patient: patient1, doctor: doctor)
     user.doctor = doctor
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(doctor)
+    allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(user)
 
     visit doctor_appointments_path(doctor)
     click_on "#{appt1.time.strftime("%I:%M %p")}"
