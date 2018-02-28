@@ -3,7 +3,10 @@ require 'rails_helper'
 describe "When user visits My Medications (medication index path)" do
   it "user can click on New Medication link and see form for new medication" do
     patient = create(:patient)
+    user = create(:user)
+    user.patient = patient
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
+    allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(user)
 
     visit patient_medications_path(patient)
     click_link "New Medication?"

@@ -12,7 +12,7 @@ describe "As a Patient when I visit my doctors page" do
       doctor.note = Note.create(contents: "", noteable_id: doctor.id, noteable_type: doctor.class.name)
       patient.doctors << doctor
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(patient)
-
+      allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(user)
 
       visit patient_doctors_path(patient)
 

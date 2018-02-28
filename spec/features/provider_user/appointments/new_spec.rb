@@ -8,6 +8,7 @@ describe "As a Provider, when I visit the appointment index" do
     doctor.patients << patient1
     user.doctor = doctor
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(doctor)
+    allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(user)
 
     visit doctor_appointments_path(doctor)
     click_on "Schedule New Appointment"

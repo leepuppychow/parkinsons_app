@@ -8,6 +8,7 @@ describe "A user visits doctor index page" do
       admin = create(:user, username: "admin", password: "password")
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(admin)
 
       visit admin_doctors_path
       expect(page).to have_content("All Current Providers")
@@ -19,10 +20,8 @@ describe "A user visits doctor index page" do
       user = create(:user)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      expect{ visit admin_doctors_path }.to raise_error(ActionController::RoutingError)
 
-      visit admin_doctors_path
-
-      expect(page).to have_content "The page you were looking for doesn't exist"
     end
   end
 end

@@ -6,6 +6,7 @@ describe "When Admin visits admin exercises index page" do
       admin = create(:user, username: "admin", password: "password")
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(admin)
 
       visit admin_exercises_path
 

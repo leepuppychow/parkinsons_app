@@ -15,6 +15,8 @@ describe "As a user when I visit the user show page" do
     @patient.patient_medications << create(:patient_medication, medication: @medication2)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@patient)
+    allow_any_instance_of(ApplicationController).to receive(:user_from_sessions).and_return(user)
+
     visit patient_path(@patient)
   end
 
