@@ -3,9 +3,9 @@
   <h3>Make a New Appointment:</h3>
   <div class="column-form">
     <%= form_for [current_user, @appointment] do |f|%>
+    <div><%= f.collection_select :patient_id, current_user.patients, :id, :full_name, {}, class: "entry-form" %></div>
     <div><%= f.date_field :date, class: "entry-form" %></div>
     <div><%= f.time_field :time,class: "entry-form" %></div>
-    <div><%= f.collection_select :patient_id, current_user.patients, :id, :full_name, {}, class: "entry-form" %></div>
     <div><%= f.submit id: "submit-button"%></div>
     <% end %>
   </div>
