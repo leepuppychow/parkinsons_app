@@ -21,7 +21,14 @@ $(document).ready(function() {
   showAppointmentOwnersName();
   callFallRiskAPI();
   autosuggestDoctorsInDatabase();
+  showInsuranceInfo();
 })
+
+function showInsuranceInfo(){
+  $('.show-insurance').click(function(){
+    $(this.firstElementChild).toggle()
+  })
+}
 
 function showAppointmentOwnersName(){
   $('.appointment-on-calendar').hover(function(e){
