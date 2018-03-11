@@ -1,17 +1,37 @@
 <div class="footer">
-  <%= link_to patient_doctors_path(current_user), class: "nav-bar-links" do %>
+  <div class="icon-container">
+    <%= link_to patient_doctors_path(current_user), class: "nav-bar-links" do %>
     <i class="fas fa-user-md fa-lg" id="icon"></i>
-  <% end %>
-  <%= link_to patient_medications_path(current_user), class: "nav-bar-links" do %>
-    <i class="fas fa-medkit fa-lg" id="icon"></i>
-  <% end %>
-  <%= link_to patient_appointments_path(current_user), class: "nav-bar-links" do %>
-    <i class="fas fa-calendar-alt fa-lg" id="icon"></i>
-  <% end %>
-  <%= link_to patient_exercises_path(current_user), class: "nav-bar-links" do %>
-    <i class="fas fa-basketball-ball fa-lg" id="icon"></i>
-  <% end %>
-  <%= link_to patient_articles_path(current_user), class: "nav-bar-links" do %>
-    <i class="fas fa-book fa-lg" id="icon"></i>
-  <% end %>
+    <% end %>
+    <span class="icon-label">Doctors</span>
+  </div>
+
+  <div class="icon-container">
+    <%= link_to patient_medications_path(current_user), class: "nav-bar-links" do %>
+      <i class="fas fa-medkit fa-lg" id="icon"></i>
+    <% end %>
+    <span class="icon-label">Medications</span>
+  </div>
+
+  <div class="icon-container">
+    <%= link_to patient_appointments_path(current_user), class: "nav-bar-links" do %>
+      <i class="fas fa-calendar-alt fa-lg" id="icon"></i>
+    <% end %>
+    <span class="icon-label">Appointments</span>
+  </div>
+
+  <div class="icon-container">
+    <%= link_to patient_exercises_path(current_user), class: "nav-bar-links" do %>
+      <i class="fas fa-basketball-ball fa-lg" id="icon"></i>
+    <% end %>
+    <span class="icon-label">Activities</span>
+  </div>
+
+  <div class="icon-container">
+    <%= link_to patient_articles_path(current_user), class: "nav-bar-links" do %>
+      <i class="fas fa-book fa-lg" id="icon"></i>
+    <% end %>
+    <span class="icon-label">Articles</span>
+  </div>
+
 </div>
