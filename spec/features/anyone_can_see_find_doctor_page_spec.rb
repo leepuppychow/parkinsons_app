@@ -25,7 +25,7 @@ describe "when anyone visits their homepage" do
             expect(page).to have_css(".name")
             expect(page).to have_css(".location")
             expect(page).to have_css(".phone")
-            expect(page).to have_content "INSURANCE(S) ACCEPTED"
+            expect(page).to have_content "Insurance(s) Accepted"
           end
         end
       end
