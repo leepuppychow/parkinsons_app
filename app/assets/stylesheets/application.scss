@@ -25,7 +25,9 @@
 
  body {
    background-color: white;
-   font-family: Arial;
+   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
  }
 
  .homepage-box {
@@ -125,7 +127,7 @@
 
  .doctor-search, .healthprovider-box, .medication-box{
    background-color: rgba(215, 225, 242, 0.7);
-   width: auto;
+   width: 400px;
    padding: 15px;
    margin-bottom: 20px;
    margin-top: 20px;
