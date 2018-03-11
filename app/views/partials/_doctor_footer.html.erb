@@ -1,14 +1,31 @@
 <div class="footer">
-  <%= link_to doctor_appointments_path(current_user), class: "nav-bar-links" do %>
-    <i class="fas fa-calendar-alt fa-lg" id="icon"></i>
-  <% end %>
-  <%= link_to doctor_patients_path(current_user), class: "nav-bar-links" do %>
-    <i class="fas fa-users fa-lg" id="icon"></i>
-  <% end %>
-  <%= link_to doctor_tools_path(current_user), class: "nav-bar-links" do %>
-    <i class="fas fa-wrench fa-lg" id="icon"></i>
-  <% end %>
-  <%= link_to doctor_articles_path(current_user), class: "nav-bar-links" do %>
-    <i class="fas fa-book fa-lg" id="icon"></i>
-  <% end %>
+
+  <div class="icon-container">
+    <%= link_to doctor_appointments_path(current_user), class: "nav-bar-links" do %>
+      <i class="fas fa-calendar-alt fa-lg" id="icon"></i>
+    <% end %>
+    <span class="icon-label">Calendar</span>
+  </div>
+
+  <div class="icon-container">
+    <%= link_to doctor_patients_path(current_user), class: "nav-bar-links" do %>
+      <i class="fas fa-users fa-lg" id="icon"></i>
+    <% end %>
+    <span class="icon-label">Patients</span>
+  </div>
+
+  <div class="icon-container">
+    <%= link_to doctor_tools_path(current_user), class: "nav-bar-links" do %>
+      <i class="fas fa-wrench fa-lg" id="icon"></i>
+    <% end %>
+    <span class="icon-label">Tools</span>
+  </div>
+
+  <div class="icon-container">
+    <%= link_to doctor_articles_path(current_user), class: "nav-bar-links" do %>
+      <i class="fas fa-book fa-lg" id="icon"></i>
+    <% end %>
+    <span class="icon-label">Articles</span>
+  </div>
+
 </div>
