@@ -22,8 +22,8 @@
               params: {:find_doctor => [doctor.name, @specialty, doctor.location, doctor.phone]} %>
           </br>
         <% end %>
-        <div id="show-insurance">INSURANCE(S) ACCEPTED
-          <div id="insurance-info">
+        <div class="show-insurance">Insurance(s) Accepted
+          <div class="insurance-info">
             <% if doctor.insurances.empty? %>
               Sorry, no insurance information found.
             <% else %>
