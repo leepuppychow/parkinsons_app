@@ -1,0 +1,18 @@
+<div class="fall-risk-section">
+  <div class="column-form">
+    <%= form_tag do %>
+    <div class="labels-fall-risk"><%= label_tag "Age(years)" %></div>
+    <div><%= number_field_tag :age, nil, class: "entry-form", id: "age-form" %></div>
+    <div class="labels-fall-risk"><%= label_tag "Berg Score (out of 56):" %></div>
+    <div><%= number_field_tag :berg, nil, class: "entry-form", id: "berg-form" %></div>
+    <div class="labels-fall-risk"><%= label_tag "Gait Speed(m/s)" %></div>
+    <div><%= number_field_tag :gait, nil, class: "entry-form", id: "gait-form" %></div>
+    <br>
+    <% end %>
+    <button class="predict-fall-risk" id="submit-button">Predict Fall Risk</button>
+    <div class="fall-results">
+      <p class="fall-risk"></p>
+      <p class="model-accuracy"></p>
+    </div>
+  </div>
+</div>

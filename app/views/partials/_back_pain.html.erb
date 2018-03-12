@@ -1,0 +1,24 @@
+<div class="back-pain-section">
+  <div class="column-form">
+    <%= form_tag do %>
+    <div class="labels-fall-risk"><%= label_tag "Pelvic Tilt (deg)" %></div>
+    <div><%= number_field_tag :pelvic, nil, class: "entry-form", id: "pelvic-form" %></div>
+    <div class="labels-fall-risk"><%= label_tag "Lumbar Lordosis (deg):" %></div>
+    <div><%= number_field_tag :lumbar, nil, class: "entry-form", id: "lumbar-form" %></div>
+    <div class="labels-fall-risk"><%= label_tag "Thoracic Slope (deg)" %></div>
+    <div><%= number_field_tag :thoracic, nil, class: "entry-form", id: "thoracic-form" %></div>
+    <div class="labels-fall-risk"><%= label_tag "Cervical Tilt (deg)" %></div>
+    <div><%= number_field_tag :cervical, nil, class: "entry-form", id: "cervical-form" %></div>
+    <div class="labels-fall-risk"><%= label_tag "Sacral Slope (deg)" %></div>
+    <div><%= number_field_tag :sacral, nil, class: "entry-form", id: "sacral-form" %></div>
+    <div class="labels-fall-risk"><%= label_tag "Scoliosis Slope (deg)" %></div>
+    <div><%= number_field_tag :scoliosis, nil, class: "entry-form", id: "scoliosis-form" %></div>
+    <br>
+    <% end %>
+    <button class="predict-back-pain" id="submit-button">Predict LBP</button>
+    <div class="back-results">
+      <p class="back-risk"></p>
+      <p class="back-model-accuracy"></p>
+    </div>
+  </div>
+</div>
