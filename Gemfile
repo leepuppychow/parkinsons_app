@@ -58,6 +58,7 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_bot_rails'
+  gem 'brakeman', :require => false
 end
 
 group :development do

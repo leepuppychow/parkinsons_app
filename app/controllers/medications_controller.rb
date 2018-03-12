@@ -52,7 +52,7 @@ class MedicationsController < ApplicationController
     end
 
     def patient_medications_params
-      params[:medication][:patient_medications_attributes]["0"].permit!
+      params[:medication][:patient_medications_attributes]["0"].permit(:dosage, :freq_per_day, :medication_id)
     end
 
 end
