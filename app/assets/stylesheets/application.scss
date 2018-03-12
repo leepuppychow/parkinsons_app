@@ -30,6 +30,15 @@
    -moz-osx-font-smoothing: grayscale;
  }
 
+ .back-pain-section, .fall-risk-section{
+   display: none;
+   margin-top: 30px;
+ }
+
+ .back-risk, .fall-risk {
+   font-weight: bold;
+ }
+
  .login-field{
    font-size: 20px;
    margin-bottom: 10px;
@@ -204,7 +213,7 @@
    margin-left: 7px;
  }
 
- #new-medication, #new-doctor, #new-appointment, #new-activity{
+ .provider-tool-button, #new-medication, #new-doctor, #new-appointment, #new-activity{
    text-decoration: none;
    padding: 10px;
    margin-top: 10px;

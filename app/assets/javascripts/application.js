@@ -20,9 +20,24 @@ $(document).ready(function() {
   showDifferentCreateAccountForms();
   showAppointmentOwnersName();
   callFallRiskAPI();
+  callBackPainAPI();
   autosuggestDoctorsInDatabase();
   showInsuranceInfo();
+  showProviderTools();
 })
+
+function showProviderTools(){
+  $('#fall-button').click(function(){
+    event.preventDefault();
+    $('.fall-risk-section').toggle()
+    $('.back-pain-section').hide()
+  })
+  $('#back-pain-button').click(function(){
+    event.preventDefault();
+    $('.back-pain-section').toggle()
+    $('.fall-risk-section').hide()
+  })
+}
 
 function showInsuranceInfo(){
   $('.show-insurance').click(function(){
@@ -57,18 +72,43 @@ function showDifferentCreateAccountForms(){
   })
 }
 
-function callFallRiskAPI(){
-  $(".predict-fall-risk").click(function(){
-    var age = parseInt($("#age-form").val());
-    var berg = parseInt($("#berg-form").val());
-    var gait = parseFloat($("#gait-form").val());
-    berg = (berg / 56) * 100;
-    var endpoint = "https://fall-risk-api.herokuapp.com/v1/predict?gait="+gait+"&berg="+berg+"&age="+age;
+function callBackPainAPI(){
+  $(".predict-back-pain").click(function(){
+    event.preventDefault();
+    var lumbar = parseInt($("#lumbar-form").val());
+    var pelvic = parseInt($("#pelvic-form").val());
+    var thoracic = parseFloat($("#thoracic-form").val());
+    var cervical = parseInt($("#cervical-form").val());
+    var sacral = parseInt($("#sacral-form").val());
+    var scoliosis = parseFloat($("#scoliosis-form").val());
+    var endpoint = `https://fall-risk-api.herokuapp.com/v1/predictlowbackpain?lumbar=${lumbar}&thoracic=${thoracic}&cervical=${cervical}&pelvic=${pelvic}&sacral=${sacral}&scoliosis=${scoliosis}`
+
     fetch(endpoint)
       .then((response) => response.json())
       .then((data) => {
         var modelAccuracy = parseInt(data['model_accuracy'] * 100);
-        $(".fall-risk").html(`Predicted Fall Risk: ${data["fall_risk"]}`)
+        $(".back-risk").html(`Low Back Pain: ${data["low_back_pain"]}`)
+        $(".back-model-accuracy").html(`Model Accuracy: ${modelAccuracy}%`)
+      })
+      .catch(() => alert("Error occurred, please check for missing data?"))
+    })
+
+}
+
+function callFallRiskAPI(){
+  $(".predict-fall-risk").click(function(){
+    event.preventDefault();
+    var age = parseInt($("#age-form").val());
+    var berg = parseInt($("#berg-form").val());
+    var gait = parseFloat($("#gait-form").val());
+    berg = berg / 56 * 100;
+
+    var endpoint = `https://fall-risk-api.herokuapp.com/v1/predictfallrisk?age=${age}&berg=${berg}&gait=${gait}`
+    fetch(endpoint)
+      .then((response) => response.json())
+      .then((data) => {
+        var modelAccuracy = parseInt(data['model_accuracy'] * 100);
+        $(".fall-risk").html(`Fall Risk: ${data["fall_risk"]}`)
         $(".model-accuracy").html(`Model Accuracy: ${modelAccuracy}%`)
       })
       .catch(() => alert("Error occurred, please check for missing data?"))
