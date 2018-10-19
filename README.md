@@ -9,6 +9,8 @@ Moving forward I intend to create an interface for physical therapists as users.
 
 ## DEPLOYMENT INSTRUCTIONS
   * https://parkinsons.herokuapp.com/
+  * To login as a patient user: username = leeuser & password = password
+  * To login as a provider user: username = yimenguser & password = password
 
 ## DEVELOPER:
   * Lee Chow
